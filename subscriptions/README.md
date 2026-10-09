@@ -6,7 +6,7 @@ One shared Business Master File and tenant identity serves four separately selec
 3. Digital Creative Studio
 4. Digital Banner
 
-Packages: Choose Any One R299/month; Choose Any Two R499/month; Choose Any Three price TBD; All-in-One (four) price TBD. Previous three-product All-in-One R699/month is historical and must not be silently transferred.
+Packages: Choose Any One R299/month; Choose Any Two R499/month; Choose Any Three R699/month; All-in-One (four) R1,000/month. Previous three-product All-in-One R699/month is historical and must not be silently transferred.
 
 ## Plugin and configuration architecture
 Each product declares capabilities and required connections; the central Connection Wizard must verify official OAuth or other authorized integrations. Tenant-scoped permissions and a confirmed paid subscription gate access to production execution.
