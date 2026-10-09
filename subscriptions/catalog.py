@@ -11,8 +11,8 @@ PRODUCTS = {
 PACKAGES = {
     "choose_one": {"product_count":1,"monthly_zar":299},
     "choose_two": {"product_count":2,"monthly_zar":499},
-    "choose_three": {"product_count":3,"monthly_zar":None},
-    "all_in_one": {"product_count":4,"monthly_zar":None},
+    "choose_three": {"product_count":3,"monthly_zar":699},
+    "all_in_one": {"product_count":4,"monthly_zar":1000},
 }
 LEGACY_THREE_PRODUCT_ALL_IN_ONE_ZAR = 699
 
