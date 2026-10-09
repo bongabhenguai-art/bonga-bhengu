@@ -16,8 +16,10 @@ class SubscriptionTests(unittest.TestCase):
         self.assertTrue(can_use(s,"creative_studio"))
         self.assertFalse(can_use(s,"digital_visibility"))
     def test_no_unapproved_prices(self):
-        self.assertFalse(price_ready("choose_three"))
-        self.assertFalse(price_ready("all_in_one"))
+        self.assertTrue(price_ready("choose_three"))
+        self.assertTrue(price_ready("all_in_one"))
+        self.assertEqual(PACKAGES["choose_three"]["monthly_zar"],699)
+        self.assertEqual(PACKAGES["all_in_one"]["monthly_zar"],1000)
     def test_four_required_for_all(self):
         with self.assertRaises(ValueError):
             validate_selection(Subscription("client","all_in_one",("creative_studio",)))
