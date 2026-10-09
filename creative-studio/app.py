@@ -79,3 +79,6 @@ def get_job(job_id: str, tenant_id: str):
 # Animated banner routes (development only)
 from animation import router as animation_router
 app.include_router(animation_router)
+
+from connections import router as connections_router
+app.include_router(connections_router)
