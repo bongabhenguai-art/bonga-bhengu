@@ -75,3 +75,7 @@ def get_job(job_id: str, tenant_id: str):
     if not row:
         raise HTTPException(404, "Job not found")
     return dict(row)
+
+# Animated banner routes (development only)
+from animation import router as animation_router
+app.include_router(animation_router)
