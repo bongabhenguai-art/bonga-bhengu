@@ -17,3 +17,7 @@ jobs:
           python-version: '3.12'
       - name: Compile Python source
         run: python -m compileall -q creative-studio
+
+      - name: Run worker routing tests
+        working-directory: creative-studio
+        run: python -m unittest discover -s tests -v
