@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'creative-studio/**'
+      - 'website-builder/**'
       - '.github/workflows/studio-check.yml'
   pull_request:
     paths:
@@ -20,4 +21,8 @@ jobs:
 
       - name: Run worker routing tests
         working-directory: creative-studio
+        run: python -m unittest discover -s tests -v
+
+      - name: Test website builder
+        working-directory: website-builder
         run: python -m unittest discover -s tests -v
