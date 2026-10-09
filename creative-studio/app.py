@@ -6,11 +6,12 @@ from PIL import Image, ImageDraw
 from uuid import uuid4
 from threading import Lock
 import sqlite3
+import os
 
 ROOT = Path(__file__).parent
 OUTPUT = ROOT / "outputs"
 OUTPUT.mkdir(exist_ok=True)
-DB = ROOT / "studio.sqlite3"
+DB = Path(os.environ.get("STUDIO_DB", str(ROOT / "studio.sqlite3")))
 lock = Lock()
 app = FastAPI(title="Bonga Bhengu Creative Studio")
 
