@@ -42,7 +42,8 @@ export const BusinessWorkflow={
   async run(id,input,context){
     const job=jobs.get(id);
     if(!job||job.tenantId!==context?.tenantId||!context?.sessionVerified)throw Error('Unauthorized workflow');
-    if(job.status==='running'||job.status==='completed')throw Error('Workflow already executed');
+    if(job.status==='awaiting_approval'&&!context?.approved)throw Error('Customer approval required');
+    if(job.status!=='queued'&&job.status!=='awaiting_approval')throw Error('Workflow cannot be executed in state: '+job.status);
     transition(job,'running','Executing connected capability');
     try{
       const result=await FutureOS.execute(job.capability,input,context);
