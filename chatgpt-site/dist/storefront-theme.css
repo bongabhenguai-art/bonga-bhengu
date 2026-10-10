@@ -1,6 +1,6 @@
 /* Bonga Bhengu storefront: black, white and gold, without decorative motion. */
 body.fashion-storefront{--black:#0B0B0B;--white:#FFFFFF;--gold:#D4AF37;--blue:#D4AF37;--muted:#FFFFFF;--cyber-black:#0B0B0B;--cyber-white:#FFFFFF;--cyber-cyan:#D4AF37;--cyber-pink:#D4AF37;background:#0B0B0B!important;color:#FFFFFF!important}
-body.fashion-storefront,body.tech-landing.fashion-storefront *{animation:none!important;transition:none!important;scroll-behavior:auto!important;text-shadow:none!important}
+body.fashion-storefront,body.tech-landing.fashion-storefront *{scroll-behavior:auto!important;text-shadow:none!important}
 html:has(body.fashion-storefront){scroll-behavior:auto!important}
 body.tech-landing.fashion-storefront :is(header,footer,section,article,nav,.hero,.hero-copy,.digital-banner,.landing-capabilities,.workspace-layer,.workspace-card,.tool-panel,.practice-panel,.light,.bbstore-modules){background:#0B0B0B!important;color:#FFFFFF!important;background-image:none!important;box-shadow:none!important;border:0!important}
 body.tech-landing.fashion-storefront :is(h1,h2,h3,h4,p,small,label,summary,figcaption,a,span,li,strong){color:#FFFFFF!important;text-shadow:none!important}
@@ -10,9 +10,9 @@ body.tech-landing.fashion-storefront :is(button,.button.primary,.front-open-app,
 body.tech-landing.fashion-storefront :is(input,textarea,select){background:#FFFFFF!important;color:#0B0B0B!important}
 body.tech-landing.fashion-storefront input::placeholder,body.tech-landing.fashion-storefront textarea::placeholder{color:#0B0B0B!important}
 body.tech-landing.fashion-storefront .text-link,body.tech-landing.fashion-storefront .front-launch-grid>a,body.tech-landing.fashion-storefront .app-entry-grid>a{background:#0B0B0B!important;color:#FFFFFF!important}
-body.tech-landing.fashion-storefront :is(.bb-tech-orbit,[data-motion-control],.lookbook-tag,.gold-line){display:none!important}
+body.tech-landing.fashion-storefront :is(.gold-line){display:none!important}
 body.tech-landing.fashion-storefront :is(.hero,.hero-art)::before,body.tech-landing.fashion-storefront :is(.hero,.hero-art)::after{display:none!important}
-body.tech-landing.fashion-storefront :is(.bb-motion-surface,.collection-card img,.lookbook-motion-pending){transform:none!important;opacity:1!important}
+body.tech-landing.fashion-storefront :is(.bb-motion-surface,.collection-card img,.lookbook-motion-pending){opacity:1!important}
 body.tech-landing.fashion-storefront :is(a,button,input,textarea,select,summary):focus-visible{outline:0!important;box-shadow:0 0 0 3px #D4AF37!important}
 body.tech-landing.fashion-storefront .os-interfaces .os-interface-tabs a[aria-current=page]{background:#D4AF37!important;color:#0B0B0B!important;border:0!important}
 body.tech-landing.fashion-storefront .workspace-ad-label{background:#0B0B0B!important;color:#FFFFFF!important}
@@ -31,3 +31,11 @@ body.tech-landing.fashion-storefront .front-launch-grid>a{min-height:72px;justif
 body.tech-landing.fashion-storefront .front-launch-grid small{display:none}
 body.tech-landing.fashion-storefront .hero{padding-block:30px;gap:24px}
 body.tech-landing.fashion-storefront .hero h1{margin-block:14px}
+
+/* Restore subtle motion and gold tech effects within the three-colour theme. */
+body.tech-landing.fashion-storefront .bb-tech-orbit{display:block!important;opacity:.2}
+body.tech-landing.fashion-storefront .bb-tech-orbit>span{border:1px solid #D4AF37!important;background:transparent!important}
+body.tech-landing.fashion-storefront .bb-tech-orbit>span::after{background:#D4AF37!important;box-shadow:none!important}
+body.tech-landing.fashion-storefront .front-launch-grid>a,body.tech-landing.fashion-storefront .collection-card img{transition:transform .2s ease!important}
+@media(hover:hover) and (pointer:fine){body.tech-landing.fashion-storefront .front-launch-grid>a:hover{transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){body.tech-landing.fashion-storefront *{animation:none!important;transition:none!important}body.tech-landing.fashion-storefront .bb-tech-orbit{display:none!important}}
