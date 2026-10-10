@@ -52,7 +52,7 @@ function actionState(){
 function renderRoute(){
   const id=routeForURL('/app.html'+(location.search||'')+location.hash,origin)||'home',module=moduleFor(id);
   if(current!==id){previous.push(current);previous=previous.slice(-20);current=id;}
-  const workspace=workspaceFor(id);document.body.dataset.appModule=id;document.body.dataset.appWorkspace=workspace?.id||'home';document.title=`${module.name} · Bonga Bhengu App`;$('app-title').textContent=module.name;$('app-breadcrumb').textContent=workspace?`${workspace.number} / ${workspace.name.toUpperCase()}`:'BONGA BHENGU / STOREFRONT';
+  const workspace=workspaceFor(id);document.body.dataset.appModule=id;document.body.dataset.appWorkspace=workspace?.id||'home';document.title=`${module.name} · Bonga Bhengu OS`;$('app-title').textContent=module.name;$('app-breadcrumb').textContent=workspace?`${workspace.number} / ${workspace.name.toUpperCase()}`:'BONGA BHENGU / STOREFRONT';
   const blocked=module.owner&&!owner,home=id==='home',framed=Boolean(module.frame);
   $('app-home').hidden=!home;$('app-blocked').hidden=!blocked;$('app-business').hidden=home||blocked||framed;$('app-frame-stage').hidden=home||blocked||!framed;
   for(const section of document.querySelectorAll('.designer-content>section'))section.hidden=section.id!==businessSection(id);

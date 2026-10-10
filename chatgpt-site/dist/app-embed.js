@@ -2,7 +2,7 @@
 if(new URLSearchParams(location.search).get('embedded')==='1'&&window.parent!==window){
   let inApp=false;try{inApp=window.parent.document.body.classList.contains('bbapp');}catch{}
   if(inApp){
-    document.body.classList.add('bbapp-embedded');const css=document.createElement('link');css.rel='stylesheet';css.href='/app-embed.css';document.head.append(css);
+    document.body.classList.add('bbapp-embedded');const css=document.createElement('link');css.rel='stylesheet';css.href='/app-embed.css';if(!document.body.classList.contains('studio-console'))document.head.append(css);
     const toolVisibility=()=>{for(const section of document.querySelectorAll('.bbphone-tool-card'))section.classList.toggle('bbapp-tool-active',section.id===(location.hash.slice(1)||'camera'));};toolVisibility();window.addEventListener('hashchange',toolVisibility);
     document.addEventListener('click',event=>{
       if(event.defaultPrevented||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
