@@ -19,3 +19,29 @@ body.tech-landing{background:#080b16;color:#f7f7ff}.tech-landing .digital-banner
  .tech-landing.fashion-storefront .header #navigation{top:100%}
  .tech-landing.fashion-storefront .hero-foot{display:flex;flex-wrap:wrap}
 }
+
+/* Keep menu labels intact and let the header grow instead of squeezing text. */
+.tech-landing.fashion-storefront .header{flex-wrap:wrap;align-items:center;gap:18px 28px}
+.tech-landing.fashion-storefront #navigation>a,.tech-landing.fashion-storefront #navigation>button{flex:0 0 auto;white-space:nowrap;overflow-wrap:normal}
+.tech-landing.fashion-storefront #navigation>a{line-height:1.4}
+.tech-landing.fashion-storefront #landing-screen .app-entry{padding:28px 0 0;margin-top:24px}
+.tech-landing.fashion-storefront #landing-screen .app-entry h2{font-size:clamp(24px,2.4vw,34px);line-height:1.15}
+.tech-landing.fashion-storefront #landing-screen .app-entry-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
+.tech-landing.fashion-storefront #landing-screen .app-entry-grid>a{padding:18px}
+.tech-landing.fashion-storefront #landing-screen .app-entry-grid h3{font-size:18px;margin:14px 0 10px}
+@media(min-width:761px){
+ .tech-landing.fashion-storefront #navigation{display:flex;position:static;flex:1 1 680px;flex-wrap:wrap;justify-content:flex-end;gap:12px 18px;padding:0;background:transparent;border:0}
+}
+@media(max-width:760px){
+ .tech-landing.fashion-storefront .header{padding:16px 5%;min-height:76px}
+ .tech-landing.fashion-storefront .header .wordmark{font-size:16px}
+ .tech-landing.fashion-storefront #navigation{z-index:20;max-height:calc(100dvh - 120px);overflow-y:auto}
+ .tech-landing.fashion-storefront #navigation>a,.tech-landing.fashion-storefront #navigation>button{min-height:44px;display:flex;align-items:center}
+ .tech-landing.fashion-storefront .hero{padding:28px 5% 20px}
+ .tech-landing.fashion-storefront .hero h1{font-size:clamp(32px,8.5vw,52px);letter-spacing:-1.3px;line-height:1.12}
+ .tech-landing.fashion-storefront .digital-banner{flex-wrap:wrap;text-align:center}
+ .tech-landing.fashion-storefront .profile-start input{font-size:16px}
+}
+@media(max-width:380px){
+ .tech-landing.fashion-storefront .front-launch-grid,.tech-landing.fashion-storefront #landing-screen .app-entry-grid{grid-template-columns:minmax(0,1fr)}
+}
