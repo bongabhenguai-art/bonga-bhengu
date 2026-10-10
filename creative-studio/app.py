@@ -132,3 +132,7 @@ app.include_router(influencers_router)
 # AI employee readiness is informational, not an activation claim.
 from employee_readiness import router as employee_readiness_router
 app.include_router(employee_readiness_router)
+
+# Sales-team orchestration contract; no autonomous external actions yet.
+from sales_team import router as sales_team_router
+app.include_router(sales_team_router)
