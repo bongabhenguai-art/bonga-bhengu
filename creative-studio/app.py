@@ -83,3 +83,7 @@ app.include_router(animation_router)
 
 from connections import router as connections_router
 app.include_router(connections_router)
+
+# Archival image inspection (disabled until authenticated tenant context is integrated)
+from fashion_runway import router as fashion_runway_router
+app.include_router(fashion_runway_router)
