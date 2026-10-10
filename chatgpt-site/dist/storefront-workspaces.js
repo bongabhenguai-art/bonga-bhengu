@@ -7,7 +7,8 @@ let owner=false,installPrompt=null,inApp=false;
 try{inApp=window.parent!==window&&window.parent.document.body.classList.contains('bbapp');}catch{}
 function linkFor(module){const link=document.createElement('a');link.href=moduleURL(module.id);link.innerHTML=phoneIcon(module.icon);const label=document.createElement('span');label.textContent=module.name;link.append(label);return link;}
 if(inApp)document.body.classList.add('bbstore-embedded');
-let hub=document.getElementById('fashion-platform');
+let hub=document.getElementById('fashion-platform')||document.querySelector('.front-launch-grid')?.parentElement;
+if(hub&&!hub.id)hub.id='fashion-platform';
 if(!hub){
   hub=document.createElement('section');hub.id='fashion-platform';hub.className='app-entry section';
   hub.innerHTML='<p class="eyebrow">YOUR NEXT MOVE</p><h2>One place to build.<br>Space to grow.</h2><div class="app-entry-grid"></div>';
@@ -21,13 +22,13 @@ if(!hub){
   document.querySelector('main').prepend(hub);
 }
 // Owner-published storefronts get the same entry points as the default homepage.
-if(!hub.querySelector('.bbstore-feature-tools')){
+if(!hub.hasAttribute('data-customer-storefront')&&!hub.querySelector('.bbstore-feature-tools')){
   const tools=document.createElement('nav');tools.setAttribute('class','bbstore-feature-tools');tools.setAttribute('aria-label','Website and school tools');
   for(const id of ['visual-website-editor','education'])tools.append(linkFor(moduleFor(id)));
   hub.append(tools);
 }
 const entry=document.createElement('div');entry.className='bbstore-entry-actions';entry.innerHTML='<button type="button" data-storefront-modules>All workspace modules</button><a href="/app.html?module=business-engine#business-engine">Workflow engine ↗</a>';
-hub.append(entry);
+if(!hub.hasAttribute('data-customer-storefront'))hub.append(entry);
 const menu=document.createElement('dialog');menu.id='storefront-modules-dialog';menu.className='bbstore-modules';menu.setAttribute('aria-labelledby','storefront-modules-title');
 menu.innerHTML='<div class="bbstore-menu-heading"><h2 id="storefront-modules-title">Bonga Bhengu workspaces</h2><button type="button" data-storefront-close aria-label="Close modules">✕</button></div><label class="bbstore-search">Find a tool<input type="search" placeholder="Brand, website, content, business…" autocomplete="off"></label><div class="bbstore-module-list"></div><p class="bbstore-menu-status" role="status"></p><button type="button" data-storefront-install>Install Bonga Bhengu App</button><p class="bbstore-install-status" role="status"></p>';
 document.body.append(menu);
