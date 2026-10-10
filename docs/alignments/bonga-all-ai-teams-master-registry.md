@@ -30,9 +30,9 @@ Each employee has `agent_id`, canonical name, aliases, team memberships, role, a
 | --- | --- | --- |
 | `implementation_stage` | `planned`, `implemented`, `configured`, `verified` | Capability development and verification evidence. |
 | `readiness_status` | `available`, `needs_configuration`, `authorized`, `disabled` | Current employee availability, required configuration and consent, or admin disablement. |
-| `execution_status` | `idle`, `queued`, `running`, `completed`, `failed`, `cancelled` | Individual task state, with verified outputs required for completion. |
+| `execution_status` | `idle`, `queued`, `running`, `completed`, `failed`, `cancelled` | State of an individual task. Completion requires durable output and, for external actions, a verified receipt. |
 
-Map legacy values to the corresponding field above. `completed` is a task outcome, never employee readiness. `connected` and `live` are historical labels requiring fresh evidence, not additional allowed values. A completed task never proves current authorization, and an authorized employee is not necessarily running a task.
+Map legacy values to the corresponding field above. `completed` is a task outcome, never employee readiness. `connected` and `live` are historical labels, not additional allowed values: assign `implementation_stage` from implementation and verification evidence, `readiness_status` from current configuration and required consent, and `execution_status` from task execution evidence. Execution evidence is required only for `execution_status`; an available or authorized employee may have no task history. A completed task never proves current authorization, and an authorized employee is not necessarily running a task.
 
 ## 3. Unified collaboration: one request, coordinated delivery
 **Example: “Grow my clothing business and build my website.”**
