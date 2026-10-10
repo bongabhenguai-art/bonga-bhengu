@@ -124,3 +124,7 @@ def unified_frontend():
     if not page.is_file():
         raise HTTPException(404, "Unified frontend is not installed")
     return FileResponse(page, media_type="text/html")
+
+# Human AI influencer catalog (read-only until authenticated production integration).
+from influencers import router as influencers_router
+app.include_router(influencers_router)
