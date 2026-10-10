@@ -65,8 +65,8 @@ Agents are workers in one system, not seven additional standalone products.
 1. Inspect current Bonga repository and reuse existing agent/module registries; do not rebuild or rename architecture.
 2. For each employee, document input → tools → permissions → action → actual output → verification, with typed contracts and tests.
 3. Test multi-agent handoffs, tenant isolation, rate limits, provider failure, retries, approval, audit and admin override.
-4. Require durable artifact IDs and provider receipts before marking tasks completed.
-5. Distinguish planned, implemented, connected, verified and live employees.
+4. Require durable output and, for external actions, a verified receipt before marking tasks completed.
+5. Distinguish historical `planned`, `implemented`, `connected`, `verified` and `live` labels; map them independently to the canonical fields, and never use `connected` or `live` as current field values.
 6. Preserve Bonga's existing four-package access rules and accessible mobile/voice interface.
 
 **Status:** Consolidated source-backed implementation specification only. No AI agent code, model, provider, GitHub merge or deployment is claimed.
