@@ -83,3 +83,10 @@ app.include_router(animation_router)
 
 from connections import router as connections_router
 app.include_router(connections_router)
+
+# Same-device browser camera preview; no server-side camera access or remote streaming.
+from fastapi.responses import FileResponse
+
+@app.get("/studio/camera", include_in_schema=True)
+def studio_camera_preview():
+    return FileResponse(ROOT / "camera-preview.html", media_type="text/html")
