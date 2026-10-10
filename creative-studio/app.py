@@ -116,3 +116,11 @@ def platform_registry():
             "connectors": "/connections/providers"
         }
     }
+
+# Serve the same unified frontend from the shared backend (no second application).
+@app.get("/", include_in_schema=False)
+def unified_frontend():
+    page = ROOT.parent / "frontend" / "index.html"
+    if not page.is_file():
+        raise HTTPException(404, "Unified frontend is not installed")
+    return FileResponse(page, media_type="text/html")
