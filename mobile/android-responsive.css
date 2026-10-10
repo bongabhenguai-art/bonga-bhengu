@@ -1,0 +1,29 @@
+/* Additive Android-first layout. Include AFTER existing site CSS. */
+:root{color-scheme:dark}
+html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{width:100%;min-width:0;max-width:100%;overflow-x:clip}
+img,svg,video,canvas,iframe{max-width:100%}
+img,video{height:auto}
+button,input,select,textarea{font-size:16px;max-width:100%}
+button,a,[role="button"]{touch-action:manipulation}
+button{min-height:44px}
+:focus-visible{outline:2px solid #00ffff;outline-offset:3px}
+@media(max-width:600px){
+ .wrap{width:100%;max-width:100%;padding-inline:clamp(12px,4vw,20px)}
+ .hero,.tiergrid,.collection,.formgrid{grid-template-columns:minmax(0,1fr)}
+ .cards{grid-template-columns:minmax(0,1fr)}
+ .microgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .matrix{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .matrix .tab{min-width:0;overflow-wrap:anywhere}
+ .look svg,.look img{min-height:0;max-height:70vh}
+ .panel,.specbody{min-width:0;padding:clamp(14px,4vw,22px)}
+ .tablewrap{max-width:100%;overflow-x:auto}
+ .actions .btn{min-height:44px;align-items:center}
+ .rental{flex-wrap:wrap}
+ h1,h2,h3{overflow-wrap:break-word}
+}
+@media(max-width:380px){
+ .matrix{grid-template-columns:1fr}
+ .microgrid{grid-template-columns:minmax(0,1fr)}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
