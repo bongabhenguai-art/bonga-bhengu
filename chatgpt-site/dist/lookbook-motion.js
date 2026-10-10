@@ -10,8 +10,9 @@
     const tag=document.createElement('span');tag.className='lookbook-tag';tag.textContent='SPECIFICATION_DATA_VIEW';tag.setAttribute('aria-hidden','true');figure.append(tag);
     let frame=0,x=12,y=12,targetX=12,targetY=12;
     const draw=()=>{x+=(targetX-x)*.16;y+=(targetY-y)*.16;tag.style.transform='translate('+x+'px,'+y+'px)';if(Math.abs(x-targetX)+Math.abs(y-targetY)>.5)frame=requestAnimationFrame(draw);else frame=0;};
-    figure.addEventListener('pointermove',event=>{if(reduced.matches||event.pointerType==='touch')return;const bounds=figure.getBoundingClientRect();targetX=Math.max(8,Math.min(event.clientX-bounds.left+12,bounds.width-190));targetY=Math.max(8,Math.min(event.clientY-bounds.top+12,bounds.height-34));if(!frame)frame=requestAnimationFrame(draw);});
+    figure.addEventListener('pointermove',event=>{if(reduced.matches||document.documentElement?.classList.contains('bb-motion-off')||event.pointerType==='touch')return;const bounds=figure.getBoundingClientRect();targetX=Math.max(8,Math.min(event.clientX-bounds.left+12,bounds.width-190));targetY=Math.max(8,Math.min(event.clientY-bounds.top+12,bounds.height-34));if(!frame)frame=requestAnimationFrame(draw);});
     figure.addEventListener('pointerleave',()=>{cancelAnimationFrame(frame);frame=0;});
+    window.addEventListener('bonga-motion-change',()=>{cancelAnimationFrame(frame);frame=0;tag.style.transform='';});
   }
   const video=document.getElementById('workspace-ad-video'),button=document.getElementById('workspace-ad-toggle');if(!video||!button)return;
   let visible=false,manualPaused=reduced.matches,autoPausing=false;const pauseAuto=()=>{if(!video.paused){autoPausing=true;video.pause();}};

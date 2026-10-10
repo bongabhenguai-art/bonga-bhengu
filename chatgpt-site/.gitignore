@@ -6,3 +6,6 @@ reports/
 
 # Exact combined archive is reconstructed from its verified parts.
 /project-sources/BONGA_BHENGU_APP_MASTER.zip
+
+# The build regenerates the bundled Worker from verified source.
+/dist/server/index.js

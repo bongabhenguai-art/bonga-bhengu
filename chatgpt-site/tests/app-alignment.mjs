@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import worker from '../dist/server/index.js';
-const env={JARVIS_OWNER_EMAIL:'owner@example.com',OPENAI_API_KEY:'test-only'};
+import {testDatabase} from './support/sqlite.mjs';
+const env={DB:testDatabase().DB,JARVIS_OWNER_EMAIL:'owner@example.com',OPENAI_API_KEY:'test-only'};
 const headers={'oai-authenticated-user-id':'owner','oai-authenticated-user-email':'owner@example.com'};
 const req=(path,h={},method='GET',body)=>new Request('https://site.example'+path,{method,headers:h,...(body?{body:JSON.stringify(body)}:{})});
 for(const h of [{},{'oai-authenticated-user-id':'other','oai-authenticated-user-email':'other@example.com'},{'oai-authenticated-user-email':'owner@example.com'}]){
