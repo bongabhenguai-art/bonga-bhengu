@@ -39,3 +39,38 @@ def list_influencers():
             "reason": "Authenticated tenant-scoped production and official publishing connectors are not configured",
         },
     }
+
+# Category profiles change presentation and campaign behavior, never the avatar's
+# synthetic identity. Profiles are presets, not professional qualifications.
+CATEGORY_PROFILES = {
+    "fashion": {"role": "Fashion ambassador", "wardrobe": "Designer collection", "formats": ["runway", "product_showcase"]},
+    "technology": {"role": "Technology presenter", "wardrobe": "Modern professional", "formats": ["demo", "tutorial"]},
+    "property": {"role": "Property presenter", "wardrobe": "Corporate", "formats": ["property_tour", "listing"]},
+    "food": {"role": "Hospitality host", "wardrobe": "Branded hospitality", "formats": ["menu", "restaurant_promo"]},
+    "education": {"role": "Learning presenter", "wardrobe": "Educator professional", "formats": ["course_intro", "learning"]},
+    "business": {"role": "Business ambassador", "wardrobe": "Client brand corporate", "formats": ["service_explainer", "case_study"]},
+}
+
+@router.get("/categories")
+def influencer_categories():
+    return {"categories": CATEGORY_PROFILES, "rendering_enabled": False}
+
+@router.get("/{avatar_id}/category/{category_id}")
+def influencer_category_preview(avatar_id: str, category_id: str):
+    from fastapi import HTTPException
+    persona = next((p for p in _PERSONAS if p[0] == avatar_id), None)
+    if persona is None:
+        raise HTTPException(404, "Avatar not found")
+    profile = CATEGORY_PROFILES.get(category_id)
+    if profile is None:
+        raise HTTPException(404, "Category not found")
+    return {
+        "avatar_id": avatar_id,
+        "avatar_name": persona[1],
+        "category": category_id,
+        "presentation": profile,
+        "synthetic_identity": True,
+        "disclosure_required": True,
+        "status": "preview_configuration_only",
+        "requires_verified_company_brief": True,
+    }
