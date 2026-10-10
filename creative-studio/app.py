@@ -13,7 +13,7 @@ OUTPUT = ROOT / "outputs"
 OUTPUT.mkdir(exist_ok=True)
 DB = Path(os.environ.get("STUDIO_DB", str(ROOT / "studio.sqlite3")))
 lock = Lock()
-app = FastAPI(title="Bonga Bhengu Creative Studio")
+app = FastAPI(title="Bonga Bhengu App — Unified API")
 
 def connect():
     db = sqlite3.connect(DB)
@@ -35,7 +35,7 @@ class JobIn(BaseModel):
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "mode": "local", "video_provider": "not_configured"}
+    return {"status": "ok", "application": "bonga-bhengu", "mode": "local", "video_provider": "not_configured"}
 
 @app.post("/tenants")
 def create_tenant(data: TenantIn):
@@ -90,3 +90,5 @@ from fastapi.responses import FileResponse
 @app.get("/studio/camera", include_in_schema=True)
 def studio_camera_preview():
     return FileResponse(ROOT / "camera-preview.html", media_type="text/html")
+
+# Unified service registry: one API surface, no separate app instances.\nfrom unified import router as unified_router\napp.include_router(unified_router)\n
