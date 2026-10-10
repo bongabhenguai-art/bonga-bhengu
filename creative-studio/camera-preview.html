@@ -28,7 +28,7 @@ async function connect(){
 }
 el("start").onclick=connect;
 el("flip").onclick=async()=>{if(recorder){status("Stop recording before switching cameras");return}facing=facing==="user"?"environment":"user";await connect()};
-el("record").onclick=()=>{
+el("record").onclick=()=>{if(recorder?.state==="recording"){recorder.stop();el("record").textContent="Start Recording";return;}
  if(!stream||!window.MediaRecorder){status("Recording unavailable in this browser");return}
  const types=["video/webm;codecs=vp8","video/webm","video/mp4"];
  const mime=types.find(t=>MediaRecorder.isTypeSupported(t));
@@ -44,9 +44,9 @@ el("record").onclick=()=>{
   recorder=null;controls();status("Recording complete — select Save recording");
  };
  active.start(1000);el("record").textContent="Stop Recording";el("record").disabled=false;el("flip").disabled=true;status("Recording on this device");
- el("record").onclick=()=>{if(recorder?.state==="recording")recorder.stop();el("record").textContent="Start Recording";el("record").onclick=recordAgain};
+ 
 };
-function recordAgain(){el("record").onclick=null;el("record").click()}
+
 el("stop").onclick=()=>{if(recorder?.state==="recording")recorder.stop();if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;video.srcObject=null;controls();status("Camera disconnected")};
 window.addEventListener("pagehide",()=>{if(stream)stream.getTracks().forEach(t=>t.stop());if(downloadUrl)URL.revokeObjectURL(downloadUrl)});
 </script></body></html>
