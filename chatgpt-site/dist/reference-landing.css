@@ -6,3 +6,16 @@ body.tech-landing{background:#080b16;color:#f7f7ff}.tech-landing .digital-banner
 
 /* Full-frame uploaded fashion film: retain its original composition. */
 .tech-landing #landing-screen .workspace-ad-frame{aspect-ratio:764/576;background:radial-gradient(ellipse at center,#352247,#090c17 75%);box-shadow:0 0 70px #9c399525}.tech-landing #landing-screen video{object-fit:contain}.tech-landing #landing-screen .workspace-ad-label{pointer-events:none;top:10px;left:10px;max-width:calc(100% - 20px);color:#eee1ff;background:#080b16bc}.tech-landing #landing-screen .workspace-ad-controls{display:flex;flex-wrap:wrap;align-items:center;gap:14px}.tech-landing #landing-screen .workspace-ad-enquire{position:static;padding:8px 10px;margin-left:auto;font-size:9px;border-color:#c275dd66;background:#171126}.tech-landing #workspace-ad-sound[aria-pressed=true]{color:#f4b1e5}.tech-landing #landing-screen video:fullscreen{object-fit:contain;background:#000}
+
+/* The grid homepage must not inherit the older full-screen hero offsets. */
+.tech-landing.fashion-storefront .hero{height:auto;min-height:0;overflow:visible}
+.tech-landing.fashion-storefront .hero-copy{position:relative;inset:auto;transform:none;width:100%;max-width:650px;align-self:start}
+.tech-landing.fashion-storefront .hero-foot{inset:auto;transform:none}
+.tech-landing.fashion-storefront .front-launch-grid,.tech-landing.fashion-storefront .bbstore-feature-tools{position:static;inset:auto;background:transparent;border-bottom:0;align-items:stretch}
+.tech-landing.fashion-storefront .front-launch-grid{display:grid;padding:0}
+.tech-landing.fashion-storefront .bbstore-feature-tools{display:flex;padding:0}
+@media(max-width:760px){
+ .tech-landing.fashion-storefront .hero-copy{max-width:none}
+ .tech-landing.fashion-storefront .header #navigation{top:100%}
+ .tech-landing.fashion-storefront .hero-foot{display:flex;flex-wrap:wrap}
+}
