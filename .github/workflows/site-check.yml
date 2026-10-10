@@ -23,6 +23,8 @@ jobs:
           cache-dependency-path: chatgpt-site/package-lock.json
       - run: npm ci
       - run: node scripts/build-ai.mjs
+      - name: Verify merged Zuxuru backend
+        run: node tests/zuxuru-backend.mjs
       - name: Run existing application suites
         run: |
           for test in tests/*.mjs; do
