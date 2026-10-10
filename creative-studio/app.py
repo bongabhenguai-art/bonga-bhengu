@@ -90,3 +90,29 @@ from fastapi.responses import FileResponse
 @app.get("/studio/camera", include_in_schema=True)
 def studio_camera_preview():
     return FileResponse(ROOT / "camera-preview.html", media_type="text/html")
+
+# Shared platform discovery, served by this existing FastAPI application.
+# This is a capability registry, not an assertion that unbuilt services work.
+@app.get("/api/v1/platform")
+def platform_registry():
+    return {
+        "application": "bonga-bhengu",
+        "architecture": "single_app",
+        "production_ready": False,
+        "workspaces": {
+            "storefront": "frontend_integration",
+            "fashion": "frontend_integration",
+            "studio": "local_tools_available",
+            "seller": "authentication_required",
+            "admin": "authentication_required",
+            "zuxuru": "integration_required",
+            "business_growth": "integration_required",
+            "ai_employees": "integration_required"
+        },
+        "services": {
+            "jobs": "/jobs",
+            "camera": "/studio/camera",
+            "animation": "/animation/preview",
+            "connectors": "/connections/providers"
+        }
+    }
