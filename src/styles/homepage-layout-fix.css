@@ -1,0 +1,22 @@
+/* Bonga Bhengu App: mobile homepage overlap correction.
+   Import into the EXISTING homepage stylesheet, not a second page. */
+:root { --bb-black:#0B0B0B; --bb-gold:#D4AF37; --bb-blue:#2F6BFF; }
+html { box-sizing:border-box; width:100%; max-width:100%; overflow-x:clip; -webkit-text-size-adjust:100%; }
+*,*::before,*::after { box-sizing:inherit; }
+body { margin:0; min-width:0; max-width:100%; overflow-x:clip; }
+img,video,canvas,svg { max-width:100%; height:auto; }
+#root,#__next,main { min-width:0; max-width:100%; }
+.bb-home { position:relative; isolation:isolate; width:100%; max-width:100%; min-width:0; overflow-x:clip; background:var(--bb-black); }
+.bb-home > section { position:relative; inset:auto; transform:none; max-width:100%; }
+.bb-home .bb-home-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:clamp(12px,2vw,24px); }
+.bb-home .bb-home-hero { width:100%; min-height:0; overflow:hidden; }
+.bb-home .bb-home-hero img { display:block; width:100%; height:auto; object-fit:cover; }
+.bb-home .bb-home-nav { display:flex; flex-wrap:wrap; gap:8px; max-width:100%; }
+.bb-home .bb-home-nav > * { min-width:0; flex:1 1 auto; }
+@media(max-width:600px) {
+  .bb-home { padding-inline:clamp(12px,4vw,20px); }
+  .bb-home .bb-home-grid { grid-template-columns:minmax(0,1fr); }
+  .bb-home .bb-home-nav { position:relative; width:100%; }
+  .bb-home h1 { font-size:clamp(1.65rem,7vw,2.5rem); overflow-wrap:anywhere; }
+}
+/* Do not hide duplicates with CSS: remove duplicate component mounts in JSX. */
