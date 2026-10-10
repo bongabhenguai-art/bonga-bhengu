@@ -1,0 +1,25 @@
+import fs from 'node:fs';
+const source=fs.readFileSync('dist/fashion-service.html','utf8');
+const head=source.match(/<head>([\s\S]*?)<\/head>/)[1].replace(/<title>.*?<\/title>/,'<title>Bonga Bhengu App</title>').replace(/<script type="module" src="\/phone-shell\.js[^"]*"><\/script>/,'');
+const business=source.match(/<main>([\s\S]*?)<\/main>/)[1].replace('src="/digital-studio.html?embedded=1"','data-app-src="/digital-studio.html?embedded=1"').replace('style="width:100%;height:900px;border:1px solid #555"','');
+const imageDialog=source.match(/<dialog id="image-edit-dialog"[\s\S]*?<\/dialog>/)[0];
+fs.writeFileSync('dist/app.html',`<!doctype html><html lang="en-ZA"><head>${head}<link rel="stylesheet" href="/app-shell.css?upgrade=1"><link rel="stylesheet" href="/storefront-workspaces.css?entry=2"><script type="module" src="/app-runtime.js?upgrade=1"></script></head><body class="bbapp cyber-fashion designer-dashboard">
+<a class="bbapp-skip" href="#app-main">Skip to workspace</a>
+<div class="bbapp-shell">
+<aside class="bbapp-rail"><a class="bbapp-brand" href="#home" aria-label="Bonga Bhengu storefront"><span>BB</span><strong>BONGA BHENGU<small>MY WORKSPACE</small></strong></a><nav id="app-rail" aria-label="App workspaces"></nav><div class="bbapp-rail-bottom"><button type="button" data-app-more>All modules</button><a href="/" target="_blank" rel="noopener">Open storefront ↗</a></div></aside>
+<div class="bbapp-stage"><header class="bbapp-header"><div class="bbapp-header-left"><button id="app-back" type="button" aria-label="Previous module">←</button><div><span id="app-breadcrumb">BONGA BHENGU / WORKSPACE</span><h1 id="app-title">Bonga Bhengu storefront</h1></div></div><div class="bbapp-header-actions"><a class="bbapp-home-button" href="#home" aria-label="Bonga Bhengu storefront" title="Bonga Bhengu storefront"><span data-app-icon="home"></span></a><button type="button" data-app-more aria-label="Search modules" title="Search modules · Ctrl/Command K">⌕</button><button id="app-fullscreen" type="button" title="Full screen">⛶</button><span class="bbapp-avatar" aria-label="Bonga Bhengu account">BB</span></div></header>
+<div class="bbapp-session-bar"><span id="app-cloud-state" role="status">Opening your account…</span><div><button id="app-module-action" type="button" hidden></button><button id="app-guide-open" type="button">How it works</button><button id="app-home-refresh" type="button">Refresh</button><a href="/signout-with-chatgpt?return_to=%2F">Sign out</a></div></div>
+<nav id="app-workspace-nav" class="bbapp-workspace-nav" aria-label="Workspace modules" hidden></nav>
+<main id="app-main" class="bbapp-main">
+<section id="app-home" class="bbapp-home bbapp-storefront"><iframe id="app-storefront-frame" data-app-src="/?embedded=1" title="Bonga Bhengu storefront" allow="fullscreen"></iframe></section>
+<div id="app-business" class="bbapp-business" hidden>${business}</div>
+<div id="app-frame-stage" class="bbapp-frame-stage" hidden></div>
+<section id="app-blocked" class="bbapp-blocked" hidden><h2>This module needs owner access.</h2><p>Use your business tools or sign in with the app owner account.</p><a href="#home">Return home</a></section>
+</main></div></div>
+<nav id="app-dock" class="bbapp-dock" aria-label="App navigation"></nav>
+<dialog id="app-modules-dialog" class="bbapp-modules-dialog" aria-labelledby="app-modules-title"><div class="bbapp-dialog-heading"><h2 id="app-modules-title">All workspace modules</h2><button id="app-dialog-close" type="button" aria-label="Close modules">✕</button></div><label class="bbapp-search"><span>Find a function</span><input id="app-search" type="search" placeholder="Brand, website, content, business…" autocomplete="off"></label><div id="app-module-list"></div><p id="app-search-status" role="status"></p></dialog>
+${imageDialog}
+<dialog id="app-guide-dialog" class="bbapp-guide-dialog" aria-labelledby="app-guide-title"><div class="bbapp-dialog-heading"><h2 id="app-guide-title">How it works</h2><button id="app-guide-close" type="button" aria-label="Close instructions">✕</button></div><dl><dt>What to provide</dt><dd id="app-guide-input"></dd></dl><h3>Steps</h3><ol id="app-guide-steps"></ol><dl><dt>Your result</dt><dd id="app-guide-output"></dd><dt>What this needs</dt><dd id="app-guide-needs"></dd></dl><h3>Continue your work</h3><nav id="app-guide-related" aria-label="Related functions"></nav></dialog>
+<noscript><p>Enable JavaScript to use the application workspace.</p><a href="/fashion-service.html">Open business tools</a></noscript>
+</body></html>`);
+console.log('Built unified app from the existing designer workspace.');

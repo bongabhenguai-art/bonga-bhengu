@@ -1,0 +1,984 @@
+{
+  "checkedAt": "2026-10-10T03:12:44.078Z",
+  "siteBaseline": {
+    "version": 108,
+    "commit": "d9c52d91f2e68a2655fb351b7c09ce140759b056",
+    "deploymentVerified": true
+  },
+  "scope": "Accessible related text, HTML, document and archive files. Images and videos were not audited. Chat-project attachment membership is not exposed, so this is not a certified inventory of every project attachment. Module tags and dependency flags are content-based discovery aids, not implementation verification.",
+  "sourceMetadataMatched": 79,
+  "allSourcesImplemented": false,
+  "summary": "79 accessible source references are mapped in the app. The GitHub alignment PR contains 63 documentation files and one application page. Complete implementation of every source requirement has not been verified.",
+  "github": {
+    "repository": "bongabhenguai-art/bonga-bhengu",
+    "branch": "align/library-files-coderabbit",
+    "headCommit": "d5e0e138b9126f25552845f34da38e79bcc89e7d",
+    "url": "https://github.com/bongabhenguai-art/bonga-bhengu/pull/3",
+    "state": "open",
+    "merged": false,
+    "changedFiles": 64,
+    "documentationFiles": 63,
+    "applicationFiles": [
+      "website-builder/public/fashion-os.html"
+    ],
+    "files": [
+      "docs/FILE_BY_FILE_ALIGNMENT.md",
+      "docs/alignments/02-zuxuru-master-spec.md",
+      "docs/alignments/03-zuxuru-master-builder.md",
+      "docs/alignments/04-shogo-master-build.md",
+      "docs/alignments/05-fukulisane-business-innovation.md",
+      "docs/alignments/06-bonga-four-packages.md",
+      "docs/alignments/07-oct14-work-handoff.md",
+      "docs/alignments/08-fashion-design-vertical.md",
+      "docs/alignments/09-mall-business-tree-fashion-builder-packages.md",
+      "docs/alignments/10-business-visibility-station.md",
+      "docs/alignments/11-tech-fashion-animation-shared-engine.md",
+      "docs/alignments/12-fashion-career-portfolio-source.md",
+      "docs/alignments/13-bonga-live-site-content-baseline.md",
+      "docs/alignments/14-zuxuru-growth-os-public-baseline.md",
+      "docs/alignments/15-bonga-fashion-os-html-review.md",
+      "docs/alignments/16-business-visibility-station-html-audit.md",
+      "docs/alignments/17-arena-business-os-agents.md",
+      "docs/alignments/18-investigation-live-engine-build-record.md",
+      "docs/alignments/19-live-engine-record-deduplication.md",
+      "docs/alignments/20-deepsearch-proof-safety-person-boundaries.md",
+      "docs/alignments/21-repository-implementation-contracts.md",
+      "docs/alignments/22-digital-investigation-mcp-product-positioning.md",
+      "docs/alignments/23-zuxuru-growth-os-html-prototype-audit.md",
+      "docs/alignments/24-investigation-api-demo-fallback-audit.md",
+      "docs/alignments/25-investigation-fail-closed-html-version-audit.md",
+      "docs/alignments/26-brand-autopilot-html-execution-audit.md",
+      "docs/alignments/27-brand-autopilot-early-html-defect-audit.md",
+      "docs/alignments/28-brand-autopilot-legacy-html-deduplication.md",
+      "docs/alignments/29-brand-autopilot-pre-execution-html-baseline.md",
+      "docs/alignments/30-brand-autopilot-original-html-baseline.md",
+      "docs/alignments/31-business-visibility-station-duplicate-alias.md",
+      "docs/alignments/32-business-visibility-dashboard-visual-reference.md",
+      "docs/alignments/33-galleria-evidence-module-zip-source-audit.md",
+      "docs/alignments/34-zuxuru-build-spec-zip-architecture-alignment.md",
+      "docs/alignments/35-render-ready-zip-deployment-source-audit.md",
+      "docs/alignments/36-investigation-platform-zip-real-backend-audit.md",
+      "docs/alignments/37-growth-engine-mvp-browser-source-audit.md",
+      "docs/alignments/38-investigation-opportunity-engine-zip-source-audit.md",
+      "docs/alignments/39-digital-studio-repository-zip-source-audit.md",
+      "docs/alignments/40-zuxuru-storefront-zip-landing-source-audit.md",
+      "docs/alignments/41-zuxuru-platform-ecosystem-image-architecture-alignment.md",
+      "docs/alignments/42-zuxuru-ecosystem-infographic-customer-journey-alignment.md",
+      "docs/alignments/43-ai-powered-growth-architecture-image-screen-mapping.md",
+      "docs/alignments/44-real-execution-build-zip-claim-vs-code-audit.md",
+      "docs/alignments/45-fukulisane-growth-intelligence-demo-zip-source-audit.md",
+      "docs/alignments/46-zuxuru-public-app-targz-landing-and-claims-audit.md",
+      "docs/alignments/47-business-identity-search-growth-builder-spec-alignment.md",
+      "docs/alignments/48-business-identity-growth-builder-duplicate-source-record.md",
+      "docs/alignments/49-lm-studio-github-mcp-connection-screenshot-audit.md",
+      "docs/alignments/50-ods-private-ai-server-video-screenshot-candidate-audit.md",
+      "docs/alignments/51-zuxuru-usable-mvp-zip-browser-source-audit.md",
+      "docs/alignments/52-zuxuru-app-mvp-zip-static-shell-source-audit.md",
+      "docs/alignments/53-zuxuru-phase1-foundation-zip-evidence-first-source-audit.md",
+      "docs/alignments/54-zuxuru-final-build-readme-document-set-alignment.md",
+      "docs/alignments/55-zuxuru-integration-matrix-connector-state-alignment.md",
+      "docs/alignments/56-zuxuru-implementation-blueprint-bonga-release-gates.md",
+      "docs/alignments/56-zuxuru-implementation-blueprint-release-gates-alignment.md",
+      "docs/alignments/57-zuxuru-final-master-build-spec-bonga-capability-alignment.md",
+      "docs/alignments/58-zuxuru-final-master-build-files-zip-bundle-audit.md",
+      "docs/alignments/59-zuxuru-master-app-build-alignment-systemization-audit.md",
+      "docs/alignments/60-fukulisane-visibility-audience-growth-studio-loop-alignment.md",
+      "docs/alignments/bonga-ai-employees-consolidated-implementation-contract.md",
+      "docs/alignments/bonga-all-ai-teams-master-registry.md",
+      "website-builder/public/fashion-os.html"
+    ]
+  },
+  "coderabbit": {
+    "githubReviews": [
+      {
+        "author": "coderabbitai",
+        "submittedAt": "2026-10-09T21:08:53Z",
+        "state": "COMMENTED",
+        "reviewedRange": "between c2ce6b70cfafe958c5f80a14ffaebd4155a21e7b and fe9b48c01b6b16323e5d608fbc7fd92f67bf4e15"
+      },
+      {
+        "author": "coderabbitai",
+        "submittedAt": "2026-10-09T21:22:29Z",
+        "state": "COMMENTED",
+        "reviewedRange": "between fe9b48c01b6b16323e5d608fbc7fd92f67bf4e15 and bd0b3db4ab3d9c05cd91334faa934903eac2b0bf"
+      }
+    ],
+    "unresolvedIssues": [
+      {
+        "path": "docs/alignments/03-zuxuru-master-builder.md",
+        "line": 15,
+        "severity": "minor",
+        "url": "https://github.com/bongabhenguai-art/bonga-bhengu/pull/3#discussion_r4234568227"
+      },
+      {
+        "path": "docs/alignments/bonga-ai-employees-consolidated-implementation-contract.md",
+        "line": 25,
+        "severity": "minor",
+        "url": "https://github.com/bongabhenguai-art/bonga-bhengu/pull/3#discussion_r4234655108"
+      }
+    ],
+    "latestHeadReviewVerified": false,
+    "localCli": "Blocked: environment_unsupported; no authenticated local review ran.",
+    "codingClaim": "Reviews and suggestions exist. The reviewed documentation explicitly describes specifications, not completed agent implementations."
+  },
+  "files": [
+    {
+      "name": "AI_Business_Intelligence_Platform_Solution.md",
+      "libraryFileId": "libfile_d0d877e1a08881919f073a49ec8d87b8",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "AI_Enterprise_Intelligence_Workplace_Detailed_Business_Plan_FULL.docx",
+      "libraryFileId": "libfile_0ac8b10636c881918226fa5568805124",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/bonga-ai-employees-consolidated-implementation-contract.md",
+        "docs/alignments/bonga-all-ai-teams-master-registry.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Bonga_Bhengu_14_Oct_Work_Handoff.md",
+      "libraryFileId": "libfile_f2604e6e5a2081919faaf3ef1c71482d",
+      "metadataMatched": true,
+      "sourceDecision": "apply",
+      "githubDocumentationReferences": [
+        "docs/alignments/07-oct14-work-handoff.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Bonga_Bhengu_App_4_Packages.docx",
+      "libraryFileId": "libfile_797ed0d96e788191b0cd4c88f06a8c61",
+      "metadataMatched": true,
+      "sourceDecision": "proposal only",
+      "githubDocumentationReferences": [
+        "docs/alignments/06-bonga-four-packages.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Bonga_Bhengu_Fashion_OS.html",
+      "libraryFileId": "libfile_a553ad4064588191bc5062c77a4f0a4b",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/07-oct14-work-handoff.md",
+        "docs/alignments/15-bonga-fashion-os-html-review.md"
+      ],
+      "implementation": "Fashion workspace page present at baseline; additive workspace handoff implemented in this continuation.",
+      "sitePaths": [
+        "dist/fashion-os.html",
+        "dist/fashion-os.js",
+        "dist/fashion-os-workspace.js"
+      ]
+    },
+    {
+      "name": "Connected_Enterprise_Intelligence_Architecture_FULL.md",
+      "libraryFileId": "libfile_2ec7a15a92a881918a0d97726750cd25",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/bonga-ai-employees-consolidated-implementation-contract.md",
+        "docs/alignments/bonga-all-ai-teams-master-registry.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Fukulisane_Business_Identity_and_Growth_Builder_Spec(1).md",
+      "libraryFileId": "libfile_448fca1bb3988191b323f52367247582",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/47-business-identity-search-growth-builder-spec-alignment.md",
+        "docs/alignments/48-business-identity-growth-builder-duplicate-source-record.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Fukulisane_Business_Identity_and_Growth_Builder_Spec.md",
+      "libraryFileId": "libfile_f1a8dcdc521c8191875a4eb71c7a6ac0",
+      "metadataMatched": true,
+      "sourceDecision": "duplicate reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/47-business-identity-search-growth-builder-spec-alignment.md",
+        "docs/alignments/48-business-identity-growth-builder-duplicate-source-record.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Fukulisane_One_Master_Concept_Architecture.md",
+      "libraryFileId": "libfile_d50453f547e0819197debb8190acf747",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted markdown(1).md",
+      "libraryFileId": "libfile_21e8585e5d7481918594d02dfe614049",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted markdown(10).md",
+      "libraryFileId": "libfile_91f6275f45988191883999f7e762b668",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/17-arena-business-os-agents.md",
+        "docs/alignments/bonga-ai-employees-consolidated-implementation-contract.md",
+        "docs/alignments/bonga-all-ai-teams-master-registry.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted markdown(2).md",
+      "libraryFileId": "libfile_8b135e9569cc81919fb44f4865d2fe7f",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/bonga-ai-employees-consolidated-implementation-contract.md",
+        "docs/alignments/bonga-all-ai-teams-master-registry.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted markdown(3).md",
+      "libraryFileId": "libfile_e2d55a5f27088191a0b0d3524405fc62",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted markdown(4).md",
+      "libraryFileId": "libfile_7c15d17a34d48191898529d2113da23c",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/60-fukulisane-visibility-audience-growth-studio-loop-alignment.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted markdown(5).md",
+      "libraryFileId": "libfile_4a4397d7eee48191bf972ec488ddf6d2",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/22-digital-investigation-mcp-product-positioning.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted markdown(6).md",
+      "libraryFileId": "libfile_3acb63ad973481919a373b407da4c6b0",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/21-repository-implementation-contracts.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted markdown(7).md",
+      "libraryFileId": "libfile_476e1a88ac7081919aca0ea9a5807db6",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/20-deepsearch-proof-safety-person-boundaries.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted markdown(8).md",
+      "libraryFileId": "libfile_7a128756e6c48191940336352ebb014f",
+      "metadataMatched": true,
+      "sourceDecision": "duplicate reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/19-live-engine-record-deduplication.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted markdown(9).md",
+      "libraryFileId": "libfile_742700e6807881918be7416fc6f0e29d",
+      "metadataMatched": true,
+      "sourceDecision": "duplicate reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/18-investigation-live-engine-build-record.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted markdown.md",
+      "libraryFileId": "libfile_32e158df4e9881919e7adb25b6ef4de3",
+      "metadataMatched": true,
+      "sourceDecision": "duplicate reference",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted text(1).txt",
+      "libraryFileId": "libfile_1ddbfc9eb73081919722fc079a5aa25d",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted text(2).txt",
+      "libraryFileId": "libfile_b741a239d0648191a200fff42179998e",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted text(3).txt",
+      "libraryFileId": "libfile_45f2c2a7b52081918293ddc7b64c71f3",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted text(4).txt",
+      "libraryFileId": "libfile_4081bba66c4c8191a9913f7eae952ce1",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted text(5).txt",
+      "libraryFileId": "libfile_3a5275bed65c81919d7f77b02624682b",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted text(6).txt",
+      "libraryFileId": "libfile_4900c0914c988191a075d3829c99ed8a",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted text(7).txt",
+      "libraryFileId": "libfile_5f96ce04a29c81918c10387b88cf83ad",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/12-fashion-career-portfolio-source.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted text(8).txt",
+      "libraryFileId": "libfile_597b2c6ac5f8819187744d21058d546d",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/11-tech-fashion-animation-shared-engine.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Pasted text.txt",
+      "libraryFileId": "libfile_a4f7719fc7408191afa51a86eef9146f",
+      "metadataMatched": true,
+      "sourceDecision": "duplicate reference",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "ZUXURU_ALIGNED_PUBLIC_APP.tar.gz",
+      "libraryFileId": "libfile_7e24de95a02081919210fcaa5ae71156",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/46-zuxuru-public-app-targz-landing-and-claims-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "ZUXURU_APP_MVP.zip",
+      "libraryFileId": "libfile_be8245d6a5c88191bea0e6e5f1bb0055",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/52-zuxuru-app-mvp-zip-static-shell-source-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "ZUXURU_FINAL_BUILD_README.md",
+      "libraryFileId": "libfile_e217739a5d508191a785bdbe2ee92989",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/54-zuxuru-final-build-readme-document-set-alignment.md",
+        "docs/alignments/58-zuxuru-final-master-build-files-zip-bundle-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "ZUXURU_FINAL_MASTER_BUILD_FILES.zip",
+      "libraryFileId": "libfile_cf3fc30233a48191a208b7775195c82f",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/58-zuxuru-final-master-build-files-zip-bundle-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "ZUXURU_FINAL_MASTER_BUILD_SPEC.md",
+      "libraryFileId": "libfile_b1ff36159cfc8191881258459ed1bb3c",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/51-zuxuru-usable-mvp-zip-browser-source-audit.md",
+        "docs/alignments/52-zuxuru-app-mvp-zip-static-shell-source-audit.md",
+        "docs/alignments/54-zuxuru-final-build-readme-document-set-alignment.md",
+        "docs/alignments/57-zuxuru-final-master-build-spec-bonga-capability-alignment.md",
+        "docs/alignments/58-zuxuru-final-master-build-files-zip-bundle-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "ZUXURU_IMPLEMENTATION_BLUEPRINT.md",
+      "libraryFileId": "libfile_066052ea77108191be5ea35d2b66c006",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/51-zuxuru-usable-mvp-zip-browser-source-audit.md",
+        "docs/alignments/54-zuxuru-final-build-readme-document-set-alignment.md",
+        "docs/alignments/56-zuxuru-implementation-blueprint-bonga-release-gates.md",
+        "docs/alignments/56-zuxuru-implementation-blueprint-release-gates-alignment.md",
+        "docs/alignments/58-zuxuru-final-master-build-files-zip-bundle-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "ZUXURU_INTEGRATION_MATRIX.md",
+      "libraryFileId": "libfile_a79965aae1c48191939b2bb84bf14a09",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/51-zuxuru-usable-mvp-zip-browser-source-audit.md",
+        "docs/alignments/52-zuxuru-app-mvp-zip-static-shell-source-audit.md",
+        "docs/alignments/54-zuxuru-final-build-readme-document-set-alignment.md",
+        "docs/alignments/55-zuxuru-integration-matrix-connector-state-alignment.md",
+        "docs/alignments/58-zuxuru-final-master-build-files-zip-bundle-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "ZUXURU_Master_App_Build_Alignment_Specification.md",
+      "libraryFileId": "libfile_e64dd7bbb0648191bb27a9fb50b35bec",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/02-zuxuru-master-spec.md",
+        "docs/alignments/59-zuxuru-master-app-build-alignment-systemization-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "ZUXURU_USABLE_MVP.zip",
+      "libraryFileId": "libfile_b2442961205c8191bc77c0f431b5dec4",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/51-zuxuru-usable-mvp-zip-browser-source-audit.md",
+        "docs/alignments/52-zuxuru-app-mvp-zip-static-shell-source-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Zuxuru-Phase1-Foundation.zip",
+      "libraryFileId": "libfile_877869122e9881918e0c72ef299f61be",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/53-zuxuru-phase1-foundation-zip-evidence-first-source-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Zuxuru1_real-execution-build.zip",
+      "libraryFileId": "libfile_1281d07c441081918b0e5b2687210db4",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/44-real-execution-build-zip-claim-vs-code-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Zuxuru_Build_Spec_Files.zip",
+      "libraryFileId": "libfile_fa4ab017a41081918c2c3f8bd054674c",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/34-zuxuru-build-spec-zip-architecture-alignment.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Zuxuru_Business_Visibility_Station_Builder(1).html",
+      "libraryFileId": "libfile_673c6fa0ee0081919c28a8a205bc82de",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/31-business-visibility-station-duplicate-alias.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Zuxuru_Business_Visibility_Station_Builder.html",
+      "libraryFileId": "libfile_5d4f40469ba881919bfd9e52574efa8a",
+      "metadataMatched": true,
+      "sourceDecision": "duplicate reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/10-business-visibility-station.md",
+        "docs/alignments/16-business-visibility-station-html-audit.md",
+        "docs/alignments/31-business-visibility-station-duplicate-alias.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Zuxuru_Business_Visibility_Station_Builder_Spec.md",
+      "libraryFileId": "libfile_15d8c7231e5c81918291303557b1d9b0",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/10-business-visibility-station.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Zuxuru_Fashion_Design.docx",
+      "libraryFileId": "libfile_db02141b53188191af574e0c2b2667a1",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/08-fashion-design-vertical.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Zuxuru_Fukulisane_Alignment_Master_File.md",
+      "libraryFileId": "libfile_3d2a0d68a4b08191b57872df48518b5a",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/05-fukulisane-business-innovation.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Zuxuru_Mall_BusinessTree_Fashion_Builder_Packages_Master.docx",
+      "libraryFileId": "libfile_93d187f6a3808191a8adbbd8b2a55795",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/09-mall-business-tree-fashion-builder-packages.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Zuxuru_Master_Builder.txt",
+      "libraryFileId": "libfile_cd4cebfa97708191a9d385754e2c854b",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/03-zuxuru-master-builder.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Zuxuru_Shogo_Master_Build_Instructions.md",
+      "libraryFileId": "libfile_b1ee4ab03cb48191bdf929f19869966d",
+      "metadataMatched": true,
+      "sourceDecision": "reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/04-shogo-master-build.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "Zuxuru_Storefront.zip",
+      "libraryFileId": "libfile_aa633faff99c8191bb9e445d54c46c36",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/40-zuxuru-storefront-zip-landing-source-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "app.html",
+      "libraryFileId": "libfile_4e6e9aaf5f388191bc40efbe820f1cda",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "fukulisane-app.zip",
+      "libraryFileId": "libfile_5ea46db1670c8191bb7f31fc73b31ee4",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/45-fukulisane-growth-intelligence-demo-zip-source-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "fukulisane-construction-platform-history.zip",
+      "libraryFileId": "libfile_d8f2c69995b081919236e2c042095464",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "fukulisane-live-netlify.zip",
+      "libraryFileId": "libfile_19234f7b91848191a29e75237518a4d9",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "fukulisane-mvp.zip",
+      "libraryFileId": "libfile_9a4e4bebedb481918868174e9e50a0b2",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "fukulisane_one_history_derived.zip",
+      "libraryFileId": "libfile_d7bb4d6f73e48191bee121e27b8425b5",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "fukulisaneconstruction-connected.zip",
+      "libraryFileId": "libfile_0ef1a13b5fb08191bec9e4ea77679ded",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "fukulisani-agent-os-handoff.zip",
+      "libraryFileId": "libfile_cc4debdf0ec881918a35b59852941873",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "fukulisani-app-option3.tar.gz",
+      "libraryFileId": "libfile_60601577bb3c81918c18d7055330282c",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "fukulisani-app.tar.gz",
+      "libraryFileId": "libfile_133699211140819193e46c5ceff9dea0",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "fukulisneconstruction-ready.zip",
+      "libraryFileId": "libfile_868937655b448191a3d89f725ebe14a7",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "index(1).html",
+      "libraryFileId": "libfile_329b97d42a988191b8030656089fd84f",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/30-brand-autopilot-original-html-baseline.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "index(2).html",
+      "libraryFileId": "libfile_d70c3a6d890c81919a665a61f851c869",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/29-brand-autopilot-pre-execution-html-baseline.md",
+        "docs/alignments/30-brand-autopilot-original-html-baseline.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "index(3).html",
+      "libraryFileId": "libfile_9210ad082a00819196a69da6a53d3903",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/28-brand-autopilot-legacy-html-deduplication.md",
+        "docs/alignments/29-brand-autopilot-pre-execution-html-baseline.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "index(4).html",
+      "libraryFileId": "libfile_af9b471bc4a081918b770784433e6c44",
+      "metadataMatched": true,
+      "sourceDecision": "duplicate reference",
+      "githubDocumentationReferences": [
+        "docs/alignments/27-brand-autopilot-early-html-defect-audit.md",
+        "docs/alignments/28-brand-autopilot-legacy-html-deduplication.md",
+        "docs/alignments/29-brand-autopilot-pre-execution-html-baseline.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "index(5).html",
+      "libraryFileId": "libfile_f57f81c25f688191a9a129c736e9df2c",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/26-brand-autopilot-html-execution-audit.md",
+        "docs/alignments/27-brand-autopilot-early-html-defect-audit.md",
+        "docs/alignments/29-brand-autopilot-pre-execution-html-baseline.md",
+        "docs/alignments/44-real-execution-build-zip-claim-vs-code-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "index(6).html",
+      "libraryFileId": "libfile_e36c348921d88191b7108e76c4e7ba79",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/25-investigation-fail-closed-html-version-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "index(7).html",
+      "libraryFileId": "libfile_21215ea3f2b4819191817a109e819be5",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/24-investigation-api-demo-fallback-audit.md",
+        "docs/alignments/25-investigation-fail-closed-html-version-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "index(8).html",
+      "libraryFileId": "libfile_0d4d333f997c8191a25da5f9f26f9bc9",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/23-zuxuru-growth-os-html-prototype-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "index.html",
+      "libraryFileId": "libfile_eccc3e067aac8191a82f54ffdee133bb",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/37-growth-engine-mvp-browser-source-audit.md",
+        "docs/alignments/44-real-execution-build-zip-claim-vs-code-audit.md",
+        "docs/alignments/53-zuxuru-phase1-foundation-zip-evidence-first-source-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "open-source-image-to-app-builder.zip",
+      "libraryFileId": "libfile_b3e9c247c4588191b07ac6a7424bca28",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "zuxuru-digital-studio-repository.zip",
+      "libraryFileId": "libfile_377991f8ca948191b861b6a456ab5f82",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/39-digital-studio-repository-zip-source-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "zuxuru-engine.zip",
+      "libraryFileId": "libfile_75f28159266881918e7bc036ec1cbee8",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/38-investigation-opportunity-engine-zip-source-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "zuxuru-galleria-evidence-module.zip",
+      "libraryFileId": "libfile_b002d5763020819181741b1f09b4f12d",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/33-galleria-evidence-module-zip-source-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "zuxuru-growth-engine-mvp.zip",
+      "libraryFileId": "libfile_781d4de1abb48191958525d7f364e6ad",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/37-growth-engine-mvp-browser-source-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "zuxuru-investigation-platform.zip",
+      "libraryFileId": "libfile_6160d07e7ea081918956d9a87b1f7cce",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/36-investigation-platform-zip-real-backend-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "zuxuru-render-ready.zip",
+      "libraryFileId": "libfile_d6adde4ed1948191b4b958aeed5937f1",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [
+        "docs/alignments/35-render-ready-zip-deployment-source-audit.md"
+      ],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "zuxuru-storefront-v0.1.zip",
+      "libraryFileId": "libfile_b026a8245b548191bec0c9fb6190ed82",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    },
+    {
+      "name": "zuxuru-storefront.zip",
+      "libraryFileId": "libfile_77c4160c16208191949bee9a5c9e6e82",
+      "metadataMatched": true,
+      "sourceDecision": "adapt after verification",
+      "githubDocumentationReferences": [],
+      "implementation": "Source reference mapped; full requirement implementation not certified.",
+      "sitePaths": []
+    }
+  ]
+}

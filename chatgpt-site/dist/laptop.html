@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-ZA"><head><script src="/app-entry.js?entry=aligned-1"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1018">
+<title>Bonga Bhengu · Laptop workspace</title><meta name="description" content="Run your Bonga Bhengu business and creative modules from your laptop. Search workspaces, manage device files and record your screen.">
+<link rel="icon" href="/assets/favicon.svg"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/laptop-shell.css"><link rel="stylesheet" href="/phone-shell.css">
+<script type="module" src="/laptop-home.js?entry=storefront-1"></script><script type="module" src="/phone-shell.js?entry=storefront-1"></script>
+</head><body class="bblaptop-home">
+<a class="bblaptop-skip" href="#laptop-main">Skip to workspace</a>
+<div class="bblaptop-layout">
+<aside class="bblaptop-sidebar">
+<a class="bblaptop-brand" href="/laptop.html"><span>BB</span><div>BONGA BHENGU<small>BONGA BHENGU WORKSPACE</small></div></a>
+<p class="bblaptop-label">YOUR WORKSPACE</p>
+<nav class="bblaptop-side-nav" aria-label="Laptop workspace">
+<a href="#modules" data-laptop-panel="modules">Apps & modules <span>01</span></a>
+<a href="#files" data-laptop-panel="files">Device files <span>02</span></a>
+<a href="#recorder" data-laptop-panel="recorder">Screen recorder <span>03</span></a>
+<a href="#settings" data-laptop-panel="settings">Workspace settings <span>04</span></a>
+</nav>
+<div class="bblaptop-sidebar-bottom"><p class="bblaptop-label">KEEP BUILDING</p><a href="/fashion-service.html#business-engine">Business workflow engine ↗</a><a href="/digital-studio.html">Digital studio ↗</a><a href="/phone.html">Phone workspace ↗</a><a href="/">Public storefront ↗</a><span id="laptop-network" role="status">Checking device connection…</span></div>
+</aside>
+<main id="laptop-main" class="bblaptop-main">
+<header class="bblaptop-heading"><div><p class="bblaptop-label">LAPTOP WORKSPACE</p><h1>Your work. In command.</h1><p>One app for your business, creative work and device tools.</p></div><div class="bblaptop-header-actions"><button type="button" data-laptop-fullscreen>Full screen</button><button type="button" data-phone-install class="bblaptop-primary">Install app</button></div></header>
+<section id="modules" data-laptop-view aria-labelledby="laptop-modules-title">
+<a class="bblaptop-engine" href="/fashion-service.html#business-engine"><span class="bblaptop-engine-icon" data-icon="engine"></span><div><p class="bblaptop-label">FUNCTION ENGINE</p><h2>Run your connected business.</h2><p>Open your saved work, review tasks and run connected services.</p></div><span aria-hidden="true">↗</span></a>
+<div class="bblaptop-toolbar"><h2 id="laptop-modules-title">Apps & modules <small id="laptop-module-count"></small></h2><label class="bblaptop-search"><span class="bblaptop-sr-only">Search laptop modules</span><input id="laptop-search" type="search" placeholder="Search modules…" autocomplete="off"><kbd>/</kbd></label></div>
+<div class="bblaptop-filters" role="group" aria-label="Filter modules"><button type="button" data-laptop-filter="all" aria-pressed="true">All modules</button><button type="button" data-laptop-filter="pinned" aria-pressed="false">Pinned</button><button type="button" data-laptop-filter="business" aria-pressed="false">Business</button><button type="button" data-laptop-filter="creative" aria-pressed="false">Creative</button><button type="button" data-laptop-filter="system" aria-pressed="false">Device & system</button><button type="button" data-laptop-filter="owner" aria-pressed="false">Owner</button></div>
+<div id="laptop-module-grid" class="bblaptop-module-grid"></div>
+<section class="bblaptop-recent" aria-labelledby="laptop-recent-title"><h3 id="laptop-recent-title">Recently opened on this device</h3><div id="laptop-recent"></div></section>
+</section>
+<section id="files" data-laptop-view hidden aria-labelledby="laptop-files-title">
+<p class="bblaptop-label">DEVICE FILE MANAGER</p><h2 id="laptop-files-title">Bring your work together.</h2><p class="bblaptop-description">Drop files to preview, download or share them. This list stays in this session. Upload files through your signed-in media library to save them with your business.</p>
+<div class="bblaptop-drop" id="laptop-drop"><label for="laptop-files-input"><span data-icon="files"></span><strong>Choose files or drop them here</strong><span>Up to 20 files · 100 MB each · 300 MB total</span></label><input id="laptop-files-input" type="file" multiple></div>
+<div class="bblaptop-file-actions"><button id="laptop-files-clear" type="button" disabled>Clear this list</button><a href="/fashion-service.html#media-library">Open cloud media library ↗</a></div>
+<p id="laptop-files-status" role="status" aria-live="polite">No files selected.</p>
+<div class="bblaptop-file-layout"><div id="laptop-files-list"></div><div class="bblaptop-file-preview"><h3 id="laptop-file-name">File preview</h3><div id="laptop-file-preview"><p>Select a file to preview it.</p></div><div class="bblaptop-file-actions"><a id="laptop-file-download" class="bblaptop-button" hidden>Download selected file</a><button id="laptop-file-share" type="button" disabled>Share selected file</button></div></div></div>
+</section>
+<section id="recorder" data-laptop-view hidden aria-labelledby="laptop-recorder-title">
+<p class="bblaptop-label">LAPTOP CAPTURE ENGINE</p><h2 id="laptop-recorder-title">Show your work.</h2><p class="bblaptop-description">Record a presentation, design walkthrough or browser demo. Choose what to share each time. Download your video before leaving. Sessions stop after 15 minutes or approximately 100 MB.</p>
+<div class="bblaptop-record-panel"><div class="bblaptop-record-top"><label for="laptop-record-audio">Audio source<select id="laptop-record-audio"><option value="screen">Shared tab / system audio, if available</option><option value="microphone">My microphone</option><option value="none">Video only</option></select></label><output id="laptop-record-time" aria-label="Recorded duration">00:00</output></div>
+<div class="bblaptop-file-actions"><button id="laptop-record-start" type="button" class="bblaptop-primary">Choose screen & record</button><button id="laptop-record-pause" type="button" disabled>Pause recording</button><button id="laptop-record-stop" type="button" disabled>Stop recording</button></div>
+<p id="laptop-record-status" role="status" aria-live="polite">Ready to record. Your browser will ask which screen to use.</p>
+<video id="laptop-record-preview" controls playsinline preload="metadata" hidden></video><div class="bblaptop-file-actions"><a id="laptop-record-download" class="bblaptop-button" hidden>Download recording</a><button id="laptop-record-share" type="button" disabled>Share recording</button></div></div>
+<div class="bblaptop-related"><a href="/digital-studio.html">Open camera, podcast & production studio ↗</a><a href="/phone-tools.html#voice">Record a voice note ↗</a><a href="/fashion-service.html#media-library">Upload a downloaded recording ↗</a></div>
+</section>
+<section id="settings" data-laptop-view hidden aria-labelledby="laptop-settings-title">
+<p class="bblaptop-label">WORKSPACE CONTROLS</p><h2 id="laptop-settings-title">Make room for your work.</h2>
+<div class="bblaptop-settings-grid"><article><h3>Display</h3><label class="bblaptop-check"><input id="laptop-compact" type="checkbox"> Compact module cards</label><button type="button" data-laptop-fullscreen>Full screen</button><p>Press Escape to leave full screen.</p></article><article><h3>Device preferences</h3><p>Pinned modules, recent module links and display density are stored in this browser.</p><button id="laptop-preferences-reset" type="button">Reset laptop preferences</button><p>Business records and original device files stay in place.</p></article><article><h3>Keyboard</h3><dl><dt><kbd>/</kbd> or <kbd>Ctrl / ⌘ K</kbd></dt><dd>Search all modules</dd><dt><kbd>Alt 1</kbd></dt><dd>Laptop home</dd><dt><kbd>Alt 2</kbd></dt><dd>Business engine</dd><dt><kbd>Alt 3</kbd></dt><dd>Digital studio</dd><dt><kbd>Tab</kbd> / <kbd>Shift Tab</kbd></dt><dd>Move between controls</dd><dt><kbd>Escape</kbd></dt><dd>Close module switcher / full screen</dd></dl></article><article><h3>Device capabilities</h3><ul id="laptop-capabilities"></ul><p>Camera and microphone controls are in Digital studio. Every capture asks for browser permission.</p><a href="/fashion-service.html#system-health">Check connected service health ↗</a></article></div>
+</section>
+<p id="laptop-operation-status" class="bblaptop-operation-status" role="status" aria-live="polite"></p>
+<noscript><p>Enable JavaScript to use the launcher and laptop tools.</p><p><a href="/fashion-service.html#business-engine">Business engine</a> · <a href="/digital-studio.html">Digital studio</a> · <a href="/fashion-os.html">Fashion OS</a> · <a href="/phone.html">Phone app</a></p></noscript>
+</main></div>
+</body></html>

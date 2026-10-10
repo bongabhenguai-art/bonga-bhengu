@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zuxuru Business Visibility Station — Builder Prototype</title>
+<style>
+:root{
+  --bg:#050718;--panel:#0a0d25;--panel2:#0d1230;--line:#25275a;
+  --text:#f7f7ff;--muted:#9da3c8;--purple:#7b3cff;--pink:#ed3fa7;--cyan:#36d9ff;
+  --green:#31e0b0;--yellow:#ffd166;--danger:#ff6685;
+}
+*{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 80% 0%,#21104b 0,#080a20 34%,#050718 70%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,select,textarea{font:inherit} button{cursor:pointer}
+.app{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.sidebar{border-right:1px solid var(--line);background:#06091b;padding:18px 14px;position:sticky;top:0;height:100vh}
+.logo{font-weight:900;font-size:25px;letter-spacing:.5px;padding:8px 10px 22px}.logo span{color:#a66bff}.tag{color:#ff4eb3}
+.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#aeb4d8;text-align:left;padding:12px 13px;border-radius:10px}.nav button:hover,.nav button.active{background:linear-gradient(90deg,#622cff,#a333a9);color:white}
+.sidebox{margin-top:28px;padding:14px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,#10143a,#080a20)}.sidebox small{color:var(--muted)}
+.main{min-width:0}.top{height:70px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 24px;background:rgba(5,7,24,.78);backdrop-filter:blur(12px);position:sticky;top:0;z-index:5}.search{flex:1;max-width:620px;background:#0c1030;border:1px solid var(--line);border-radius:11px;padding:11px 15px;color:#cdd2f5}.topright{margin-left:auto;color:#b8bee0;font-size:14px}
+.content{padding:24px;max-width:1550px;margin:auto}.pagehead{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}.pagehead h1{margin:0;font-size:28px}.pagehead p{margin:5px 0 0;color:var(--muted)}
+.btn{border:1px solid #463a92;background:#11163c;color:white;border-radius:10px;padding:10px 14px}.btn.primary{border:0;background:linear-gradient(100deg,var(--purple),var(--pink));font-weight:700}.btn.ghost{background:transparent}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:1.25fr .75fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:linear-gradient(145deg,rgba(15,19,52,.96),rgba(7,10,28,.96));border:1px solid var(--line);border-radius:15px;padding:17px;box-shadow:0 12px 40px rgba(0,0,0,.2)}.card h3{margin:0 0 10px}.muted{color:var(--muted)}.tiny{font-size:12px;color:var(--muted)}
+.hero{padding:20px;border:1px solid #353078;border-radius:18px;background:linear-gradient(115deg,#151348,#101136 55%,#1a0e37);display:grid;grid-template-columns:1.4fr .6fr;gap:20px}.business{display:flex;gap:15px;align-items:center}.avatar{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#743bff,#ef43a8);font-size:25px;font-weight:900}.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:99px;background:#12173e;border:1px solid #353878;color:#c8cdf1;font-size:12px}.pill.ok{color:#68f3ca;border-color:#1c725f}.score{display:flex;align-items:center;gap:18px}.ring{width:108px;height:108px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--cyan) 0 72%,#20254e 72%);position:relative}.ring:after{content:"";position:absolute;inset:9px;border-radius:50%;background:#0b0e2a}.ring b{position:relative;z-index:1;font-size:27px}.bar{height:8px;border-radius:99px;background:#20254a;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--purple),var(--cyan));border-radius:99px}.metric{font-size:24px;font-weight:800}.metric small{font-size:11px;color:var(--muted);font-weight:500}
+.steps{display:flex;gap:5px;overflow:auto}.step{flex:1;min-width:120px;padding:12px;border-bottom:2px solid #272b57;color:#aeb4d8;font-size:12px}.step.done{border-color:var(--green);color:#dcfff6}.step strong{display:block;color:white;margin-bottom:4px}
+.list{display:grid;gap:8px}.row{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px;border:1px solid #20244e;border-radius:10px;background:#0a0e2a}.status{font-size:11px;padding:4px 8px;border-radius:99px}.found{background:#16274a;color:#74cfff}.connected{background:#10372f;color:#68f3ca}.missing{background:#35202d;color:#ff9bb0}.attention{background:#3a3014;color:#ffe08a}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.tile{padding:13px;border:1px solid #272b5c;border-radius:12px;background:#0a0e2a}.tile b{display:block;margin-bottom:5px}.tile span{font-size:12px;color:var(--muted)}
+.timeline{display:grid;gap:0}.event{display:grid;grid-template-columns:13px 1fr;gap:12px;padding:10px 0}.dot{width:10px;height:10px;border-radius:50%;background:var(--purple);margin-top:5px;box-shadow:0 0 12px #7b3cff}
+.form{display:grid;gap:12px}.form label{font-size:12px;color:#b8bee0}.form input,.form textarea,.form select{width:100%;background:#080c27;border:1px solid #2b2f5e;color:white;border-radius:9px;padding:11px}.form textarea{min-height:90px;resize:vertical}
+.onboard{max-width:980px;margin:35px auto}.onboard .big{font-size:40px;line-height:1.08;margin:0 0 10px}.onboard .lead{font-size:16px;color:var(--muted);max-width:700px}.progress{display:flex;gap:6px;margin:22px 0}.progress i{height:4px;flex:1;border-radius:99px;background:#25294f}.progress i.on{background:linear-gradient(90deg,var(--purple),var(--pink))}
+.hidden{display:none!important}.notice{padding:11px 13px;border-radius:10px;background:#12183b;border:1px solid #343a73;color:#cfd4fa}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:15px}.tabs button{border:1px solid #292e61;background:#0a0e2a;color:#bfc5e8;border-radius:9px;padding:8px 12px}.tabs button.active{background:#5530c8;color:white;border-color:#7654e9}
+@media(max-width:1000px){.app{grid-template-columns:80px 1fr}.sidebar .nav button{font-size:0;text-align:center}.sidebar .nav button:first-letter{font-size:20px}.sidebox{display:none}.hero{grid-template-columns:1fr}.g4,.tiles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.app{display:block}.sidebar{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}.nav{grid-template-columns:repeat(4,1fr)}.nav button{font-size:11px!important;padding:8px}.top{padding:0 12px}.content{padding:14px}.g2,.g3,.g4,.tiles{grid-template-columns:1fr}.hero{padding:14px}.onboard .big{font-size:31px}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const seed={
+ business:{name:"Sunrise Café & Bistro",legalName:"Sunrise Café and Bistro (Pty) Ltd",registration:"2018/104829/07",industry:"Food & Beverage · Restaurant & Café",founded:"2018",location:"123 Main Street, Cape Town, South Africa",phone:"+27 21 555 0188",email:"hello@sunrisecafe.co.za",website:"https://www.sunrisecafe.co.za",description:"A modern café and restaurant serving locally sourced food, artisan coffee and a welcoming community space.",score:72},
+ platforms:[
+  ["Google Business","Connected",78,"https://google.com"],["Facebook","Connected",68,"https://facebook.com"],["Instagram","Connected",92,"https://instagram.com"],["YouTube","Found",76,"https://youtube.com"],["TikTok","Needs Attention",64,"https://tiktok.com"],["LinkedIn","Not Visible",0,""],["Website","Connected",90,"https://www.sunrisecafe.co.za"],["Local Directories","Found",70,""],["Review Platforms","Found",85,""]
+ ],
+ gaps:["Complete LinkedIn business presence","Improve local directory consistency","Increase short-form video publishing","Add stronger website conversion offer"],
+ opportunities:["Launch a weekly local-food video series","Create a review request campaign","Build a seasonal landing page","Retarget visitors with a local offer"],
+ events:[
+  ["Profile created","Business identity and initial profile saved."],
+  ["DeepSearch completed","Public business footprint mapped across available sources."],
+  ["Visibility scan completed","Initial visibility score calculated at 72/100."],
+  ["Platform profiles discovered","9 platform/profile records stored, including missing visibility."],
+  ["Business Visibility Station created","Business became a persistent Zuxuru workspace."]
+ ],
+ assets:["Summer menu image","Behind-the-scenes reel","Founder story video","Weekend offer graphic"],
+ connections:[["Website Builder","Connected"],["Google Business","Connected"],["Social Publishing","Connected"],["CRM","Not Connected"],["Email Marketing","Not Connected"],["Advertising","Not Connected"]]
+};
+let state=JSON.parse(localStorage.getItem("zuxuru_station")||"null")||seed;
+let page="station";
+let setupStep=1;
+function save(){localStorage.setItem("zuxuru_station",JSON.stringify(state))}
+function addEvent(title,detail){state.events.unshift([title,detail]);save();render()}
+function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function nav(){return [
+ ["⌂","Visibility Station","station"],["◎","Business Profile","profile"],["✦","Business Builder","builder"],["◉","Visibility & Score","visibility"],["↗","Platform Profiles","platforms"],["⌁","Connections / CIA","connections"],["▣","Digital Studio","studio"],["◇","Marketing & Growth","growth"],["☰","Leads / Inbox","leads"],["✺","AI Autopilot","ai"],["▤","Analytics","analytics"],["◷","History","history"]
+ ].map(([i,n,p])=>`<button class="${page===p?"active":""}" onclick="page='${p}';render()">${i} ${n}</button>`).join("")}
+function shell(body){
+return `<div class="app"><aside class="sidebar"><div class="logo"><span>Z</span> ZUXURU</div><div class="nav">${nav()}</div><div class="sidebox"><b>Your Growth Journey</b><small><br>Discover → Score → Connect → Build → Grow</small><div class="bar" style="margin-top:10px"><i style="width:68%"></i></div></div></aside><main class="main"><header class="top"><div class="search">⌕ Search your business, platforms, or ask Zuxuru…</div><div class="topright">● Business Owner &nbsp; | &nbsp; Zuxuru AI</div></header><section class="content">${body}</section></main></div>`}
+function header(title,sub,button=""){return `<div class="pagehead"><div><h1>${title}</h1><p>${sub}</p></div>${button}</div>`}
+function station(){
+return shell(`
+<div class="hero"><div><div class="business"><div class="avatar">${esc(state.business.name[0])}</div><div><h1 style="margin:0">${esc(state.business.name)} <span class="pill ok">● Verified</span></h1><div class="muted">${esc(state.business.industry)} · ${esc(state.business.location)}</div><div class="tiny">${esc(state.business.phone)} · ${esc(state.business.website)}</div></div></div>
+<p class="muted" style="max-width:760px;margin-top:18px">${esc(state.business.description)}</p>
+<button class="btn primary" onclick="page='profile';render()">Open Business Profile →</button></div>
+<div class="score"><div class="ring"><b>${state.business.score}</b></div><div style="flex:1"><b>Business Visibility Score</b><div class="tiny">Your current public visibility</div><div style="margin-top:10px">${["Search","Social","Website","Reviews","Local"].map((x,i)=>`<div style="display:flex;justify-content:space-between;font-size:11px;margin:5px 0"><span>${x}</span><span>${[78,68,62,85,76][i]}%</span></div><div class="bar"><i style="width:${[78,68,62,85,76][i]}%"></i></div>`).join("")}</div></div></div></div>
+<div class="card" style="margin-top:16px"><h3>Full Business Setup</h3><div class="steps">${["Business Details","Location & Contact","Website","Social Media","DeepSearch","Platform Profiles","Connections","Visibility Station"].map((x,i)=>`<div class="step ${i<7?"done":""}"><strong>${i+1}. ${x}</strong>${i<7?"Complete":"Active"}</div>`).join("")}</div></div>
+<div class="grid g3" style="margin-top:16px">
+<div class="card"><h3>Platform Profiles</h3><div class="list">${state.platforms.slice(0,6).map(p=>`<div class="row"><span>${p[0]}<br><span class="tiny">${p[2]?p[2]+"% visibility":"No public profile found"}</span></span><span class="status ${p[1]==="Connected"?"connected":p[1]==="Not Visible"?"missing":p[1]==="Needs Attention"?"attention":"found"}">${p[1]}</span></div>`).join("")}</div><button class="btn" style="width:100%;margin-top:10px" onclick="page='platforms';render()">View all platform profiles</button></div>
+<div class="card"><h3>Visibility Gaps</h3><div class="list">${state.gaps.map((g,i)=>`<div class="row"><span>${esc(g)}</span><button class="btn" onclick="closeGap(${i})">${i===0?"Fix":"Plan"}</button></div>`).join("")}</div></div>
+<div class="card"><h3>Growth Opportunities</h3><div class="list">${state.opportunities.map(o=>`<div class="row"><span>${esc(o)}</span><span class="pill">Next</span></div>`).join("")}</div></div>
+</div>
+<div class="grid g2" style="margin-top:16px">
+<div class="card"><h3>Business Growth Station</h3><div class="tiles">${["Monitor","Run Growth","Close Gaps","Marketing","Branding","Leads","Offers","Analytics"].map(x=>`<div class="tile" onclick="page='growth';render()" style="cursor:pointer"><b>${x}</b><span>Open ${x.toLowerCase()} workspace →</span></div>`).join("")}</div></div>
+<div class="card"><h3>Zuxuru Digital Studio</h3><p class="muted">Create, record, edit and publish business content.</p><div class="tiles">${["AI Images","AI Video","Record","Livestream","Podcast","Audio","Edit","Publish"].map(x=>`<div class="tile" onclick="page='studio';render()" style="cursor:pointer"><b>${x}</b><span>Open Studio →</span></div>`).join("")}</div></div>
+</div>
+<div class="grid g2" style="margin-top:16px"><div class="card"><h3>Connections & Integrations</h3>${state.connections.map(c=>`<div class="row"><span>${c[0]}</span><span class="status ${c[1]==="Connected"?"connected":"missing"}">${c[1]}</span></div>`).join("")}<button class="btn" style="margin-top:10px" onclick="page='connections';render()">Manage CIA connections →</button></div><div class="card"><h3>Business History</h3><div class="timeline">${state.events.slice(0,5).map(e=>`<div class="event"><span class="dot"></span><div><b>${esc(e[0])}</b><div class="tiny">${esc(e[1])}</div></div></div>`).join("")}</div><button class="btn" onclick="page='history';render()">View full history →</button></div></div>
+<div class="card" style="margin-top:16px;border-color:#593b9e"><b>Business Visibility Station</b><span class="muted"> — Monitor · Run · Close Gaps · Market · Brand · Create · Grow</span><span style="float:right;color:#65f3c8">● Your Business. Fully Connected.</span></div>
+`)}
+function profile(){return shell(header("Business Profile","The permanent source of truth for this business.",`<button class="btn primary" onclick="page='builder';render()">Edit / Build Profile</button>`)+`
+<div class="grid g2"><div class="card"><h3>Business Identity</h3><div class="form">${[
+["Business name","name"],["Legal name","legalName"],["Registration / verification","registration"],["Industry","industry"],["Founded","founded"],["Location","location"],["Phone","phone"],["Email","email"],["Website","website"]
+].map(([l,k])=>`<label>${l}<input value="${esc(state.business[k])}" onchange="state.business['${k}']=this.value;save()"></label>`).join("")}</div></div>
+<div class="card"><h3>Digital Existence</h3><div class="list">${state.platforms.map(p=>`<div class="row"><span><b>${esc(p[0])}</b><br><span class="tiny">${p[3]||"No public URL discovered"}</span></span><span class="status ${p[1]==="Connected"?"connected":p[1]==="Not Visible"?"missing":"found"}">${p[1]}</span></div>`).join("")}</div></div></div>
+<div class="card" style="margin-top:16px"><h3>Business description</h3><textarea style="width:100%;background:#080c27;border:1px solid #2b2f5e;color:white;border-radius:9px;padding:11px" onchange="state.business.description=this.value;save()">${esc(state.business.description)}</textarea></div>`)}
+function builder(){return shell(header("Business Builder","Build the complete business existence profile — every finding becomes reusable business data.")+`
+<div class="notice">DeepSearch findings are stored first. You can accept, edit or reject them. Accepted information becomes part of the canonical business profile and future Zuxuru intelligence.</div>
+<div class="grid g2" style="margin-top:16px"><div class="card"><h3>Setup Sections</h3><div class="list">${["Identity","Registration & Verification","Brand","Locations","Contacts","Website","Social Media","Products & Services","Reviews","Platforms","Content","Goals"].map((x,i)=>`<div class="row"><span>${i+1}. ${x}</span><span class="pill">${i<7?"Complete":"Ready"}</span></div>`).join("")}</div></div><div class="card"><h3>DeepSearch Discovery</h3><div class="notice">✓ Business identity matched<br>✓ Location found<br>✓ Website found<br>✓ Social profiles found<br>✓ Review footprint found<br>⚠ 2 platforms not visible<br>⚠ 3 profiles need connection</div><button class="btn primary" style="margin-top:12px" onclick="addEvent('Business Builder updated','Business profile setup reviewed and saved.')">Save Builder Changes</button></div></div>`)}
+function visibility(){return shell(header("Visibility & Score","Evidence-backed visibility intelligence and the path from evidence to connection.")+`
+<div class="grid g2"><div class="card" style="display:grid;place-items:center"><div class="ring" style="width:150px;height:150px"><b style="font-size:36px">${state.business.score}</b></div><h2>Business Visibility Score</h2><button class="btn primary" onclick="state.business.score=Math.min(99,state.business.score+3);addEvent('Visibility rescored','Visibility score improved after a rescan.');">Rescan & Rescore</button></div>
+<div class="card"><h3>Evidence Breakdown</h3>${state.platforms.map(p=>`<div style="margin:12px 0"><div style="display:flex;justify-content:space-between"><span>${esc(p[0])}</span><span>${p[2]}%</span></div><div class="bar"><i style="width:${p[2]}%"></i></div><div class="tiny">${p[1]} · <button class="btn ghost" onclick="page='platforms';render()">View evidence →</button></div></div>`).join("")}</div></div>`)}
+function platforms(){return shell(header("Platform Profiles","Every discovered digital profile — including the ones Zuxuru cannot currently see.")+`
+<div class="grid g3">${state.platforms.map((p,i)=>`<div class="card"><div style="display:flex;justify-content:space-between"><h3>${esc(p[0])}</h3><span class="status ${p[1]==="Connected"?"connected":p[1]==="Not Visible"?"missing":p[1]==="Needs Attention"?"attention":"found"}">${p[1]}</span></div><div class="metric">${p[2]}% <small>visibility</small></div><p class="tiny">${p[3]||"No public profile URL discovered. This finding is retained so it can become a connection task."}</p><div class="list"><div class="row"><span>Last scan</span><span class="tiny">Today</span></div><div class="row"><span>Evidence</span><span class="tiny">Public discovery</span></div></div><button class="btn primary" style="width:100%;margin-top:10px" onclick="connectPlatform(${i})">${p[1]==="Connected"?"Configure":"Connect / Authorize"}</button></div>`).join("")}</div>`)}
+function connections(){return shell(header("Connections & CIA","Connect the evidence Zuxuru found to the real platforms and systems the business owns.")+`
+<div class="notice"><b>CIA — Connect Intelligence Architecture</b><br>Evidence points here. This is where authorization, integrations, plugins, permissions and configuration happen. Prototype buttons update local state; real OAuth connectors can be wired later.</div>
+<div class="grid g3" style="margin-top:16px">${state.connections.map((c,i)=>`<div class="card"><h3>${esc(c[0])}</h3><span class="status ${c[1]==="Connected"?"connected":"missing"}">${c[1]}</span><p class="tiny">Permissions · Last sync · Configuration</p><button class="btn ${c[1]==="Connected"?"":"primary"}" onclick="connectSystem(${i})">${c[1]==="Connected"?"Manage":"Connect"}</button></div>`).join("")}</div>`)}
+function studio(){return shell(header("Zuxuru Digital Studio","The business creation workspace — create, record, generate, edit and publish.")+`
+<div class="tabs"><button class="active">Create</button><button>Record</button><button>Edit</button><button>Publish</button></div>
+<div class="grid g4">${["AI Images","AI Video","Video Recording","Livestream","Podcast","Audio Recording","Templates","Brand Assets","Content Calendar","Social Publisher","Short-form Clips","Campaign Creative"].map(x=>`<div class="card"><h3>${x}</h3><p class="tiny">Create business-ready ${x.toLowerCase()} inside Zuxuru Studio.</p><button class="btn primary" onclick="createAsset('${x}')">Open</button></div>`).join("")}</div>
+<div class="card" style="margin-top:16px"><h3>Recent Content</h3><div class="tiles">${state.assets.map(a=>`<div class="tile"><b>${esc(a)}</b><span>Saved to Business History</span></div>`).join("")}</div></div>`)}
+function growth(){return shell(header("Marketing & Growth","Run the Zuxuru Growth Operating System from one business command center.")+`
+<div class="card"><h3>Growth Loop</h3><div class="steps">${["Hook","Offer","Lead","Personalization","Close Package","Delivery","Result","Next Hook"].map((x,i)=>`<div class="step ${i<3?"done":""}"><strong>${x}</strong>${i<3?"Active":"Ready"}</div>`).join("")}</div></div>
+<div class="grid g4" style="margin-top:16px">${["Monitor","Close Gaps","Marketing","Branding","Leads","Offers","Delivery","Analytics","Automation","AI Agents","Packages","Rescore"].map(x=>`<div class="card"><h3>${x}</h3><p class="tiny">Open ${x.toLowerCase()} workspace.</p><button class="btn" onclick="addEvent('${x} opened','Growth Station workspace opened.')">Open</button></div>`).join("")}</div>`)}
+function history(){return shell(header("Business History","A permanent step-by-step record of the business inside Zuxuru.",`<button class="btn" onclick="state.events=[];save();render()">Clear demo history</button>`)+`<div class="card"><div class="timeline">${state.events.map(e=>`<div class="event"><span class="dot"></span><div><b>${esc(e[0])}</b><div class="tiny">${esc(e[1])}</div></div></div>`).join("")}</div></div>`)}
+function generic(title,sub){return shell(header(title,sub)+`<div class="card"><h3>Workspace ready</h3><p class="muted">This module is connected to the Business Visibility Station. Actions, configuration and history belong to the selected business profile.</p><button class="btn primary" onclick="addEvent('${title} opened','User opened the ${title} workspace.')">Start</button></div>`)}
+function closeGap(i){state.gaps.splice(i,1);addEvent("Visibility gap addressed","A business visibility gap was moved into execution.");}
+function connectPlatform(i){state.platforms[i][1]="Connected";state.platforms[i][2]=Math.max(state.platforms[i][2],70);addEvent("Platform connected",state.platforms[i][0]+" connected through CIA.");}
+function connectSystem(i){state.connections[i][1]="Connected";addEvent("Integration connected",state.connections[i][0]+" connected and ready for configuration.");}
+function createAsset(x){state.assets.unshift(x+" — new draft");addEvent("Studio asset created",x+" draft created in Zuxuru Digital Studio.");}
+function render(){
+ let body=page==="station"?station():page==="profile"?profile():page==="builder"?builder():page==="visibility"?visibility():page==="platforms"?platforms():page==="connections"?connections():page==="studio"?studio():page==="growth"?growth():page==="history"?history():generic(page==="leads"?"Leads / Inbox":page==="ai"?"AI Autopilot":"Analytics & Reports","Connected business operating workspace.");
+ document.getElementById("app").innerHTML=body;
+}
+render();
+</script>
+</body>
+</html>

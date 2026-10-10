@@ -1,0 +1,51 @@
+/* Shared viewport sizing: preserve readable content and normal vertical scrolling. */
+html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}
+body{min-width:0;width:100%;margin-inline:0}
+:where(main,section,article,aside,form,header,footer,nav,div){min-width:0}
+:where(h1,h2,h3,h4,p,a,label,summary,button,pre){overflow-wrap:anywhere}
+:where(img,video,canvas,iframe,audio){max-width:100%}
+:where(input,textarea,select){max-width:100%;min-width:0}
+pre{max-width:100%;overflow:auto}
+:where(dialog){max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);overflow:auto}
+body:has(>header>.brand) main{max-width:1440px;padding-inline:clamp(16px,3vw,40px)}
+body:has(>header>.brand)>header{padding:16px clamp(16px,3vw,40px);gap:16px;flex-wrap:wrap}
+body:has(>header>.brand) nav{flex-wrap:wrap;gap:16px}
+body:has(>header>.brand) .intro{padding:28px 0 24px;max-width:960px}
+body:has(>header>.brand) h1{font-size:clamp(32px,4vw,52px);margin:12px 0;letter-spacing:-1.5px}
+body:has(>header>.brand) .intro>p:not(.eyebrow){font-size:16px;margin:12px 0}
+body:has(>header>.brand) .actions{margin:16px 0;gap:16px}
+body:has(>header>.brand) .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+body:has(>header>.brand) .card{padding:18px}
+body:has(>header>.brand) .card h3{font-size:19px;margin:10px 0 6px}
+body:has(>header>.brand) .card p{min-height:0;margin:8px 0}
+body:has(>header>.brand) .team{margin-top:28px;padding:28px 0;gap:24px;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr)}
+body:has(>header>.brand) .team h2{font-size:28px}
+body:has(>header>.brand) .brief{padding:20px}
+@media(max-width:900px){
+ body:has(>header>.brand) .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body:has(>header>.brand) .team{grid-template-columns:minmax(0,1fr)}
+ .dashboard-shell{grid-template-columns:190px minmax(0,1fr)}
+ .designer-content{padding:20px}
+}
+@media(max-width:650px){
+ body:has(>header>.brand) .grid{grid-template-columns:minmax(0,1fr)}
+ .dashboard-shell{display:block}
+ .designer-sidebar{padding:16px;border-right:0}
+ .designer-sidebar nav{position:static;display:flex;flex-direction:row;flex-wrap:wrap;gap:6px}
+ .designer-sidebar nav a{padding:10px;font-size:13px}
+ .designer-content{padding:12px}
+ .designer-content>section{padding:16px}
+ .dashboard-actions,.business-work-grid,.omni-two-columns{grid-template-columns:minmax(0,1fr)}
+ .dashboard-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .studio-main{padding:12px}
+ .studio-toolbar label{min-width:0;flex-basis:100%}
+ .broadcast-screens{grid-template-columns:minmax(0,1fr)}
+ .studio-health{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .operation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ input,textarea,select{font-size:16px}
+ .tech-landing .header{flex-wrap:wrap;padding:16px}
+ .tech-landing .header nav{flex-wrap:wrap;gap:10px}
+ .tech-landing .hero{grid-template-columns:minmax(0,1fr);padding:28px 16px;gap:20px}
+ .tech-landing .hero-copy{grid-column:auto;grid-row:auto}
+ .tech-landing .hero h1{font-size:clamp(32px,8vw,46px)}
+}

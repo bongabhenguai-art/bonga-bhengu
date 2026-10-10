@@ -1,0 +1,5 @@
+studio.sqlite3
+outputs/
+.venv/
+__pycache__/
+.env

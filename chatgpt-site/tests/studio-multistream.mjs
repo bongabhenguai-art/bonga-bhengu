@@ -1,0 +1,25 @@
+import assert from 'node:assert/strict';
+import {studioMultistream} from '../worker/studio-multistream.mjs';
+const env={JARVIS_OWNER_EMAIL:'owner@example.com',MUXSHED_URL:'https://stream.example.com',MUXSHED_API_KEY:'secret'};
+const req=(method='GET',body,email='owner@example.com')=>new Request('https://site.example.com/api/studio/multistream',{method,headers:{'oai-authenticated-user-id':'u','oai-authenticated-user-email':email,origin:'https://site.example.com','content-type':'application/json'},body:body?JSON.stringify(body):undefined});
+let calls=[];globalThis.fetch=async(url,options)=>{calls.push({url:String(url),options});assert.equal(options.headers['X-API-Key'],'secret');return new Response(String(url).endsWith('destinations')?JSON.stringify([{name:'YouTube',enabled:true,kind:{stream_key:'never-return'}}]):String(url).endsWith('status')?JSON.stringify({pipeline:'Idle'}):null)};
+assert.equal((await studioMultistream(new Request('https://site.example.com/api/studio/multistream'),env)).status,401);
+assert.equal((await studioMultistream(req('GET',null,'other@example.com'),env)).status,403);assert.equal(calls.length,0);
+const d=await(await studioMultistream(req(),env)).json();assert.equal(d.connected,true);assert.equal(d.state,'Idle');assert.equal(JSON.stringify(d).includes('never-return'),false);assert.equal(JSON.stringify(d).includes('secret'),false);
+assert.equal((await studioMultistream(req('POST',{action:'start'}),env)).status,400);
+assert.equal((await studioMultistream(req('POST',{action:'start',confirmed:true}),env)).status,200);assert.equal(calls.at(-1).url,'https://stream.example.com/api/v1/stream/start');
+const missing=await(await studioMultistream(req(),{JARVIS_OWNER_EMAIL:env.JARVIS_OWNER_EMAIL})).json();assert.equal(missing.connected,false);
+assert.equal((await studioMultistream(req(),{...env,MUXSHED_URL:'http://stream.example.com'})).status,503);
+globalThis.fetch=async()=>{throw Error('API secret');};const failure=await studioMultistream(req(),env);assert.equal(failure.status,502);assert.equal((await failure.text()).includes('API secret'),false);
+console.log('PASS owner-only multistream, explicit actions, secret redaction, disconnected and upstream failure states');
+
+const whipEnv={...env,MUXSHED_WHIP_TOKEN:'private-whip'};
+const sid='12345678-1234-1234-1234-123456789abc';
+const whipReq=(method,path='',body)=>new Request('https://site.example.com/api/studio/multistream/whip'+path,{method,headers:{'oai-authenticated-user-id':'u','oai-authenticated-user-email':env.JARVIS_OWNER_EMAIL,origin:'https://site.example.com'},body});
+globalThis.fetch=async(url,opts)=>{assert.equal(opts.headers.Authorization,'Bearer private-whip');if(opts.method==='DELETE')return new Response(null,{status:204});assert.equal(opts.body,'v=0\r\n');return new Response('v=0\r\nanswer',{status:201,headers:{location:'/api/v1/whip/'+sid}})};
+const wr=await studioMultistream(whipReq('POST','','v=0\r\n'),whipEnv);assert.equal(wr.status,201);const wd=await wr.json();assert.equal(wd.session,sid);assert.equal(JSON.stringify(wd).includes('private-whip'),false);
+assert.equal((await studioMultistream(whipReq('DELETE','/'+sid),whipEnv)).status,200);
+assert.equal((await studioMultistream(whipReq('DELETE','/invalid'),whipEnv)).status,400);
+assert.equal((await studioMultistream(whipReq('POST','','bad'),whipEnv)).status,400);
+assert.equal((await studioMultistream(whipReq('POST','','v=0'),env)).status,503);
+console.log('PASS WHIP token isolation, SDP negotiation, bounded input and session teardown');

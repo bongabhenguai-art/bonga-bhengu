@@ -1,0 +1,26 @@
+<!doctype html><html lang="en-ZA"><head><script src="/app-entry.js?entry=storefront-1"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1018">
+<title>Phone tools · Bonga Bhengu</title><meta name="description" content="Capture photos and video, record voice notes, and share files from your phone.">
+<link rel="icon" href="/assets/favicon.svg"><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/phone-shell.css"><script type="module" src="/phone-shell.js?app=2"></script><script type="module" src="/phone-tools.js"></script>
+</head><body class="bbphone-tools">
+<a class="bbphone-skip" href="#phone-tools-main">Skip to phone tools</a>
+<header class="bbphone-top"><a class="bbphone-wordmark" href="/phone.html"><span>BB</span>BONGA BHENGU</a><button class="bbphone-back" type="button" data-phone-back>← Back</button></header>
+<main class="bbphone-main" id="phone-tools-main"><p class="bbphone-eyebrow">SMARTPHONE FUNCTIONS</p><h1>Capture. Record. Share.</h1><p>Files stay on this device until you share, download or upload them. Download anything you want to keep before leaving this page.</p>
+<section id="camera" class="bbphone-tool-card"><h2>Camera</h2><p>Use your Android camera or choose an existing photo or video. Your device chooses which camera options are available.</p>
+<label for="phone-photo">Take or choose a photo</label><input id="phone-photo" type="file" accept="image/*" capture="environment">
+<label for="phone-video">Record or choose a video</label><input id="phone-video" type="file" accept="video/*" capture="environment">
+<p id="camera-status" role="status" aria-live="polite">Nothing captured yet.</p><div id="camera-preview"></div>
+<div class="bbphone-tool-actions"><a id="camera-download" class="bbphone-button" hidden>Download file</a><button id="camera-share" class="bbphone-button" type="button" disabled>Share file</button></div>
+<a href="/fashion-service.html#media-library">Upload to your media library ↗</a> · <a href="/digital-studio.html">Use live studio cameras ↗</a></section>
+<section id="voice" class="bbphone-tool-card"><h2>Voice notes</h2><p>Allow microphone access to record a brief, idea or interview note. Recording stops after five minutes or when you leave this screen.</p>
+<div class="bbphone-tool-actions"><button id="voice-start" class="bbphone-button" type="button">Start recording</button><button id="voice-stop" class="bbphone-button" type="button" disabled>Stop recording</button></div>
+<p id="voice-status" role="status" aria-live="polite">Ready to record.</p><p id="voice-time" aria-label="Recording duration">00:00</p><div id="voice-preview"></div>
+<label for="phone-audio">Or choose an audio file</label><input id="phone-audio" type="file" accept="audio/*">
+<div class="bbphone-tool-actions"><a id="voice-download" class="bbphone-button" hidden>Download voice note</a><button id="voice-share" class="bbphone-button" type="button" disabled>Share voice note</button></div></section>
+<section id="files" class="bbphone-tool-card"><h2>Files & sharing</h2><p>Choose a document or media file from your phone, up to 100 MB. Use the Android share sheet to send it to an available app.</p>
+<label for="phone-file">Choose a file</label><input id="phone-file" type="file">
+<p id="files-status" role="status" aria-live="polite">No file selected.</p><div id="files-preview"></div>
+<div class="bbphone-tool-actions"><a id="files-download" class="bbphone-button" hidden>Download file</a><button id="files-share" class="bbphone-button" type="button" disabled>Share file</button></div>
+<p id="phone-share-support"></p><a href="/fashion-service.html#media-library">Open your cloud media library ↗</a></section>
+<noscript><p>Enable JavaScript for recording, previews and sharing.</p></noscript>
+</main></body></html>

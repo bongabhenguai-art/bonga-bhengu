@@ -1,0 +1,193 @@
+ZUXURU — MASTER BUILDER INSTRUCTIONS
+Version: 7 October 2026
+Owner: Bonga Bhengu
+Parent company: Bysei Pty Ltd
+
+Paste this entire file into the coding agent or application builder. It is a build instruction, not a claim that the platform already exists.
+
+1. YOUR JOB
+Act as lead full-stack engineer, AI engineer, product designer and QA engineer. Build and verify the actual Zuxuru Business Growth Operating System. The owner is nontechnical: make reasonable implementation choices and carry out the work. Do not deliver only an image, landing page, mockup, scaffold, architecture explanation or sample code. Deliver working application source, backend, persistent records, authenticated workflows and a usable deployment.
+
+Read the available project history, current source, build instructions and existing decisions before changing anything. Preserve the approved architecture and working modules. Add missing layers; do not redesign the app or switch hosting without the owner's instruction. Product name is Zuxuru. Preserve useful learning from older Fukulisane/Fukulisani versions without retaining those names as the active product.
+
+2. CURRENT PROJECT — INSPECT FIRST
+Current AppDeploy app ID: zuxuru-ai-os-ie5k5d
+Current app URL: https://zuxuru-ai-os-ie5k5d.v2.appdeploy.ai/
+Management dashboard: https://dashboard.appdeploy.ai
+
+At the last check, the AppDeploy connection named “zuxuru ai” could access this app. “zuxrurutech” returned Unauthorized. Recheck rather than assume this remains true.
+Both connected GitHub accounts returned an empty accessible-repository list. Do not claim a GitHub push occurred, create a replacement repository silently, or treat a GitHub connection badge as proof of repository access.
+
+This app remains incomplete. Earlier source had a website-only investigation, AI recommendations, package/content generation, proof links and a newly added authenticated private Leads workspace. Lead lifecycle testing was not independently completed. Other sections contained placeholder behavior. Inventory the actual current source and data before using any of those capabilities. “Deployment ready” and zero logged errors are not acceptance evidence.
+
+Candidate repository references from prior work, to verify for identity/access:
+https://github.com/luckbhengu-a11y/Zuxuru-fukulisane-app.git
+https://github.com/zuxuru1/DeepSeek-LLM.git
+A repository named zuxuru-platform was also requested; its owner/access is unresolved.
+Do not assume DeepSeek-LLM contains Zuxuru application source.
+
+3. LOCKED PRODUCT PIPELINE
+Business-name entry → FBL public profiler/investigation → saved business profile → BFI public visibility score with proof → CIA real connections → Business Intelligence Engine → Growth Opportunity/Hook Engine → Package Generator → Studio → measured outcomes → rescore.
+
+Preserve the established naming: FBL public evidence entry/profiler; FBI evidence/intelligence layer; BFI public visibility score; CIA Connect Intelligence Architecture. Do not arbitrarily rename or merge these components.
+
+Mandatory routing:
+Profile Score → Evidence/Direct Source Link → CIA → Verified Real Connection → Deeper Analysis.
+A source link is public evidence. It is not account authorization.
+Operating loop:
+SEE → UNDERSTAND → CONNECT → IMPROVE → CREATE → DISTRIBUTE → MEASURE → LEARN → GROW → SEE AGAIN.
+Agent execution loop:
+Capture → Understand → Plan → Execute → Verify → Learn → Remember → Repeat.
+
+4. TWO REAL DASHBOARDS
+Customer dashboard: business profile, physical and digital visibility, evidence, connections, intelligence, opportunities, packages, leads, website/storefront builder, Studio, execution and monitoring.
+Zuxuru CEO/system-designer dashboard: owner-only operations, Jarvis brain, agent team, tasks, scheduler, memory, module registry, connection health, execution receipts, customer/business management and operational reports.
+Enforce roles in the backend. Hiding a menu is insufficient.
+Jarvis is Zuxuru's internal operating brain, invisible to storefront customers, not a separate customer chatbot. It coordinates specialist agents and tools and explains findings with evidence to the owner.
+
+5. APP DESIGN
+Preserve the approved polished dark dashboard direction: left navigation, prominent business Digital Visibility Score, platform-by-platform visibility, opportunities, measured growth metrics, quick actions, intelligence layers and responsive mobile views.
+Flow: Discover → Score → Connect → Analyze → Recommend → Execute → Monitor → Grow.
+Show outcomes and usable actions. Keep technical engine descriptions out of customer screens.
+Never populate a dashboard with invented scores, leads, growth percentages, confidence values, activity or publishing states. Empty, unavailable and unmeasured states must be explicit.
+
+6. FBL PROFILER / MAIGRET INVESTIGATION — FIRST PRIORITY
+The customer enters a business name; website and location are optional disambiguation inputs, not compulsory substitutes for name investigation.
+Investigate physical identity/location first, then digital footprint. Search supported public sources across Google/Bing, Maps, websites, Facebook, Instagram, X, YouTube, Pinterest, LinkedIn, TikTok, directories, reviews, mentions and competitor context.
+Maigret is the intended investigation engine name. Inspect any proposed open-source Maigret module before adopting it; username enumeration alone does not satisfy business-name investigation.
+Use actual search/data providers with supported access. AI text generation is not search evidence. Never generate guessed profile URLs and label them found.
+When multiple businesses share a name, show candidates with location and proof so the user can select the correct identity.
+Persist a business profile containing:
+- business name and aliases
+- business history, only when sourced or owner supplied
+- registration details only from available evidence or owner input; do not claim registration was verified without verification
+- physical location, address, service area and branch relationships
+- phone, email, domain, website and public platform profiles
+- industry/category and relevant business descriptions
+- discovered, unverified, inaccessible and not-found-in-investigation states
+- evidence records, investigation timestamps and coverage
+- owner corrections, consent and business ownership status
+Business Tree is for multi-location brands, not every single business.
+
+Each evidence record must carry:
+id, businessId, source URL, source platform, observed claim, exact supporting excerpt where available, retrieval time, retrieval status, identity-match basis, evidence state and investigation run ID.
+Differentiate source facts, owner input and AI inference.
+“Not found” means not found in the sources checked; it never proves the business has no account.
+Show direct proof links next to the finding. Allow profile correction without erasing source history.
+Keep investigation scope, inaccessible sources and freshness visible.
+
+7. BFI PUBLIC VISIBILITY SCORE
+Score the investigated business profile, never Zuxuru itself.
+Implement a documented deterministic versioned rubric with dimension scores, weights, coverage and source references. The rubric must be configurable; preserve an existing approved rubric if available.
+Separate physical identity, discoverability, profile completeness, consistency, trust evidence and enquiry paths.
+Missing or inaccessible evidence must not automatically become zero. Show insufficient coverage or provisional scores when appropriate.
+Retain before/after score snapshots and the same rubric version for comparisons. Never compare unrelated businesses or fabricate uplift.
+Explain each scored dimension with its evidence and next action.
+
+8. CIA DIRECT CONNECT WIZARD
+Evidence links route to the relevant platform's CIA wizard with businessId, platform and evidenceId preserved.
+For found profiles: show the discovered public source, then the actual supported authorization flow.
+For profiles not found: offer the platform's genuine account/profile creation route, then return to connect and verify.
+Use OAuth, official APIs or supported credentials. Secure credentials server-side; never put tokens in source, browser storage, chat or deployment payloads.
+Verify account identity, access scope and a provider read before marking Connected.
+Connection states: Authorization Failed, Permission Missing, Source Unavailable, Stale, Disconnected; also clearly show pending authorization and verified Connected.
+Provide reconnect, revoke/disconnect, last successful check and actionable error details.
+Unsupported adapters must display unavailable status, not simulated success.
+GitHub: verify account → accessible repository → permission → read → safe write to an authorized branch → actual commit receipt → supported deployment → build result.
+GitHub Actions dispatch is not automatically an AppDeploy deployment. Implement and verify the actual bridge if one is needed; distinguish host deployment status from CI workflow status.
+
+9. INTELLIGENCE, HOOKS AND PACKAGES
+Combine public evidence with genuinely authorized connected data. Keep provenance and confidence tied to evidence.
+Diagnose a business-specific gap, identify opportunity, set an objective and generate executable tasks with owners and measurable criteria.
+Hooks and offers must reference evidence; do not promise unsupported outcomes.
+Lock subscription price values:
+R299 / R499 / R699 / R999 monthly.
+More AI agents/capability entitlement = higher tier. Preserve existing approved package contents. If detailed agent allowances are absent, mark them for owner definition rather than invent “locked” counts.
+Implement persisted plan selection and server-side entitlements; do not mark payments successful without provider verification.
+Seven-day free trial, then block paid functions if unpaid; preserve access to account/billing and the user's records.
+Support the agreed multi-business/group/stokvel model: authorized tenant addition/removal, unpaid member restriction and waiting-list replacement with explicit records and permissions.
+
+10. LEADS, WEBSITE AND STOREFRONT
+Real private lead records: capture, source/proof, status, notes, follow-up, assigned agent and outcome; persisted create/read/update/delete with isolation.
+AI drafting may propose communication. Sending email, WhatsApp, social posts or calls requires authorized channels and the relevant user's approval policy. Never claim delivery without a provider receipt.
+Website builder uses verified public profile data plus owner input. Use Claude Code only when that capability is actually available; otherwise expose the real active builder.
+Offer Zuxuru hosting, inspect/generate preview, edit, approve, publish, deployment status and rollback.
+WhatsApp-first/offline storefront with products/services, enquiries/orders, supported cash/EFT/payment states and official social integrations.
+Do not invent offline sync or payment support; implement and test it.
+Customer areas: Visibility Audit, Connect Business, Digital Visibility Growth, Branding, Market Growth, Leads, Growth Strategy, Execution, Autopilot.
+
+11. STUDIO
+Preserve existing Studio work; checkpoint identifier from history:
+fdc918e7-b704-4cec-befd-d75969579361 (resolve its actual system before assuming it is a source repository).
+Workflow: Create → Capture → Edit → AI process → Approve → Publish → Deliver → Measure.
+Implement real asset records, versions, uploads, previews, edits, approval and supported publish/delivery receipts.
+A decorative video frame is not generated video. A queued label is not a running job.
+Support available phone cameras/microphones/earphones and permission errors. Multi-phone/multi-camera switching, multiview, two-screen studio, livestream, podcast, scenes, backgrounds, audience, branding video and avatar features require real capture/rendering/provider capabilities and honest status.
+Keep drafts private; do not auto-publish customer assets without authorization.
+
+12. JARVIS, AGENTS, MEMORY AND AUTOPILOT
+Internal Jarvis coordinates investigation, connections, intelligence, opportunities, packages, Studio, publishing, monitoring and learning agents as one team.
+Every agent has a purpose, permitted tools, tenant scope, task inputs/outputs, budget, status and audit trail.
+Persistent missions and tasks with dependencies, retries, cancellation, idempotency and execution receipts.
+Use real durable workers/schedulers for 24/7 activity. Browser timers or an “AI is watching” badge do not count.
+Store business decisions, preferences, lessons and verified outcomes in scoped memory.
+Daily owner report and optional voice coaching; meeting assistant must defend claims with proof and distinguish public from connected data.
+Trend/value/product/market/ready-buyer targeting signals may use the requested MQL5 source only after verifying suitable non-trading data access.
+First-customer workflow: relevant gyms around Umbogintwini/Amanzimtoti, Galleria Mall and Arbour Crossing businesses. Investigate prospects and prepare evidence-led outreach; no invented leads or unsolicited sending.
+Bysei markets and brands Zuxuru; build the product first, then use its genuine workflows to improve Bysei's visibility.
+
+13. OPEN-SOURCE CAPABILITY SOURCING
+Inspect GitHub modules and adopt them when they do a job better than the in-house capability. Do not copy an entire unrelated stack or replace Zuxuru's architecture.
+Candidate pool from project history:
+Open Mercato, Twenty CRM, ERPNext/Frappe, Spree, n8n, Dify, Flowise, Langflow, Open WebUI, Chatwoot, Rocket.Chat, Strapi, Directus, Payload CMS, PostHog, Umami, Plausible, MinIO, Supabase, Appwrite, Meilisearch, Qdrant, FFmpeg, Remotion, OpenShot, MiroFish, OmniRoute/JevRouter, Postiz, Logto and WhatsApp Cloud API/Gowa.
+Polsia, Arena AI, Google Flow and Kimi are integration candidates, not presumed installed/free/open-source modules.
+Kimi K2.7-Code/Kimi K3 are requested builder/provider candidates; verify exact availability, API access and permissions before use.
+For each adopted module record official repository URL, license/version, task, runtime requirements, adapter boundary, test result, hosting cost and maintenance responsibility.
+Free software does not imply free hosting, unlimited tokens or unrestricted provider access. Verify claims before building a routing dependency.
+Maintain a capability registry so Jarvis can route tasks to an enabled, verified provider and report failed/unavailable routes honestly.
+
+14. ENGINEERING REQUIREMENTS
+Keep AppDeploy as the requested deployment target. Read its current deployment and SDK instructions before writing integrations.
+Use authenticated, tenant-scoped backend data; protect CEO operations, credentials and repository writes.
+Migrate or isolate existing unscoped records deliberately; do not silently expose old shared data to signed-in customers.
+Persist entities: Users/Roles, Businesses/Branches, Profiles, Investigations, Evidence, Scores, Connections, Opportunities, Plans/Entitlements, Leads, Assets/Versions, Tasks/Jobs, Agent Runs, Memory, Metrics and Audit Events.
+Return actual record IDs and validate successful database writes. Use bounded pagination.
+Implement loading, empty, error, retry and stale states. Validate runtime inputs and provider output. Handle quotas and provider outages.
+Add observable job health, timestamps, structured failures and redacted audit logs.
+Support phone, laptop and tablet. Plan country/language support for all 54 African countries; implement translation and voice/drive features incrementally and report actual coverage.
+
+15. IMPLEMENTATION ORDER
+A. Inventory current source, history, environment, permissions, placeholders and actual running services.
+B. Fix authenticated tenant/business isolation and the two role-based dashboard boundaries.
+C. Build the business-name investigation, saved profile, physical identity, evidence links and deterministic scoring.
+D. Build CIA adapters with verified authorization and direct evidence routing.
+E. Wire evidence-grounded opportunities and packages into real Studio tasks.
+F. Complete leads, website/storefront and delivery workflows.
+G. Activate internal Jarvis tasks, memory, durable schedules and monitoring.
+H. Run end-to-end checks, repair failures and deploy the tested version.
+Preserve functioning work throughout. If dependencies block one task, continue independent authorized work; list the precise missing dependency and do not fake completion.
+
+16. REQUIRED ACCEPTANCE TESTS
+1. Business-name investigation: identify the correct business, persist the profile, show physical-location evidence, platform findings and direct proof URLs; verify after refresh and a new signed-in session.
+2. Disambiguation/coverage: handle ambiguous names, inaccessible sources and insufficient evidence without invented facts or scores.
+3. Score → evidence → CIA: preserve business/platform context; complete one real authorization/read and show verified connection.
+4. Connection failure/revoke: rejected permissions, unavailable source, disconnect and reconnect produce truthful states.
+5. Isolation: customer A cannot read/write customer B records; customers cannot reach CEO endpoints; anonymous private access is denied.
+6. Intelligence → package → Studio: create evidence-grounded actions and an editable asset, retain versions and approval state, obtain an actual receipt for any supported publishing action.
+7. Rescore: run a new investigation using a compatible rubric and show only measured change.
+8. Leads: create, update, refresh, cancel deletion, confirm deletion and sign out; verify persistence/privacy.
+9. Billing/entitlements: trial expiry and verified payment status enforce the correct access rules without fake checkout success.
+10. Jarvis: schedule a durable task, observe worker execution and receipt, verify cancellation/retry and no duplicate external action.
+11. GitHub/AppDeploy: prove repository read/write with actual commit and deployment result where access permits; report blocked access precisely.
+12. Mobile: complete the core investigation/evidence/connection and saved-record flows on phone-sized screens.
+
+17. DEFINITION OF DONE
+Deliver a usable app URL, authorized source/commit location, migration/setup records, test evidence and a concise list of verified versus blocked capabilities.
+Do not call the whole platform finished because it compiles, deploys, has screenshots or reports zero runtime errors.
+For every claimed working capability provide its actual persisted outcome or provider receipt.
+Never replace failed analysis with a fabricated default score or generic growth percentage.
+All navigation items must have useful operational behavior or an explicit unavailable state.
+Continue building the requested scope until verified or concretely blocked. Do not stop after a plan or an image.
+
+START NOW: inspect the existing Zuxuru app and available project history, list the real blockers briefly, then implement the highest-priority missing working flow. Keep the architecture locked.
+

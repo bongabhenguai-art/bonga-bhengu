@@ -2,7 +2,7 @@
   "parent": "Bonga Bhengu App",
   "existingSiteBaseline": "f910bbecc2a60244bb6641787482aa64147c39f9",
   "githubBaseline": "bd28dcdbd57344900ae2625351afd82a5f14c307",
-  "libraryArtifacts": 79,
+  "libraryArtifacts": 80,
   "additionalOsArtifacts": 2,
   "githubSources": 138,
   "scope": "All sources resolved by the current 79-artifact project ledger, two OS package artifacts and all accessible GitHub project branch additions. ChatGPT project attachment membership is not exposed; this does not certify all 99 attachments. Original files are retained in source, not served as public executable pages.",
@@ -2468,6 +2468,28 @@
       "origin": "bongabhenguai-art/bonga-bhengu",
       "sha256": "f2b968c14ea87d78fb46cabf9c18c91f352dc0753c06785ba3911eefef3a148d",
       "disposition": "source retained; Python runtime remains external to the Worker"
+    },
+    {
+      "name": "ChatGPT Image Aug 7, 2026, 11_20_15 AM.png",
+      "path": "project-sources/library/Bonga Bhengu app/studio-control-reference-2026-08-07.png",
+      "origin": "library",
+      "sha256": "5498c6df1b94adf061d1a1a0a378e5f04231cf0d9385492f5b682a82b991a995",
+      "originalHashMatched": true,
+      "disposition": "Retained visual reference; existing Studio preview/programme workflow preserved. Image is not a live dashboard or evidence of connected broadcast services.",
+      "modules": [
+        "studio"
+      ],
+      "libraryFileId": "libfile_04562ecff6f08191a453d9de343d58f2",
+      "modifiedAt": "2026-10-10T04:35:00.094285Z"
     }
-  ]
+  ],
+  "latestReconciliation": {
+    "checkedAt": "2026-10-10",
+    "baselineCommit": "1f29666e02b0127532539dc1ce169fe03abd36b2",
+    "previousSourceRecordsMatched": 79,
+    "projectFolderFiles": 3,
+    "projectFolderDocumentsHashMatched": 2,
+    "additionalVisualReference": 1,
+    "projectMembershipAvailable": false
+  }
 }

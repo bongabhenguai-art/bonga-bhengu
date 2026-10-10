@@ -1,0 +1,218 @@
+All
+Short videos
+Videos
+Forums
+News
+Images
+Books
+Web
+Maps
+Finance
+Search tools
+Feedback
+Sponsored result
+
+Gitar.ai
+https://try.gitar.ai › gitar › agentic-tools
+7M+ Developers Trust Sonar - Quality Gates On Every PR
+Independent verification across Claude Code, Copilot, Cursor, and Codex. See how it works. AI writes code fast. Sonar verifies it's safe to ship, across 40+ languages. Try it free. AI CodeFix.
+AI Overview
+Turning a static website or app layout into an advanced, scroll-animated or interactive experience using free, open-source, or Google-provided AI tools relies on a modern stack of generative image/video models and AI code generators. 
+
+YouTube
+ +1
+Google AI Tools for Animated Web Design
+Google AI Studio: A free developer platform using the Gemini family where you can input prompts, upload hero/product images, and generate entire website layouts, code structures, and responsive scrolling sections. 
+
+Google Cloud
+ +2
+Google Whisk & Flow / Veo: Experimental or specialized Google visual generation tools used to produce high-resolution 3D product renders, keyframes, and smooth video transitions that serve as scroll-based animated backgrounds. 
+Gemini Canvas: An interactive workspace available within Gemini that lets you generate and visualize code animations, small web pages, or UI components directly from text prompts. 
+
+‎Google Gemini
+Free & Open-Source AI App/Web Builders
+Replit: Functions as an AI-powered code environment and browser-based builder that helps craft interactive, 3D animated web designs and application frontends using natural language prompts. 
+Dyad: A completely free, local, open-source AI app builder that lets you describe an idea or import structures to turn them into working web apps while keeping full ownership of your code. 
+
+Dyad
+Bolt.new / V0 by Vercel: Popular AI-driven frontend and full-stack generators that quickly interpret design requirements or reference screenshots to output clean React/Tailwind components and animated UIs (offering generous free tiers). 
+
+www.kimi.ai
+Typical Workflow to Create an Animated Website with AI
+Generate Assets: Use an AI generator (like Google Whisk/Flow or Kling) to create start/end frames or smooth 3D video animations for your product or hero section. 
+Layout & Code with AI: Feed your generated media assets and a descriptive prompt into Google AI Studio or an open-source builder to write the HTML, CSS, or React code with scroll-based animations (like Apple-style 3D product transitions). 
+
+YouTube
+·WeCodeNoCode
+ +1
+Refine & Deploy: Iterate on spacing and motion parameters via chat prompts, then sync your repository directly to GitHub and deploy live for free using hosting platforms like Netlify.
+
+
+
+
+
+Ask anything
+
+
+
+Apps
+AI Website Builder & HTML IDE
+AI Website Builder & HTML IDE
+4.1
+(28)
+Productivity
+Google Flow
+Google Flow
+4.1
+(27K)
+Art & Design
+ · Ai art
+People also ask
+Which AI can animate for free?
+Which AI tool can make a free website?
+Which AI is 100% free?
+Is Google Opal free?
+Videos
+I Built an Animated Product Website in 10 Minutes using AI (Google Anti- ...
+YouTube · Shreyas Raj
+11 Jan 2026
+
+10:10
+Build an animated 3D product website in 10 minutes using AI tools like Google Anti-gravity, Whisk, and Netlify.
+$3000 Animated website in 10 minutes with free AI tools
+YouTube · Creativo
+19 May 2026
+
+13:18
+Build an animated website in 10 minutes using free AI tools like ChatGPT, Google AI Studio, Cling AI, and Cloudinary.
+Build a Fully Animated Website for FREE in 8 Mins (Google AI Studio + ...
+YouTube · WeCodeNoCode
+21 Apr 2026
+
+8:20
+Build a fully animated website with Google AI Studio using prompts, then deploy it live on GitHub and Netlify.
+
+Google Cloud
+https://cloud.google.com
+10+ Free AI tools for 2026
+We also offer free tools for common AI use cases, including translation, image and video analysis, speech-to-text, and more. Try Google AI Studio for free.
+Missing: animated ‎| Show results with: animated
+
+kimi.ai
+https://www.kimi.ai
+10 AI App Builders for Quick Creation: Free & Paid Options
+23 Sept 2026 — Bolt.new is an AI-powered development platform that instantly converts prompts into full web applications with a working backend and frontend.
+People also search for
+
+Opal
+https://opal.google
+Opal [Experiment]
+Intuitive Visual Editing. Edit and refine your app's logic with a node-based workflow. Join our Discord for support and sharing feedback.
+
+Dyad
+https://www.dyad.sh
+Dyad – Free, Local, Open-Source AI App Builder
+The open-source AI app builder on your desktop. Turn your ideas into web apps without coding. Use your favorite AI models. Own your code. Zero lock-in.
+Missing: animated ‎| Show results with: animated
+
+Google
+https://www.google.com
+AI in Chrome: help right where you need it
+Gemini in Chrome is an AI assistant that's located right in your Chrome browser tab. Gemini in Chrome uses the context of your open tabs to give responses that ...
+
+Google Labs
+https://labs.google
+Google Labs: Google's home for AI experiments
+Google AI Studio (formerly MakerSuite) is your vibe coding platform for building production-ready apps and websites. Try It Now. Stay connected for early access ...
+
+Replit
+https://replit.com
+AI 3D Website Builder
+Build a 3d website in minutes for free with AI. Write in plain English or tap buttons to create your website. Build a 3D model marketplace.
+People also search for
+Results are personalised
+-
+Try without personalisation
+South Africa
+Ezimbokodweni, Malagazi - From your device
+Update location
+Send feedback
+Terms. [05:02, 08/10/2026] Zuxuru: Act as a UI/UX front-end developer specializing in modern tech-fashion websites. Write a global CSS stylesheet. Use a strict slate-black background (#0A0A0C), crisp cyber-white typography using the font 'Syne' or 'Space Grotesk', and ultra-fine glowing accent lines (#FF007F neon pink or #00FFFF electric cyan). All images should have sharp, zero-radius borders to simulate a digital canvas."
+[05:02, 08/10/2026] Zuxuru: Create an HTML and CSS section for a 'Digital Studio' landing header. The main title should read 'STUDIO [DESIGNER_NAME] // VIRTUAL ATELIER'. Add a CSS glowing text shadow to the typography. When a user hovers over the header text, trigger a subtle, fast CSS text-glitch animation effect. Place an animated, transparent canvas block behind it that displays slowly drifting grid-lines (a tech blueprint grid pattern
+[05:03, 08/10/2026] Zuxuru: Prompt to copy into ChatGPT:
+"Write the code for a horizontal fashion lookbook grid. As the user scrolls down, individual images of 3D garments or design sketches should smoothly fade in and scale upward using JavaScript's Intersection Observer. When a user moves their mouse cursor over any image card, a tiny neon tag box should fade into view, tracking the cursor slightly with a physics-delay effect, reading: 'SPECIFICATION_DATA_VIEW'."
+[05:03, 08/10/2026] Zuxuru: Design a grid layout for my fashion collection. On the left side, feature a large vertical image of a design look. On the right side, list the piece's tech specs (e.g., 'Fabrication: Digital Mesh // Polygons: 140k // Render: Real-Time'). Build a micro-interaction using CSS where hovering over individual spec lines highlights them with a neon cyan block tint and plays a crisp line-strike animation."
+[05:32, 08/10/2026] Zuxuru: • 
+	• FOR_RENT status badge and the RENT_THIS_SPACE_▶️ action button.
+System Architecture Requirements:
+1. The Navigation Matrix: Place 3 high-tech neon toggle buttons at the very top of the layout container labeled [EXECUTE_TIER_01], [EXECUTE_TIER_02], and [EXECUTE_TIER_03].
+2. Dynamic JavaScript Logic: Use clean JavaScript so that clicking a button instantly updates the interface—hiding or revealing the appropriate sub-components with smooth CSS fade-in transitions.
+3. The Global Visual Canvas: Keep the strict cyber dark-mode palette (#050507), neon accents (#00FFFF, #39FF14), fine technical grid lines, zero-radius border frames, and interactive hover-glow states.
+Deliver this entire integrated workspace as a single, production-ready snippet that adapts perfectly to both desktop and mobile viewports inside Google Sites. text
+Act as an elite Principal Full-Stack Engineer and UI/UX Architect specializing in premium, cyberpunk-themed web applications. I am building a state-of-the-art tech-fashion ecosystem using Google Sites within Google Workspace. 
+
+I need you to write a single, production-ready, self-contained HTML/CSS/JS file to go into a Google Sites Embed widget. This file must serve as a functional, interactive business-running mini-app structured around a three-tier service selector matrix.
+
+---
+
+### SYSTEM VISUAL CODE (Global UI/UX Aesthetics)
+1. Environment Canvas: Deep, matte-black background (#050507). Overlay a subtle, fine-lined technical blueprint grid pattern (#1A1A24) spaced at 40px intervals.
+2. Interface Illumination: Sharp, zero-radius structural card frames utilizing ultra-fine glassmorphism (semi-transparent dark panels, backdrop-filter: blur(8px)).
+3. Accent Colors: Use vivid neon cyan (#00FFFF) for system metadata, glowing magenta (#FF007F) for action states, and electric neon green (#39FF14) for live system statuses.
+4. Transitions: All hover events must trigger smooth glow scales and translation states via cubic-bezier(0.25, 0.8, 0.25, 1).
+
+---
+
+### SYSTEM FUNCTIONALITY & COMPONENT ARCHITECTURE
+
+#### 1. The Master Control Console (Tier Switcher)
+At the very top of the interface, create a technical navigation dock with 3 high-contrast cyber-toggle buttons labeled:
+* [EXECUTE_TIER_01] // CREATIVE STUDIO ONLY
+* [EXECUTE_TIER_02] // STUDIO + WEBSITE SYSTEM
+* [EXECUTE_TIER_03] // ALL-IN-ONE ENTERPRISE (UNMASK ALL)
+
+Write optimized vanilla JavaScript so clicking these toggles dynamically filters, unmasks, or hides the respective modules below using responsive, hardware-accelerated CSS fade and slide animations.
+
+#### 2. Component Module A: Creative Studio Portal (Tier 1, 2, & 3 Active)
+* An interactive glassmorphic blueprint card showcasing digital garment assets or 3D fashion mockups.
+* Include technical data fields: ASSET_TYPE: DIGITAL_MESH, POLY_COUNT: 142,500 VT, ENGINE: CLO3D // BLENDER.
+* A live pulsing neon status beacon indicator that flashes on a 1.5s loop reading "RENDER_3D // ONLINE".
+* A call-to-action checkout button mapped to a placeholder link (href="YOUR_CREATIVE_STUDIO_CHECKOUT_URL").
+
+#### 3. Component Module B: High-Rank Omni-Channel Website System (Tier 2 & 3 Active Only)
+* A high-visibility technical deployment panel showing business visibility features.
+* Include a simulated visual graphic representing omni-channel platform graph connectivity (bridging social networks like LittleLink/LinkStack styles).
+* Visual feedback markers for search engine optimization (SEO Metas, High-Rank Analytics Graphs, and Page Index Crawlers).
+* A checkout/deployment action button mapped to a placeholder link (href="YOUR_WEBSITE_SYSTEM_CHECKOUT_URL").
+
+#### 4. Component Module C: Digital Banner Video Ads Monetization Container (Tier 3 Active Only)
+* A responsive 16:9 aspect-ratio HTML5 inline media display container playing a looping background video via a royalty-free stock URL.
+* Technical system text overlay tracking data: "[BROADCAST_ID: #994X_AD]".
+* A flashing, high-priority status warning badge reading: "SPONSORED // SLOT_AVAILABLE_FOR_RENT".
+* A prominent overlay button positioned on the video frame reading "RENT_THIS_SPACE_▶️" that points out to an advertising intake system (href="YOUR_AD_RENTAL_CHECKOUT_URL").
+
+---
+
+### CORE DEPLOYMENT TARGET
+The output must be compiled into a single unified block of code, with all CSS inside <style> tags and JavaScript inside <script> tags. Optimize the layout to scale natively down to mobile screens while preserving its high-fidelity desktop workspace proportions inside the Google Sites isolated iframe wrapper. Do not output explanations, markdown formatting wrap anomalies, or truncated parts. Provide the full code from <!DOCTYPE html> to </html>…
+Act as a world-class conversion copywriter and behavioral marketer for an elite fashion-tech automation agency. 
+
+Our website sells 3 core AI modules to luxury fashion designers:
+1. Digital Visibility (Programmatic SEO & Unified Profiles)
+2. Creative Studio (Livestreams, Podcasts, Vocal Tuning)
+3. Content Automation (AI Models, Video Assets, Automated Multi-Platform Campaigns)
+
+I need you to write the copy for a dedicated, high-converting section on our homepage called the "Autonomous Proof Engine" (or "The Autopilot Loop"). The entire purpose of this section is to blow the user's mind by explaining that the text they are reading, the banners they see, and the campaigns that brought them to this site were 100% generated and deployed by the very system we are selli…
+To clarify before you finalize the system architecture: Our agency website and our customers' profile websites must share the EXACT SAME core AI engine. 
+
+Think of it as a single, multi-tenant automated brain running in the background. 
+
+- Route 1 (Our Agency): The engine queries fashion-tech trends, builds video banners promoting our agency, and posts them to our socials.
+- Route 2 (The Client): When a client subscribes, the engine spins up a isolated row in our database. It uses the exact same script-writing, video-rendering, and banner-generating nodes, but swaps out our branding assets for the client's specific design guidelines and social API keys.
+
+Please ensure your technical blueprint reflects this centralized, shared-engine infrastructure so we only have to build the core video-generation logic once.
+When you build this in Make.com, you won't build a new workflow for every customer. You will build one master workflow:
+1. The Core Data: The workflow pulls a list of active users from your database (User #1 is Your Agency, User #2 is Fashion Brand A, User #3 is Fashion Brand B).
+2. The Shared AI Processing: The loop goes through each user one by one. It feeds their specific brand style into the same OpenAI, Leonardo.ai, and Runway video APIs.
+3. The Dynamic Output: The engine outputs customized video banners and posts them to the correct, individual websites and social feeds based on who owns that row in the database.
+4.

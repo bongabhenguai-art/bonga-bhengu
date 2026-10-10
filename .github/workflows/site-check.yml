@@ -1,0 +1,32 @@
+name: Existing app source checks
+on:
+  push:
+    paths:
+      - 'chatgpt-site/**'
+      - '.github/workflows/site-check.yml'
+  pull_request:
+    paths:
+      - 'chatgpt-site/**'
+      - '.github/workflows/site-check.yml'
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: chatgpt-site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: chatgpt-site/package-lock.json
+      - run: npm ci
+      - run: node scripts/build-ai.mjs
+      - name: Run existing application suites
+        run: |
+          for test in tests/*.mjs; do
+            node "$test" || exit 1
+          done
+      - name: Check deterministic build output
+        run: git diff --exit-code -- dist

@@ -1,0 +1,17 @@
+# Existing Bonga Bhengu App upgrade
+
+Parent project: `appgprj_6ac5c90ea5188191b958757daafba005`. Upgrade baseline: `1f29666e02b0127532539dc1ce169fe03abd36b2`. The existing public audience, four workspaces, sign-in, shared Worker, storefront, owner controls and private account data are preserved.
+
+The complete accessible file listing was reconciled against all 79 audited source records. File identity and modified metadata matched every record. The two documents in `/Bonga Bhengu app` were materialized again and matched the retained SHA-256 hashes. The third folder file is an additional Studio reference image, now retained privately in the source repository with its hash and provenance. The merge manifest contains 80 original artifacts, two OS artifacts and 138 GitHub source files: 220 retained files. Exact ChatGPT project attachment membership is unavailable, so this audit cannot certify every attachment in that project.
+
+Every one of the 34 real application routes has contextual instructions: required input, ordered steps, resulting output, necessary service/device access and related routes. These instructions are reachable through How it works in the existing shell. Module search now also matches inputs and outputs. Owner-only modules retain their existing access restrictions.
+
+The visual website editor now supports reviewed static-page publication at `/websites/<project-id>`. Saving changes only the private draft. Publication stores an immutable snapshot of the approved saved revision; later edits require a separate publication. Unpublish removes the public response while retaining the draft. Publication revision numbers survive unpublish and republish. Atomic database guards reject stale drafts, stale publication state and conflicting requests. Public snapshots contain name, HTML and CSS, not private editor project data.
+
+Published pages receive a server-enforced sandbox CSP, disabled scripts/forms/frames, restricted media loading, no-referrer policy and no-store caching. This is static website publishing. It does not execute arbitrary app code, add social-account authorization, connect a payment gateway or provide a media-generation service. Storefront product/enquiry workflows continue through their existing module.
+
+Schema-only migration `0012_regular_harrier.sql` adds the publication table and owner index. Applied migration files and metadata are unchanged.
+
+Validation: all 30 Node test suites passed, the Worker built with 139 retained public assets, and `git diff --check` passed. Publication tests apply the complete SQL migration sequence to SQLite and exercise the actual Worker routes, account isolation, review approval, concurrent writes, stale edits, private/public snapshot separation, security headers, HEAD handling and unpublish/republish. Editor-controller tests exercise save/review/publish/unpublish, failed saves, dirty edits, returned public links and project resets. Shell tests exercise contextual instructions and retained navigation/forms/frames. All 220 retained original/source hashes match the manifest.
+
+Browser layout, real phone hardware and external provider execution were not tested in this managed environment. Historical specifications that require a GPU service, external authorization, billing adapter, cross-institution education roles or separately hosted Python runtime remain requirements with explicit dependencies.

@@ -1,0 +1,85 @@
+{
+  "sources": [
+    {
+      "name": "Bonga_Bhengu_Fashion_OS.html",
+      "library_file_id": "libfile_a553ad4064588191bc5062c77a4f0a4b",
+      "components": "All 36 original component IDs retained in the integrated Fashion OS"
+    },
+    {
+      "name": "bonga-bhengu-app.zip",
+      "library_file_id": "libfile_0c9f334c05e08191936b4148d1b0025a",
+      "sha256": "f410702c7e0286f56837bd933e2b653dad20c0821d8340ab330638f9d7dc4662"
+    },
+    {
+      "name": "index.html",
+      "library_file_id": "libfile_64472f37cef88191bc311ab2b5acae1f",
+      "sha256": "2bd555d617475c3b33455d46fb2dbae3e2f220709f86ebf5f28e85d7bcc10e97"
+    }
+  ],
+  "preserved_component_ids": [
+    "tab-1",
+    "tab-2",
+    "tab-3",
+    "main",
+    "workspace",
+    "selection-status",
+    "tier-1",
+    "tier-2",
+    "tier-3",
+    "collection",
+    "concept-art",
+    "art-title",
+    "art-desc",
+    "coat",
+    "light",
+    "mesh",
+    "uploaded-look",
+    "art-caption",
+    "fabric-display",
+    "poly-display",
+    "render-display",
+    "collection-display",
+    "image-input",
+    "reset-image",
+    "image-status",
+    "edit-specs",
+    "proof",
+    "brief",
+    "brief-form",
+    "download",
+    "copy",
+    "whatsapp",
+    "form-status",
+    "brief-output",
+    "architecture",
+    "year"
+  ],
+  "capabilities": {
+    "Website Builder": {
+      "brief_service": "website",
+      "workspace": "website",
+      "module": "storefront-editor"
+    },
+    "Digital Visibility": {
+      "brief_service": "visibility",
+      "workspace": "website",
+      "module": "evidence"
+    },
+    "Creative Studio": {
+      "brief_service": "studio",
+      "workspace": "content",
+      "module": "digital-studio"
+    },
+    "Digital Banner": {
+      "brief_service": "banner",
+      "workspace": "content",
+      "module": "social-campaigns"
+    }
+  },
+  "brief_storage": "Existing account-scoped /api/designer/workspace task records with revision checks and deduplication",
+  "entry": "/",
+  "legacy_entry_aliases": [
+    "fashion-studio.html",
+    "Bonga_Bhengu_Fashion_OS.html"
+  ]
+}

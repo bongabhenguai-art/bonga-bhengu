@@ -1,0 +1,18 @@
+{
+  "id": "/bonga-bhengu/",
+  "name": "Bonga Bhengu App",
+  "short_name": "Bonga Bhengu",
+  "description": "Fashion, AI, branding and business services",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050507",
+  "theme_color": "#050507",
+  "orientation": "any",
+  "lang": "en",
+  "categories": [
+    "business",
+    "productivity",
+    "design"
+  ]
+}

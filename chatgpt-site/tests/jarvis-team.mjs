@@ -1,0 +1,3 @@
+import assert from 'node:assert/strict';import {jarvisTeam,jarvisRole} from '../worker/jarvis-team.mjs';assert.equal(Object.keys(jarvisTeam).length,22);assert.equal(jarvisRole('unknown').name,'Fashion team director');assert.ok(jarvisRole('research').brief.includes('proof links'));assert.ok(jarvisRole('pr').brief.includes('never send'));assert.ok(jarvisRole('marketing').brief.includes('approval'));assert.ok(jarvisRole('design').brief.includes('require confirmation'));console.log('PASS twenty-two bounded specialist roles, safe fallback and review constraints');
+
+assert.equal(jarvisRole('toString').name,'Fashion team director');

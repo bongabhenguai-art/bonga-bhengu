@@ -1,7 +1,7 @@
 {
   "path": "project-sources/BONGA_BHENGU_APP_MASTER.zip",
-  "files": 484,
-  "bytes": 10220084,
-  "sha256": "6bc3e3feaa417e52eef809e6bee18b63ff166563427dd6c0b6559d1823b06049",
-  "scope": "Existing app source, 219 preserved project files, tests and migrations; excludes runtime secrets, node_modules and the generated Worker bundle."
+  "files": 492,
+  "bytes": 12749886,
+  "sha256": "ebe9de4e53a37fe7055e046cfa16f12587fb0334f588653f1e4c6b6413451d13",
+  "scope": "Existing app source, 220 preserved project files, tests and migrations; excludes runtime secrets, node_modules and the generated Worker bundle."
 }

@@ -1,0 +1,24 @@
+{
+  "id": "/phone.html",
+  "name": "Bonga Bhengu App",
+  "short_name": "Bonga Bhengu",
+  "description": "Business engine, digital studio, fashion, laptop workspace and phone tools.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b1018",
+  "theme_color": "#0b1018",
+  "lang": "en-ZA",
+  "prefer_related_applications": false,
+  "icons": [
+    {"src":"/assets/app-icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"/assets/app-icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"},
+    {"src":"/assets/app-icon-maskable-512.png","sizes":"512x512","type":"image/png","purpose":"maskable"}
+  ],
+  "shortcuts": [
+    {"name":"My Brand","url":"/app.html?module=designer#designer"},
+    {"name":"My Website","url":"/app.html?module=storefront-editor#storefront-editor"},
+    {"name":"My Content","url":"/app.html?module=digital-studio#digital-studio"},
+    {"name":"My Business","url":"/app.html?module=orders#orders"}
+  ]
+}

@@ -1,0 +1,8 @@
+node_modules/
+
+infra/muxshed/.env
+
+reports/
+
+# Exact combined archive is reconstructed from its verified parts.
+/project-sources/BONGA_BHENGU_APP_MASTER.zip

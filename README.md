@@ -1,6 +1,6 @@
-# Bonga Bhengu Creative Studio
+# Bonga Bhengu App
 
-Independent shared multi-tenant backend layer. This repository does not replace the existing ChatGPT Work website. No deployment is configured.
+The existing application's shared multi-tenant backend modules remain in their original folders. The complete source mirror of the existing ChatGPT site is in [chatgpt-site](chatgpt-site/README.md), including its frontend, Worker, migrations, tests and retained project files. This repository does not create a replacement application. Site publication uses the existing deployment process.
 
 ## Run
 

@@ -1,0 +1,17 @@
+{
+  "path": "project-sources/BONGA_BHENGU_APP_MASTER.zip",
+  "bytes": 12749886,
+  "sha256": "ebe9de4e53a37fe7055e046cfa16f12587fb0334f588653f1e4c6b6413451d13",
+  "parts": [
+    {
+      "path": "project-sources/BONGA_BHENGU_APP_MASTER.zip.part01",
+      "bytes": 8388608,
+      "sha256": "9c01030f7197a488845d30fb05187509affb91d9238f2db67a2a8c07bf3b2993"
+    },
+    {
+      "path": "project-sources/BONGA_BHENGU_APP_MASTER.zip.part02",
+      "bytes": 4361278,
+      "sha256": "33d1d0e94fb93a8edf4388b7a1627a594185698a41c45457bbcd946bb672580c"
+    }
+  ]
+}
