@@ -90,5 +90,3 @@ from fastapi.responses import FileResponse
 @app.get("/studio/camera", include_in_schema=True)
 def studio_camera_preview():
     return FileResponse(ROOT / "camera-preview.html", media_type="text/html")
-
-# Unified service registry: one API surface, no separate app instances.\nfrom unified import router as unified_router\napp.include_router(unified_router)\n
