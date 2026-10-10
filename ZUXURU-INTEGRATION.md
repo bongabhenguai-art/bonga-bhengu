@@ -1,24 +1,8 @@
-# Zuxuru source in Bonga Bhengu App
-
-Zuxuru is included as the `zuxuru` Git submodule. This retains its complete source and binary assets without replacing the existing Bonga Bhengu application.
-
-Pinned source: `17e26c3cbaebd85eaa8e46ddbddb73efd1c3db3e` in https://github.com/bongabhenguai-art/zuxuru.
-Published Zuxuru Site: https://zuxuru.donlegendwear.chatgpt.site
-Site version: 9; deployed Site source commit: `6fb1b18522c213b8ea692608aaa40d83ff78b9eb`.
-The GitHub snapshot includes the dashboard, evidence-driven intelligence, business memory, AI gateway adapters, source inventory and tests from that publication.
-
-Retrieve the complete project:
-
-```sh
-git clone --recurse-submodules https://github.com/bongabhenguai-art/bonga-bhengu.git
-```
-
-For an existing checkout:
-
-```sh
-git submodule update --init --recursive
-```
-
-This is a source integration, not a runtime merge. Existing Bonga Bhengu routes, hosting configuration, identity and storage are preserved. Zuxuru retains its existing Site identity and must not be deployed as a replacement for Bonga Bhengu. No credentials or private business records are copied. Its live AI, search and publishing adapters still require their own authorized service connections. Continuous Jarvis automation is not included.
-
-The local development environment was unavailable during this source integration; no new build or runtime tests were executed. The pinned source retains its previous verification tests.
+# Zuxuru backend merged into Bonga Bhengu App
+The existing Bonga Bhengu Worker now dispatches `/api/zuxuru/os` and private attachment reads at `/api/zuxuru/capture/:id` to the adapted Zuxuru backend in `chatgpt-site/worker/zuxuru/`. Its source provenance and GPL license are retained.
+Uses the same authenticated account, DB and MEDIA bindings as Bonga Bhengu. Request state is isolated with AsyncLocalStorage. Zuxuru data is namespaced in `zuxuru_records`; existing fashion, school and studio tables remain intact. CEO permissions use JARVIS_OWNER_EMAIL. Connection secrets reuse SEARCH_VAULT_KEY or an adapted existing JARVIS_VAULT_KEY without key rotation.
+Functions: actual business-name search, candidate selection and identity confirmation, website evidence rubric, profiles and business relationships, ranked opportunities and reviewed plans, rescore and growth history, business memory, leads, Studio drafts and private attachments, encrypted AI gateways, approved Postiz publishing and receipts, owner-only open-source GitHub inspection.
+Existing Bonga Jarvis keys and customer credentials are not automatically shared. Old Zuxuru business records are not migrated automatically.
+Before deployment, apply the Drizzle schema addition (SQL equivalent: chatgpt-site/db/zuxuru-merge.sql). Build with the existing npm build. New tests: node tests/zuxuru-backend.mjs. GitHub's existing site-check workflow builds and runs all suites.
+Source merge does not itself publish the Bonga Bhengu Site. The workspace was offline during editing; deployment and production migration remain pending. Frontend calls must use /api/zuxuru/os instead of the separate Zuxuru origin. Native ChatGPT connector sessions and continuous Jarvis orchestration are not newly provisioned.
+The root zuxuru submodule pins the original published version-9 app for frontend and provenance.

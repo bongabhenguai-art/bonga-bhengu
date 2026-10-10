@@ -1,4 +1,5 @@
 const limits = new Map([
+  ['/api/zuxuru/os', 4000000],
   ['/api/designer/workspace', 2000000],
   ['/api/education/workspace', 250000],
   ['/api/jarvis/chat', 16000],
@@ -7,6 +8,7 @@ const limits = new Map([
   ['/api/designer/business-book', 12000],
 ]);
 const expensive = new Map([
+  ['/api/zuxuru/os', 8],
   ['/api/jarvis/chat', 12],
   ['/api/designer/investigate', 6],
   ['/api/system/run', 6],

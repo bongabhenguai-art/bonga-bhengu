@@ -24,3 +24,5 @@ export const builderPublications=sqliteTable('builder_publications',{projectId:t
 
 export const backendRequestLimits=sqliteTable('backend_request_limits',{userId:text('user_id').notNull(),scope:text('scope').notNull(),windowStart:integer('window_start').notNull(),used:integer('used').notNull()},table=>[uniqueIndex('idx_backend_request_user_scope').on(table.userId,table.scope)]);
 export const backendWorkflowLocks=sqliteTable('backend_workflow_locks',{userId:text('user_id').primaryKey(),token:text('token').notNull(),expiresAt:integer('expires_at').notNull()});
+
+export const zuxuruRecords=sqliteTable('zuxuru_records',{id:text('id').primaryKey(),owner:text('owner').notNull(),kind:text('kind').notNull(),data:text('data').notNull(),createdAt:text('created_at').notNull(),updatedAt:text('updated_at').notNull()},table=>[index('idx_zuxuru_owner_kind_updated').on(table.owner,table.kind,table.updatedAt)]);
