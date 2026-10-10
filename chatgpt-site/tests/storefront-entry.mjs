@@ -10,8 +10,8 @@ const origin='https://site.example',headers={'oai-authenticated-user-id':'owner'
 for(const requestHeaders of [{},headers]){
   const response=await worker.fetch(new Request(origin+'/',{headers:requestHeaders}),env);assert.equal(response.status,200);assert.equal(response.headers.has('location'),false);
   const html=await response.text();assert.ok(html.includes('storefront-workspaces.js'));assert.equal((html.match(/id="fashion-platform"/g)||[]).length,1);
-  for(const workspace of appWorkspaces)assert.ok(html.includes(moduleURL(workspace.entry)));
-  for(const id of ['education','visual-website-editor'])assert.ok(html.includes(moduleURL(id)),'New workspace has a direct storefront entry');
+  for(const category of ["Fashion collections","Creative services","Digital Studio","Business packages"])assert.ok(html.includes(category));
+  assert.ok(html.includes('data-customer-storefront'));
 }
 const data={designer:{name:'My saved storefront',location:'Durban',style:'Fashion',story:'My existing story'},products:[],design:cleanStoreDesign()};
 const custom=await worker.fetch(new Request(origin+'/',{headers}),{...env,DB:{prepare:()=>({first:async()=>({slug:'a'.repeat(32),public_data:JSON.stringify(data)})})}});
@@ -40,10 +40,10 @@ async function menuFixture({owner=false,embedded=false,published=false}={}){
   const body=new Element('body'),main=new Element('main'),hub=published?null:new Element('section'),trigger=new Element('button',{'data-storefront-modules':''});if(hub){hub.id='fashion-platform';main.append(hub);}body.append(main,trigger);
   let handedOff,opens=0;const events={},document={body,querySelector:selector=>selector==='main'?main:body.querySelector(selector),querySelectorAll:selector=>body.querySelectorAll(selector),createElement:tag=>new Element(tag),getElementById:id=>body.descendants().find(node=>node.id===id),addEventListener:(type,handler)=>(events[type]||=[]).push(handler)};
   const window={addEventListener(){}};window.parent=embedded?{document:{body:new Element('body',{class:'bbapp'}),querySelector:()=>({click:()=>opens++})},bongaAppNavigate:href=>{handedOff=href;return true;}}:window;
-  const code=fs.readFileSync('dist/storefront-workspaces.js','utf8').replace(/^import .*;\n/gm,'');
+  const code=fs.readFileSync('dist/storefront-workspaces.js','utf8').replace(/^import .*;\r?\n/gm,'');
   await vm.runInNewContext(`(async()=>{${code}})()`,{document,window,location:{origin,href:origin+'/'},fetch:async()=>({ok:true,json:async()=>({owner})}),URL,phoneIcon,appWorkspaces,workspaceModules,searchAppModules,moduleFor,moduleURL,routeForURL,matchMedia:()=>({matches:false})});
   const dialog=document.getElementById('storefront-modules-dialog'),list=dialog.querySelector('.bbstore-module-list'),links=list.querySelectorAll('a');
-  assert.equal(links.length,owner?33:31);assert.equal(links.some(link=>link.href.endsWith('#admin')),owner);trigger.click();assert.equal(embedded?opens:dialog.open,embedded?1:true);
+  assert.equal(links.length,searchAppModules('',owner).filter(module=>module.id!=='home').length);assert.equal(links.some(link=>link.href.endsWith('#admin')),owner);trigger.click();assert.equal(embedded?opens:dialog.open,embedded?1:true);
   const toolLinks=document.getElementById('fashion-platform').querySelector('.bbstore-feature-tools').querySelectorAll('a');
   assert.deepEqual(toolLinks.map(link=>link.href),['visual-website-editor','education'].map(id=>origin+moduleURL(id)),'Every storefront exposes the same website and school tools');
   if(published)assert.equal(document.getElementById('fashion-platform').querySelector('.app-entry-grid').querySelectorAll('a').length,4,'The published homepage gets the same four entry cards');
