@@ -90,3 +90,6 @@ from fastapi.responses import FileResponse
 @app.get("/studio/camera", include_in_schema=True)
 def studio_camera_preview():
     return FileResponse(ROOT / "camera-preview.html", media_type="text/html")
+
+from device_modules import router as studio_modules_router
+app.include_router(studio_modules_router)
