@@ -13,9 +13,11 @@ MODULES = {
 }
 @router.get("")
 def list_studio_modules():
+ """Return descriptive module metadata without claiming remote deployment."""
  return {"modules":MODULES,"remote_streaming":"not_configured","note":"Implemented means basic local browser functionality only, not full production capability."}
 @router.get("/{module_id}")
 def get_studio_module(module_id: str):
+ """Return metadata for a known module, or raise 404 for an unknown ID."""
  from fastapi import HTTPException
  if module_id not in MODULES: raise HTTPException(404,"Studio module not found")
  return MODULES[module_id]

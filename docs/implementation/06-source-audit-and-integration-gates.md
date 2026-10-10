@@ -35,6 +35,7 @@ This branch belongs to the **existing Bonga Bhengu App**. It is not a new app or
 - [ ] Auth and tenant isolation tested
 - [ ] Payment verification tested
 - [ ] Real integrations authorized and tested
+- [ ] Integration, security, accessibility and mobile suites passed; evidence links include the tested commit, environment, commands and results, plus the browser/device coverage for accessibility and mobile journeys
 - [ ] CodeRabbit review result linked
 - [ ] Production deployment and rollback verified
 
