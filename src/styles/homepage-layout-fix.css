@@ -20,3 +20,20 @@ img,video,canvas,svg { max-width:100%; height:auto; }
   .bb-home h1 { font-size:clamp(1.65rem,7vw,2.5rem); overflow-wrap:anywhere; }
 }
 /* Do not hide duplicates with CSS: remove duplicate component mounts in JSX. */
+
+/* Responsive homepage sections: use normal document flow rather than overlays. */
+.bb-home .bb-home-header,
+.bb-home .bb-home-content,
+.bb-home .bb-home-section,
+.bb-home .bb-home-footer { position:relative; width:100%; max-width:100%; min-width:0; clear:both; }
+.bb-home .bb-home-content { display:flex; flex-direction:column; gap:clamp(16px,3vw,32px); }
+.bb-home .bb-home-section { margin:0; }
+.bb-home .bb-home-grid > * { min-width:0; max-width:100%; }
+.bb-home .bb-home-nav { align-items:center; }
+.bb-home .bb-home-hero { position:relative; display:block; }
+@media (max-width:600px) {
+  .bb-home .bb-home-content { gap:16px; }
+  .bb-home .bb-home-nav { flex-wrap:nowrap; overflow-x:auto; overscroll-behavior-x:contain; }
+  .bb-home .bb-home-nav > * { flex:0 0 auto; }
+  .bb-home button, .bb-home a { touch-action:manipulation; }
+}
