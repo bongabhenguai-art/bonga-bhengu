@@ -1,0 +1,18 @@
+/* Bonga Bhengu storefront: black, white and gold, without decorative motion. */
+body.fashion-storefront{--black:#0B0B0B;--white:#FFFFFF;--gold:#D4AF37;--blue:#D4AF37;--muted:#FFFFFF;--cyber-black:#0B0B0B;--cyber-white:#FFFFFF;--cyber-cyan:#D4AF37;--cyber-pink:#D4AF37;background:#0B0B0B!important;color:#FFFFFF!important}
+body.fashion-storefront,body.fashion-storefront *{animation:none!important;transition:none!important;scroll-behavior:auto!important;text-shadow:none!important}
+html:has(body.fashion-storefront){scroll-behavior:auto!important}
+.fashion-storefront :is(header,footer,section,article,nav,.hero,.hero-copy,.digital-banner,.landing-capabilities,.workspace-layer,.workspace-card,.tool-panel,.practice-panel,.light,.bbstore-modules){background:#0B0B0B!important;color:#FFFFFF!important;background-image:none!important;box-shadow:none!important;border:0!important}
+.fashion-storefront :is(h1,h2,h3,h4,p,small,label,summary,figcaption,a,span,li,strong){color:#FFFFFF!important;text-shadow:none!important}
+.fashion-storefront :is(h1,h2) em,.fashion-storefront .eyebrow,.fashion-storefront .monogram,.fashion-storefront .bolt,.fashion-storefront .package-price{color:#D4AF37!important;background:none!important;-webkit-text-stroke:0!important}
+.fashion-storefront :is(a,button,input,textarea,select,figure,img,video,.front-launch-grid>a,.collection-card-info,.hero-foot,.profile-start,.workspace-ad-frame){border:0!important;box-shadow:none!important}
+.fashion-storefront :is(button,.button.primary,.front-open-app,.digital-banner>a,.platform-entry,.bbstore-nav-button,.collection-enquire){background:#D4AF37!important;color:#0B0B0B!important;background-image:none!important;border:0!important;box-shadow:none!important}
+.fashion-storefront :is(input,textarea,select){background:#FFFFFF!important;color:#0B0B0B!important}
+.fashion-storefront input::placeholder,.fashion-storefront textarea::placeholder{color:#0B0B0B!important}
+.fashion-storefront .text-link,.fashion-storefront .front-launch-grid>a,.fashion-storefront .app-entry-grid>a{background:#0B0B0B!important;color:#FFFFFF!important}
+.fashion-storefront :is(.bb-tech-orbit,[data-motion-control],.lookbook-tag,.gold-line){display:none!important}
+.fashion-storefront :is(.hero,.hero-art)::before,.fashion-storefront :is(.hero,.hero-art)::after{display:none!important}
+.fashion-storefront :is(.bb-motion-surface,.collection-card img,.lookbook-motion-pending){transform:none!important;opacity:1!important}
+.fashion-storefront :is(a,button,input,textarea,select,summary):focus-visible{outline:0!important;box-shadow:0 0 0 3px #D4AF37!important}
+.fashion-storefront .os-interfaces .os-interface-tabs a[aria-current=page]{background:#D4AF37!important;color:#0B0B0B!important;border:0!important}
+.fashion-storefront .workspace-ad-label{background:#0B0B0B!important;color:#FFFFFF!important}
