@@ -74,3 +74,27 @@ def influencer_category_preview(avatar_id: str, category_id: str):
         "status": "preview_configuration_only",
         "requires_verified_company_brief": True,
     }
+
+# Fashion is the first validation vertical, not a restriction on the platform.
+# Category briefs must be verified per tenant before any persuasive claims.
+VALIDATION_VERTICAL = "fashion"
+
+@router.get("/validation-plan")
+def validation_plan():
+    return {
+        "pilot_category": VALIDATION_VERTICAL,
+        "platform_scope": "multi_industry",
+        "pipeline": [
+            "company_onboarding", "verified_business_intelligence",
+            "industry_knowledge", "avatar_adaptation",
+            "digital_studio_production", "approved_publishing",
+            "opt_in_lead_capture", "closer_handoff", "sales_analytics"
+        ],
+        "fashion_pilot_checks": [
+            "fabric_and_construction_accuracy", "size_and_fit_claims",
+            "brand_consistency", "product_catalog_accuracy",
+            "consent_and_ai_disclosure", "lead_attribution"
+        ],
+        "production_ready": False,
+        "requires_tenant_authorization": True,
+    }
