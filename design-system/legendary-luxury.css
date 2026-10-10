@@ -1,0 +1,52 @@
+/* Bonga Bhengu Legendary Luxury Corporate Theme — additive design tokens.
+   Load after original CSS; do not replace original brand assets or layout. */
+:root{
+ --bb-obsidian:#08090d;--bb-charcoal:#11141b;--bb-surface:#181c24;
+ --bb-gold:#d4af37;--bb-champagne:#f0dba0;--bb-bronze:#997a39;
+ --bb-ivory:#f7f3e9;--bb-muted:#aeb5c2;--bb-blue:#2f6bff;
+ --bb-cyan:#00ffff;--bb-border:rgba(212,175,55,.25);
+ --bb-radius:18px;--bb-shadow:0 22px 70px rgba(0,0,0,.42);
+ --bb-font:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+ color-scheme:dark;
+}
+body.bb-luxury{
+ background:radial-gradient(ellipse at 85% -15%,rgba(212,175,55,.10),transparent 48%),var(--bb-obsidian);
+ color:var(--bb-ivory);font-family:var(--bb-font);
+}
+.bb-luxury :is(.brandbar,.panel,.card,.tierpanel){
+ border-color:var(--bb-border);
+ box-shadow:var(--bb-shadow);
+}
+.bb-luxury :is(.panel,.card,.tierpanel){
+ background:linear-gradient(145deg,rgba(29,33,43,.96),rgba(12,14,19,.98));
+ border-radius:var(--bb-radius);
+}
+.bb-luxury :is(h1,h2,h3){letter-spacing:-.025em;text-wrap:balance}
+.bb-luxury :is(.eyebrow,.kicker){color:var(--bb-champagne);letter-spacing:.15em;text-transform:uppercase}
+.bb-luxury :is(.btn-primary,.primary-action){
+ background:linear-gradient(115deg,var(--bb-champagne),var(--bb-gold) 58%,var(--bb-bronze));
+ color:#111217;border:1px solid var(--bb-champagne);font-weight:750;
+}
+.bb-luxury :is(.btn-primary,.primary-action):hover{filter:brightness(1.08);transform:translateY(-1px)}
+.bb-luxury :is(.btn,.tab,button){transition:background .18s ease,box-shadow .18s ease,transform .18s ease}
+.bb-luxury :is(.tab,[role="tab"])[aria-selected="true"]{
+ border-color:var(--bb-gold);color:var(--bb-champagne);
+ box-shadow:inset 0 -2px 0 var(--bb-gold),0 0 25px rgba(212,175,55,.13);
+}
+.bb-luxury :is(input,textarea,select){
+ background:#0e1118;color:var(--bb-ivory);border:1px solid rgba(240,219,160,.25);
+ border-radius:10px;
+}
+.bb-luxury :is(input,textarea,select):focus-visible{
+ outline:2px solid var(--bb-gold);outline-offset:2px;
+}
+.bb-luxury a{color:var(--bb-champagne)}
+.bb-luxury :is(.status-success,.is-success){color:#8bdcb6}
+.bb-luxury :is(.status-error,.is-error){color:#ff9e9e}
+@media(max-width:600px){
+ .bb-luxury :is(.btn,button,[role="tab"]){min-height:44px}
+ .bb-luxury :is(.panel,.card,.tierpanel){border-radius:14px}
+}
+@media(prefers-reduced-motion:reduce){
+ .bb-luxury :is(.btn,.tab,button){transition:none}
+}
