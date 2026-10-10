@@ -128,3 +128,7 @@ def unified_frontend():
 # Human AI influencer catalog (read-only until authenticated production integration).
 from influencers import router as influencers_router
 app.include_router(influencers_router)
+
+# AI employee readiness is informational, not an activation claim.
+from employee_readiness import router as employee_readiness_router
+app.include_router(employee_readiness_router)
