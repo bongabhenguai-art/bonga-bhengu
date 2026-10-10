@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fukulisane Studio | Phone Camera</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#0b0b0b;color:#fff;font:16px system-ui,Arial}main{max-width:1000px;margin:auto;padding:24px}h1{color:#d4af37}video{display:block;width:100%;aspect-ratio:16/9;background:#171717;object-fit:contain;border:1px solid #d4af37;border-radius:12px}button,select,a{font:inherit}button,select{padding:12px;margin:6px 6px 6px 0;border-radius:8px;border:1px solid #777;background:#202020;color:white}button.primary{background:#2f6bff;border-color:#2f6bff}button:disabled{opacity:.4}#status{min-height:2em}a{color:#d4af37}.note{color:#ccc}
+</style></head><body><main><h1>Fukulisane Studio — Live Camera</h1>
+<p>Preview and record your own phone or laptop camera. Camera access requires HTTPS or localhost and your permission.</p>
+<video id="preview" autoplay playsinline muted aria-label="Live camera preview"></video>
+<div><button id="start" class="primary">Connect Camera</button><button id="flip" disabled>Switch Front / Back</button><button id="record" disabled>Start Recording</button><button id="stop" disabled>Stop Camera</button></div>
+<p id="status" role="status" aria-live="polite">Camera disconnected</p>
+<p class="note">This preview is local to this device. It does not transmit to another Studio screen. Recordings remain on this device unless you choose to save them.</p>
+<a id="download" hidden>Save recording</a>
+</main><script>
+"use strict";
+const el=id=>document.getElementById(id),video=el("preview");
+let stream=null,recorder=null,chunks=[],facing="user",downloadUrl=null;
+function status(message){el("status").textContent=message}
+function controls(){el("flip").disabled=!stream;el("record").disabled=!stream||!!recorder;el("stop").disabled=!stream}
+async function connect(){
+  if(!navigator.mediaDevices?.getUserMedia){status("Camera API unavailable. Open this page over HTTPS or localhost.");return}
+  if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}
+  try{
+    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:facing}},audio:false});
+    video.srcObject=stream;await video.play();status("Camera connected — live preview");
+    stream.getVideoTracks()[0]?.addEventListener("ended",()=>{stream=null;controls();status("Camera disconnected")});
+  }catch(e){status("Could not connect camera: "+e.name);stream=null}
+  controls();
+}
+el("start").onclick=connect;
+el("flip").onclick=async()=>{if(recorder){status("Stop recording before switching cameras");return}facing=facing==="user"?"environment":"user";await connect()};
+el("record").onclick=()=>{
+ if(!stream||!window.MediaRecorder){status("Recording unavailable in this browser");return}
+ const types=["video/webm;codecs=vp8","video/webm","video/mp4"];
+ const mime=types.find(t=>MediaRecorder.isTypeSupported(t));
+ if(!mime){status("No supported recording format");return}
+ chunks=[];
+ try{recorder=new MediaRecorder(stream,{mimeType:mime})}catch(e){status("Recording failed: "+e.name);return}
+ const active=recorder;
+ active.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};
+ active.onstop=()=>{
+  if(downloadUrl)URL.revokeObjectURL(downloadUrl);
+  const blob=new Blob(chunks,{type:active.mimeType});downloadUrl=URL.createObjectURL(blob);
+  const link=el("download");link.href=downloadUrl;link.download="fukulisane-camera."+ (active.mimeType.includes("mp4")?"mp4":"webm");link.hidden=false;
+  recorder=null;controls();status("Recording complete — select Save recording");
+ };
+ active.start(1000);el("record").textContent="Stop Recording";el("record").disabled=false;el("flip").disabled=true;status("Recording on this device");
+ el("record").onclick=()=>{if(recorder?.state==="recording")recorder.stop();el("record").textContent="Start Recording";el("record").onclick=recordAgain};
+};
+function recordAgain(){el("record").onclick=null;el("record").click()}
+el("stop").onclick=()=>{if(recorder?.state==="recording")recorder.stop();if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;video.srcObject=null;controls();status("Camera disconnected")};
+window.addEventListener("pagehide",()=>{if(stream)stream.getTracks().forEach(t=>t.stop());if(downloadUrl)URL.revokeObjectURL(downloadUrl)});
+</script></body></html>
