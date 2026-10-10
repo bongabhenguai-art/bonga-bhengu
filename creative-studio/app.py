@@ -136,3 +136,7 @@ app.include_router(employee_readiness_router)
 # Sales-team orchestration contract; no autonomous external actions yet.
 from sales_team import router as sales_team_router
 app.include_router(sales_team_router)
+
+# JARVIS shared intelligence coordinator; execution requires configured services.
+from jarvis import router as jarvis_router
+app.include_router(jarvis_router)
