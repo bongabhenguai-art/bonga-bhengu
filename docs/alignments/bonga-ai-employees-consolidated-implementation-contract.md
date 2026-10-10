@@ -22,7 +22,18 @@ Each employee must have:
 - Structured output schema, real artifact references, evidence/provenance and execution receipts.
 - Collaboration edges, handoff criteria, fallback behavior, timeout/retry limits and escalation.
 - Tenant and subscription entitlements, consent/approval policies, cost/usage limits, audit log and admin kill switch.
-- Explicit `available / needs_configuration / authorized / running / completed / failed / disabled` operational status; never display an employee as live because an icon exists.
+- Separate `implementation_stage`, `readiness_status` and per-task `execution_status` fields; never display an employee as live because an icon exists.
+
+### Canonical status fields
+These fields describe different facts and must not be combined into one status:
+
+| Field | Allowed values | Meaning |
+| --- | --- | --- |
+| `implementation_stage` | `planned`, `implemented`, `configured`, `verified` | Development and verification evidence for the capability; not proof of current authorization or a running task. |
+| `readiness_status` | `available`, `needs_configuration`, `authorized`, `disabled` | `available`: local capability is usable without external consent; `needs_configuration`: a dependency or required authorization is missing or expired; `authorized`: required provider scopes and consent are currently valid; `disabled`: administrator has barred execution. |
+| `execution_status` | `idle`, `queued`, `running`, `completed`, `failed`, `cancelled` | State of an individual task. Completion requires durable output and, for external actions, a verified receipt. |
+
+Map historical `planned`, `implemented`, `configured` and `verified` labels to `implementation_stage`; `available`, `needs_configuration`, `authorized` and `disabled` to `readiness_status`; and `running`, `completed` and `failed` to `execution_status`. For historical `connected` or `live` labels, assign each field independently: implementation and verification evidence establish `implementation_stage`, current configuration and required consent establish `readiness_status`, and task execution evidence establishes `execution_status`. Execution evidence is required only for `execution_status`; an available or authorized employee may have no task history. A completed task never proves that its employee remains authorized, and authorization alone never proves a task has run.
 
 ## Core AI employee teams and handoffs
 | Team | Employees | Inputs | Outputs |
@@ -54,8 +65,8 @@ Agents are workers in one system, not seven additional standalone products.
 1. Inspect current Bonga repository and reuse existing agent/module registries; do not rebuild or rename architecture.
 2. For each employee, document input → tools → permissions → action → actual output → verification, with typed contracts and tests.
 3. Test multi-agent handoffs, tenant isolation, rate limits, provider failure, retries, approval, audit and admin override.
-4. Require durable artifact IDs and provider receipts before marking tasks completed.
-5. Distinguish planned, implemented, connected, verified and live employees.
+4. Require durable output and, for external actions, a verified receipt before marking tasks completed.
+5. Distinguish historical `planned`, `implemented`, `connected`, `verified` and `live` labels; map them independently to the canonical fields, and never use `connected` or `live` as current field values.
 6. Preserve Bonga's existing four-package access rules and accessible mobile/voice interface.
 
 **Status:** Consolidated source-backed implementation specification only. No AI agent code, model, provider, GitHub merge or deployment is claimed.

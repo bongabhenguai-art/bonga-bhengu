@@ -12,13 +12,15 @@ Keep existing `creative-studio/`, `website-builder/`, `subscriptions/`, `MODULES
 | FBI evidence intelligence, BFI visibility score | business-system/intelligence | Versioned deterministic rubric, coverage, per-dimension proof, saved score snapshots |
 | CIA direct connection wizard | business-system/connections | Evidence ID preserved; OAuth/official provider authorization, actual provider read, revoke/reconnect |
 | Customer dashboard and CEO Jarvis | existing app roles plus admin controls | Server-enforced tenant separation and owner-only operations |
-| Growth hooks, intelligence, packages | business-system + subscriptions | Evidence-linked recommendations; plans R299/R499/R699/R999 monthly; server entitlements, verified billing, seven-day trial policy |
+| Growth hooks, intelligence, packages | business-system + subscriptions | Evidence-linked recommendations; current packages R299/R499/R699/R1,000 monthly from `subscriptions/catalog.py`; server entitlements and verified billing |
 | Leads and CRM | business-system/leads | Tenant-scoped persisted CRUD, source, status, follow-up and outcome |
 | Website and storefront builder | website-builder | Real preview, approval, deployment receipt, rollback; honest unavailable state |
 | Studio production | creative-studio | Real asset/version records, permission-aware capture, approval, provider receipts |
 | Jarvis agent orchestration | shared orchestration adapter | Tenant scope, task IDs, retries, durable workers, cancellation, budgets and audit events |
 | Open-source candidates | MODULES.md registry | License/version, resource needs, adapter, test and costs verified before installation |
 | Phone/tablet access and 54-country plan | existing responsive UI | Mobile end-to-end testing; actual language/voice coverage disclosed |
+
+Pricing follows [Bonga's subscription catalog](../../subscriptions/catalog.py) and [subscription policy](../../subscriptions/README.md). The historical Zuxuru source mentions a seven-day trial, but Bonga's subscription sources do not establish a trial. Keep that term as an unapproved proposal until an explicit policy decision and billing implementation exist; do not grant or advertise trial access on the strength of this document.
 
 ## Data and security
 Required entities: Users, Roles, Businesses, Branches, Profiles, Investigations, Evidence, Scores, Connections, Opportunities, Plans, Entitlements, Leads, Assets, Versions, Tasks, AgentRuns, Memory, Metrics and AuditEvents. All private reads/writes must be authorized server-side. Never expose credentials in source or browser; preserve evidence provenance, time, investigation run and identity match.

@@ -24,7 +24,15 @@
 **Aliases and shared roles:** CFO, Operations, Marketing, Reporting and other overlapping labels must resolve to one registered employee capability with multiple team memberships rather than duplicate deployed agents. All teams work against the same tenant-scoped Business Master File and shared event/workflow services.
 
 ## 2. Minimum contract for every employee
-Each employee has `agent_id`, canonical name, aliases, team memberships, role, accepted intents, input schema, allowed tools and MCP capabilities, authorized data sources, evidence requirements, output schema, artifact IDs, handoff routes, approvals, entitlements, model fallback, limits, execution state, error policy, audit log and admin disable/override. Distinguish `planned`, `implemented`, `configured`, `authorized`, `verified`, `running`, `failed` and `disabled`.
+Each employee has `agent_id`, canonical name, aliases, team memberships, role, accepted intents, input schema, allowed tools and MCP capabilities, authorized data sources, evidence requirements, output schema, artifact IDs, handoff routes, approvals, entitlements, model fallback, limits, error policy, audit log and admin disable/override. Use the [canonical status fields and mapping](./bonga-ai-employees-consolidated-implementation-contract.md#canonical-status-fields):
+
+| Field | Allowed values | Scope |
+| --- | --- | --- |
+| `implementation_stage` | `planned`, `implemented`, `configured`, `verified` | Capability development and verification evidence. |
+| `readiness_status` | `available`, `needs_configuration`, `authorized`, `disabled` | Current employee availability, required configuration and consent, or admin disablement. |
+| `execution_status` | `idle`, `queued`, `running`, `completed`, `failed`, `cancelled` | State of an individual task. Completion requires durable output and, for external actions, a verified receipt. |
+
+Map legacy values to the corresponding field above. `completed` is a task outcome, never employee readiness. `connected` and `live` are historical labels, not additional allowed values: assign `implementation_stage` from implementation and verification evidence, `readiness_status` from current configuration and required consent, and `execution_status` from task execution evidence. Execution evidence is required only for `execution_status`; an available or authorized employee may have no task history. A completed task never proves current authorization, and an authorized employee is not necessarily running a task.
 
 ## 3. Unified collaboration: one request, coordinated delivery
 **Example: “Grow my clothing business and build my website.”**
