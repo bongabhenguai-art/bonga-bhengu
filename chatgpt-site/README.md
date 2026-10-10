@@ -1,0 +1,1 @@
+Source additions to the existing Bonga Bhengu ChatGPT Sites project. These files are a reviewed source mirror, not a standalone replacement site. The complete deployed application remains in its existing Sites source repository. See ../BONGA_BHENGU_APP_MASTER.md for source versions, tests and implementation limits.

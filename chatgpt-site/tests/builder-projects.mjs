@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {builderProjects,cleanBuilderProject} from '../worker/builder-projects.mjs';
+const rows=new Map(),id='12345678-abcd-1234-abcd-123456789abc';
+const DB={prepare(sql){return {bind(...v){return {async all(){return {results:[...rows.values()].filter(r=>r.user===v[0]).map(({id,name,revision,updated_at})=>({id,name,revision,updated_at}))};},async first(){if(sql.includes('COUNT'))return {total:[...rows.values()].filter(r=>r.user===v[0]).length};return rows.get(v[0]+':'+v[1])||null;},async run(){if(sql.startsWith('INSERT')){const [id,user,name,payload,now]=v;rows.set(user+':'+id,{id,user,name,payload,revision:1,updated_at:now});return {meta:{changes:1}};}const [name,payload,now,user,id,revision]=v;const row=rows.get(user+':'+id);if(!row||row.revision!==revision)return {meta:{changes:0}};Object.assign(row,{name,payload,updated_at:now,revision:revision+1});return {meta:{changes:1}};}};}};}};
+const req=(user='a',method='GET',body,path='',origin='https://site.example')=>new Request('https://site.example/api/builder/projects'+path,{method,headers:{...(user?{'oai-authenticated-user-id':user}:{}),'content-type':'application/json',origin},...(body!==undefined?{body:JSON.stringify(body)}:{})});
+const run=(...args)=>builderProjects(req(...args),{DB});
+const p={name:'Business website',projectData:{pages:[{component:'<h1>Business</h1>'}],styles:[]},html:'<h1>Business</h1>',css:'h1{color:gold}'};
+assert.equal((await run('')).status,401);assert.equal((await run('a','POST',p,'','https://other.example')).status,403);assert.equal((await run('a','POST',null)).status,400);
+const result=await run('a','POST',p);assert.equal(result.status,201);const created=await result.json(),path='/'+created.id;
+assert.equal((await run('b','GET',undefined,path)).status,404,'Other accounts cannot read projects');assert.equal((await (await run('b')).json()).projects.length,0);
+assert.equal((await run('a','PUT',{...p,revision:1},path)).status,200);assert.equal((await run('a','PUT',{...p,revision:1},path)).status,409,'Stale project updates cannot overwrite newer work');
+assert.equal((await run('b','PUT',{...p,revision:2},path)).status,409,'Other account cannot alter projects');const stored=await (await run('a','GET',undefined,path)).json();assert.equal(stored.revision,2);assert.equal(stored.html,p.html);
+assert.throws(()=>cleanBuilderProject({...p,html:'a'.repeat(200001)}),/large/);assert.throws(()=>cleanBuilderProject({...p,name:''}),/name/);
+console.log('PASS website save/load, account isolation, optimistic revisions, same-origin authorization and project size checks');

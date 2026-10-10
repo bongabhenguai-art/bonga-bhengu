@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {educationWorkspace,validateEducation} from '../worker/education-workspace.mjs';
+const rows=new Map();
+const DB={prepare(sql){return {bind(...v){return {async first(){return rows.get(v[0])||null;},async run(){if(sql.startsWith('INSERT')){const [user,payload,now]=v;if(rows.has(user))return {meta:{changes:0}};rows.set(user,{payload,revision:1,updated_at:now});return {meta:{changes:1}};}const [payload,now,user,revision]=v;const row=rows.get(user);if(row?.revision!==revision)return {meta:{changes:0}};rows.set(user,{payload,revision:revision+1,updated_at:now});return {meta:{changes:1}};}};}};}};
+const req=(user='a',method='GET',body,origin='https://site.example')=>new Request('https://site.example/api/education/workspace',{method,headers:{...(user?{'oai-authenticated-user-id':user}:{}),'content-type':'application/json',origin},...(body!==undefined?{body:JSON.stringify(body)}:{})});
+const run=(...args)=>educationWorkspace(req(...args),{DB});
+const payload={institutionName:'School <script>',academicYear:'2026',classes:[{id:'class-a',name:'Grade 9'}],learners:[{id:'learner-a',name:'Learner',classId:'class-a',status:'Enrolled'}],assignments:[{id:'assignment-a',title:'Fashion technology',classId:'class-a',dueDate:'2026-10-20',notes:''}],attendance:[{id:'attendance-a',learnerId:'learner-a',date:'2026-10-10',status:'Present'}],grades:[{id:'grade-a',learnerId:'learner-a',assignmentId:'assignment-a',score:70,outOf:100,feedback:'Reviewed by teacher',reviewedBy:'forged'}]};
+assert.equal((await run('')).status,401);assert.equal((await run('a','PUT',{payload,revision:0},'https://other.example')).status,403);assert.equal((await run('a','PUT',null)).status,400);
+assert.equal((await run('a','PUT',{payload,revision:0})).status,200);const saved=await (await run()).json();assert.equal(saved.revision,1);assert.equal(saved.payload.grades[0].reviewedBy,'a');assert.ok(saved.payload.grades[0].reviewedAt);assert.equal(saved.payload.audit[0].actor,'a');
+assert.equal((await (await run('b')).json()).payload,null,'Other accounts cannot read school records');
+assert.equal((await run('a','PUT',{payload,revision:0})).status,409,'Stale writes cannot replace newer data');
+assert.equal((await run('a','PUT',{payload,revision:1})).status,200);const unchanged=await (await run()).json();assert.equal(unchanged.payload.grades[0].reviewedAt,saved.payload.grades[0].reviewedAt);
+const invalid=structuredClone(payload);invalid.grades[0].score=101;assert.throws(()=>validateEducation(invalid),/grade/);invalid.grades[0].score=80;invalid.learners[0].classId='missing';assert.throws(()=>validateEducation(invalid),/learner/);
+const duplicate=structuredClone(payload);duplicate.attendance.push({...duplicate.attendance[0],id:'different'});assert.throws(()=>validateEducation(duplicate),/one record/);
+const wrongDate=structuredClone(payload);wrongDate.assignments[0].dueDate='2026-02-30';assert.throws(()=>validateEducation(wrongDate),/due date/);
+console.log('PASS school persistence, account isolation, revision conflicts, same-origin writes, cross-record validation and server-stamped grading audit');
