@@ -23,3 +23,11 @@ body.tech-landing.fashion-storefront :is(div,aside,details,summary,form,fieldset
 body.tech-landing.fashion-storefront :is(button,.button.primary,.front-open-app,.bbstore-nav-button,.platform-entry,.digital-banner>a,.collection-enquire){background:#D4AF37!important;color:#0B0B0B!important}
 body.tech-landing.fashion-storefront :is(button,.button.primary,.front-open-app,.bbstore-nav-button,.platform-entry) *{color:#0B0B0B!important;background:transparent!important}
 body.tech-landing.fashion-storefront :is(input,textarea,select){background:#FFFFFF!important;color:#0B0B0B!important}
+
+/* Keep the storefront concise; detailed service copy opens on request. */
+body.tech-landing.fashion-storefront :is(.timeline,.personal-pillars,.press,.visibility,.workspace-intro>p,.collection-note p:first-child,.studio-tagline,.landing-screen-heading>p,.hero-foot,#current-service-limits){display:none!important}
+body.tech-landing.fashion-storefront .section{padding-block:40px}
+body.tech-landing.fashion-storefront .front-launch-grid>a{min-height:72px;justify-content:center}
+body.tech-landing.fashion-storefront .front-launch-grid small{display:none}
+body.tech-landing.fashion-storefront .hero{padding-block:30px;gap:24px}
+body.tech-landing.fashion-storefront .hero h1{margin-block:14px}
