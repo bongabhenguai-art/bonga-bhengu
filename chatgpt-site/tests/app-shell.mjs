@@ -22,7 +22,8 @@ assert.equal(new Set(appModules.map(module=>module.id)).size,appModules.length);
 assert.deepEqual(appWorkspaces.map(workspace=>workspace.id),['brand','website','content','business']);
 const assigned=appWorkspaces.flatMap(workspace=>workspaceModules(workspace.id,true).map(module=>module.id));
 assert.deepEqual([...assigned].sort(),appModules.filter(module=>module.id!=='home').map(module=>module.id).sort(),'Every existing module belongs to exactly one workspace');
-for(const workspace of appWorkspaces){assert.equal(workspaceFor(workspace.entry).id,workspace.id);assert.equal(workspaceModules(workspace.id)[0].id,workspace.entry);assert.ok(storefront.includes(`${workspace.number} · ${workspace.name.toUpperCase()}`));assert.equal(storefront.split(`${workspace.number} · ${workspace.name.toUpperCase()}`).length-1,1,"Each homepage workspace appears once");}
+for(const workspace of appWorkspaces){assert.equal(workspaceFor(workspace.entry).id,workspace.id);assert.equal(workspaceModules(workspace.id)[0].id,workspace.entry);}
+assert.ok(storefront.includes('data-customer-storefront'));assert.ok(!storefront.includes('MY BRAND'));
 assert.ok(!storefront.includes('class="app-entry-grid"'), 'No duplicate homepage workspace grid');assert.ok(html.includes('id="app-storefront-frame" data-app-src="/?embedded=1"'),'App home reuses the real storefront');assert.equal(workspaceFor('business-engine').id,'business');assert.equal(workspaceFor('install').id,'website');assert.equal(workspaceModules('business',false).some(module=>module.owner),false);
 const legacy=fs.readFileSync('dist/app-entry.js','utf8');
 function entryRedirect(pathname,hash='',embedded=false){let redirected;const window={};window.parent=embedded?{}:window;vm.runInNewContext(legacy,{window,URLSearchParams,location:{pathname,hash,search:embedded?'?embedded=1':'',replace:value=>redirected=value}}, {timeout:1000});return redirected;}
