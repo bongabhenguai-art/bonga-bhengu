@@ -1,0 +1,8 @@
+# Frontend source is maintained in dist; exclude the generated Worker bundle.
+reviews:
+  path_filters:
+    - "**/dist/**"
+    - "!**/dist/server/**"
+  path_instructions:
+    - path: "chatgpt-site/dist/**"
+      instructions: "Treat HTML, CSS and browser JS here as maintained source. Check responsive layout and the order of stylesheets in index.html. Do not claim browser tests ran without evidence."
