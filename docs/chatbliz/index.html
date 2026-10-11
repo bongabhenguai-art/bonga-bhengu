@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b0b0b"><title>Chatbliz OS — Chatboard Foundation</title><link rel="stylesheet" href="./chatbliz-ui.css"></head>
+<body class="cb-app">
+<header class="cb-topbar"><span class="cb-brand">CHATBLIZ OS</span><span class="cb-muted">MCP Business Builder · Local prototype</span></header>
+<div class="cb-layout">
+<nav class="cb-sidebar" aria-label="Four business service products">
+<button class="cb-service" data-service="My Brand" aria-current="page">My Brand</button>
+<button class="cb-service" data-service="My Website">My Website</button>
+<button class="cb-service" data-service="My Content">My Content</button>
+<button class="cb-service" data-service="My Business">My Business</button>
+</nav>
+<main class="cb-chat">
+<div id="thread" class="cb-thread" role="log" aria-live="polite" aria-relevant="additions">
+<section class="cb-message"><h1>Chatbliz AI</h1><p>Choose one of the four products and describe what you want to build. This foundation records task briefs locally. MCP execution and WhatsApp API are not connected yet.</p><p class="cb-muted" id="service-label">Selected product: My Brand</p><p class="cb-whatsapp">WhatsApp: Not connected</p></section>
+</div>
+<form class="cb-composer" id="composer"><label for="message" class="cb-muted">Task</label><textarea id="message" name="message" placeholder="Describe your business task…" required maxlength="5000"></textarea><button class="cb-button" type="submit">Save brief</button></form>
+</main></div>
+<script>
+(()=>{'use strict';
+const storageKey='chatbliz-local-briefs-v1';
+const services=['My Brand','My Website','My Content','My Business'];
+const thread=document.getElementById('thread');
+const buttons=[...document.querySelectorAll('[data-service]')];
+let service=services[0];
+const read=()=>{try{const value=JSON.parse(localStorage.getItem(storageKey)||'[]');return Array.isArray(value)?value.filter(x=>services.includes(x.service)&&typeof x.text==='string').slice(-50):[]}catch{return []}};
+function render(entry){const item=document.createElement('article');item.className='cb-message cb-message--user';const label=document.createElement('strong');label.textContent=entry.service+' · Saved brief';const p=document.createElement('p');p.textContent=entry.text;item.append(label,p);thread.append(item);thread.scrollTop=thread.scrollHeight}
+buttons.forEach(button=>button.addEventListener('click',()=>{service=button.dataset.service;buttons.forEach(b=>{if(b===button)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});document.getElementById('service-label').textContent='Selected product: '+service}));
+read().forEach(render);
+document.getElementById('composer').addEventListener('submit',event=>{event.preventDefault();const input=document.getElementById('message');const text=input.value.trim();if(!text)return;const entry={service,text,createdAt:new Date().toISOString()};try{localStorage.setItem(storageKey,JSON.stringify([...read(),entry].slice(-50)))}catch{alert('Local storage unavailable; brief cannot be saved.');return}render(entry);input.value='';input.focus()});
+})();
+</script>
+</body></html>
