@@ -1,3 +1,5 @@
+import {builderAssistant} from './builder-assistant.mjs';
+import {sellerOperations} from './seller-operations.mjs';
 import {community,communityReferral} from './community.mjs';
 import {apiRuntime} from './backend-runtime.mjs';
 import {podcasts} from './podcasts.mjs';
@@ -35,6 +37,8 @@ const instructions = `You are Jarvis, Bonga Bhengu's fashion career and business
 async function dispatch(request,env){
     const url=new URL(request.url);
     if(url.pathname.startsWith('/r/'))return communityReferral(request,env);
+    if(url.pathname==='/api/builder/assistant')return builderAssistant(request,env);
+    if(['/api/seller/operations','/api/admin/operations'].includes(url.pathname))return sellerOperations(request,env);
     if(url.pathname.startsWith('/api/community/'))return community(request,env);
     if(url.pathname==='/community.html'&&!request.headers.get('oai-authenticated-user-id'))return Response.redirect(url.origin+'/signin-with-chatgpt?return_to=%2Fcommunity.html',302);
     if(url.pathname.startsWith('/api/podcasts/')||url.pathname.startsWith('/podcasts/'))return podcasts(request,env);
