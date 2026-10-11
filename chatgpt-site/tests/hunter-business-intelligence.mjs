@@ -1,0 +1,14 @@
+import assert from "node:assert/strict";
+import {profileBusiness,matchServices,draftOutreach} from "../src/agents/hunter-business-intelligence.mjs";
+const p=profileBusiness({name:"Example Business",industry:"Retail",sources:[{url:"https://example.com",title:"Official site",observedAt:"2026-10-11"}],observations:[{type:"poor_mobile",finding:"Mobile layout issue",sourceUrl:"https://example.com"},{type:"missing_booking",finding:"No booking form",sourceUrl:"https://unverified.example"},{type:"missing_website",finding:"Unsupported",sourceUrl:"https://other.example"}],contacts:[{type:"published_business_email",value:"hello@example.com",sourceUrl:"https://example.com"}]});
+assert.equal(p.opportunityScore,20);
+assert.equal(p.findings.length,1);
+assert.equal(p.buyerIntent,"unknown");
+assert.equal(p.contactChannels[0].permissionToMessage,false);
+const offers=matchServices(p,[{id:"mobile",name:"Mobile Site Upgrade",active:true,tags:["website"],priceZAR:2000}]);
+assert.equal(offers.length,1);
+const d=draftOutreach(p,offers,{channel:"whatsapp"});
+assert.equal(d.sendStatus,"draft_only");
+assert.match(d.message,/Which area/);
+assert.throws(()=>profileBusiness({name:""}),/required/);
+console.log("Hunter business intelligence tests passed");
