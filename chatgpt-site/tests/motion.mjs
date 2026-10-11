@@ -37,6 +37,6 @@ f = fixture(null,false,false); f.intersect(); f.win.dispatchEvent({type:'hashcha
 f.card.handlers.pointermove({pointerType:'touch',clientX:90,clientY:80}); assert.equal(f.frames.size,0,'Touch interaction does not schedule tilt');
 for (const file of ['index.html','app.html','platform.html']) {
   const html=fs.readFileSync('dist/'+file,'utf8');
-  assert(html.includes('/motion.js?release=20261010')); assert(html.includes('data-motion-control'));
+  assert.match(html,/src="\/motion\.js\?release=[^"]+"/); assert(html.includes('data-motion-control'));
 }
 console.log('PASS motion preference persistence, reduced-motion enforcement, route animations, visibility cancellation, touch behavior and API fallback.');
