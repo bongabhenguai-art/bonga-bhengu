@@ -86,3 +86,51 @@ body.cyber-fashion{background:var(--cyber-black);color:var(--cyber-white);font-f
 .landing-digital-screen .workspace-ad-label{font-size:clamp(9px,1vw,13px);letter-spacing:.1em}
 .landing-screen-actions{display:flex;gap:24px;flex-wrap:wrap;align-items:center;margin-top:24px}
 @media(max-width:720px){.landing-screen-heading{display:block}.landing-digital-screen .workspace-ad-frame{aspect-ratio:16/9;max-height:none}.landing-digital-screen .workspace-ad-label{top:8px;left:8px}.landing-digital-screen .workspace-ad-enquire{bottom:8px;left:8px;font-size:11px;padding:10px}.landing-screen-heading>p{max-width:none}}
+
+/* Keep banner controls and destination links in separate, content-sized rows. */
+body.tech-landing.fashion-storefront #landing-screen > section {
+  display: block;
+  position: static;
+  min-width: 0;
+  height: auto;
+}
+body.tech-landing.fashion-storefront #landing-screen .workspace-ad-controls {
+  display: flex;
+  position: static;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 12px;
+  height: auto;
+  min-width: 0;
+}
+body.tech-landing.fashion-storefront #landing-screen .workspace-ad-controls > button {
+  position: static;
+  inset: auto;
+  transform: none;
+  flex: 0 1 auto;
+  min-width: 44px;
+  min-height: 44px;
+  max-width: 100%;
+  margin: 0;
+  padding: 10px 12px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+  font-size: 14px;
+}
+body.tech-landing.fashion-storefront #landing-screen .landing-screen-actions {
+  position: static;
+  clear: both;
+  height: auto;
+  margin-top: 16px;
+}
+@media (max-width: 480px) {
+  body.tech-landing.fashion-storefront #landing-screen .workspace-ad-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  body.tech-landing.fashion-storefront #landing-screen .workspace-ad-controls > .workspace-ad-enquire {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
