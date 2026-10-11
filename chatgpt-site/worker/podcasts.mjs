@@ -1,3 +1,4 @@
+import {boundedRequest} from './backend-runtime.mjs';
 const podcastJSON=(value,status=200)=>new Response(JSON.stringify(value),{status,headers:{'content-type':'application/json','cache-control':'no-store','x-content-type-options':'nosniff'}});
 const podcastText=(value,limit)=>typeof value==='string'?value.trim().replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g,'').slice(0,limit):'';
 const podcastXML=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
@@ -60,7 +61,8 @@ export async function podcasts(request,env){
     }
     if(!['POST','PUT','DELETE'].includes(request.method))return podcastJSON({error:'Method not allowed'},405);
     if(request.headers.get('origin')!==url.origin)return podcastJSON({error:'Open this action in your podcast workspace.'},403);
-    const raw=await request.text();if(raw.length>10000)return podcastJSON({error:'Episode details too long'},413);
+    const bounded=await boundedRequest(request,10000);if(bounded.response)return bounded.response;
+    const raw=await bounded.request.text();
     let body;try{body=JSON.parse(raw);if(!body||typeof body!=='object'||Array.isArray(body))throw Error();}catch{return podcastJSON({error:'Invalid episode'},400);}
     let row=id?await env.DB.prepare('SELECT * FROM podcast_episodes WHERE id = ? AND user_id = ?').bind(id,user).first():null;
     if(id&&!row)return podcastJSON({error:'Episode not found'},404);
