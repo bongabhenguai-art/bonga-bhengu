@@ -17,7 +17,7 @@ const manifest=await manifestResponse.json();assert.equal(manifest.display,'stan
 for(const icon of manifest.icons){const response=await worker.fetch(new Request('https://site.example'+icon.src),env);assert.equal(response.status,200);assert.equal(response.headers.get('content-type'),'image/png');const bytes=Buffer.from(await response.arrayBuffer());assert.equal(`${bytes.readUInt32BE(16)}x${bytes.readUInt32BE(20)}`,icon.sizes);}
 for(const module of phoneModules){
   const url=new URL(module.href,'https://site.example');
-  if(url.pathname==='/app.html'){assert.ok(moduleFor(routeForURL(url.href,'https://site.example')),module.name+' module route');}else if(url.hash){const html=fs.readFileSync(`dist${url.pathname}`,'utf8');assert.ok(html.includes(`id="${url.hash.slice(1)}"`),`${module.name} target exists`);}
+  if(url.pathname==='/app.html'){assert.equal(routeForURL(url.href,'https://site.example'),module.id,module.name+' module route');}else if(url.hash){const html=fs.readFileSync(`dist${url.pathname}`,'utf8');assert.ok(html.includes(`id="${url.hash.slice(1)}"`),`${module.name} target exists`);}
   const response=await worker.fetch(new Request(url),env);assert.ok([200,302].includes(response.status),`${module.name} route responds`);
 }
 assert.deepEqual(matchingModules('business engine').map(m=>m.name),['Business engine']);assert.equal(matchingModules('nonexistent module').length,0);
