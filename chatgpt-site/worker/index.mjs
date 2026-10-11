@@ -1,5 +1,6 @@
 import {apiRuntime} from './backend-runtime.mjs';
 import {podcasts} from './podcasts.mjs';
+import {whatsappHandoff} from './whatsapp-handoff.mjs';
 import {buildInfluenceCampaign} from './influence-campaign-planner.mjs';
 import {withSystemLock} from './workflow-lock.mjs';
 import {sourceMerge} from './project-merge.mjs';
@@ -44,6 +45,7 @@ async function dispatch(request,env){
       try{const draft=buildInfluenceCampaign(JSON.parse(raw));return new Response(JSON.stringify(draft),{headers:{'content-type':'application/json','cache-control':'no-store'}});}
       catch(e){return new Response(JSON.stringify({error:e instanceof SyntaxError?'Invalid JSON':'Invalid campaign input'}),{status:400,headers:{'content-type':'application/json'}});}
     }
+    if(url.pathname.startsWith('/api/whatsapp/'))return whatsappHandoff(request,env);
     if(url.pathname.startsWith('/api/podcasts/')||url.pathname.startsWith('/podcasts/'))return podcasts(request,env);
     if(url.pathname==='/app.html'&&!request.headers.get('oai-authenticated-user-id'))return Response.redirect(url.origin+'/signin-with-chatgpt?return_to='+encodeURIComponent('/app.html'+url.search),302);
     if(url.pathname.startsWith('/websites/')||/^\/api\/builder\/projects\/[^/]+\/publication$/.test(url.pathname))return builderPublication(request,env);
