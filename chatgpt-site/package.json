@@ -9,11 +9,13 @@
   "dependencies": {
     "@cfworker/json-schema": "4.1.1",
     "@modelcontextprotocol/sdk": "1.32.1",
-    "zod": "3.25.76",
-    "grapesjs": "0.23.6"
+    "grapesjs": "0.23.6",
+    "qrcode": "1.5.4",
+    "zod": "3.25.76"
   },
   "scripts": {
     "build": "node scripts/build-ai.mjs",
-    "dev": "node scripts/dev-preview.mjs"
+    "dev": "node scripts/dev-preview.mjs",
+    "test": "node --test tests/*.mjs"
   }
 }

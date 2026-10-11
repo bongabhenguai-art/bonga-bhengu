@@ -29,7 +29,7 @@ const mcpRequest=(method,params={},user='alice',origin)=>new Request('https://te
 let mcpResult=await (await businessMcp(mcpRequest('initialize',{protocolVersion:'2025-11-25',capabilities:{},clientInfo:{name:'test',version:'1'}},null),{DB})).json();
 assert.equal(mcpResult.result.serverInfo.name,'Bonga Bhengu business workspace');
 mcpResult=await (await businessMcp(mcpRequest('tools/list',{},null),{DB})).json();
-assert.equal(mcpResult.result.tools.length,4);
+assert.deepEqual(mcpResult.result.tools.map(tool=>tool.name).sort(),['bonga_assign_work','bonga_list_studio_jobs','bonga_list_work','bonga_payment_connection_status','bonga_update_task'].sort());
 assert.equal((await businessMcp(mcpRequest('tools/call',{name:'bonga_list_work',arguments:{}},null),{DB})).status,401);
 assert.equal((await businessMcp(mcpRequest('tools/call',{name:'bonga_list_work',arguments:{}},'alice','https://untrusted.example'),{DB})).status,403);
 mcpResult=await (await businessMcp(mcpRequest('tools/call',{name:'bonga_list_work',arguments:{}},'bob'),{DB})).json();

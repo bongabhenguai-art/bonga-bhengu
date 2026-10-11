@@ -1,3 +1,4 @@
+import {cleanBrief} from '../dist/business-builder-core.js';
 const json=(value,status=200)=>new Response(JSON.stringify(value),{status,headers:{'content-type':'application/json','cache-control':'no-store','x-content-type-options':'nosniff'}});
 export const websitePolicy="sandbox; default-src 'none'; script-src 'none'; img-src https: data:; style-src 'unsafe-inline'; font-src https: data:; base-uri 'none'; form-action 'none'; frame-src 'none'; frame-ancestors 'self'";
 const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
@@ -44,7 +45,7 @@ export function cleanBuilderProject(body){
  if(!body||typeof body!=='object'||typeof body.name!=='string'||!body.name.trim()||body.name.length>150)throw Error('Enter a project name (maximum 150 characters).');
  if(!body.projectData||typeof body.projectData!=='object'||Array.isArray(body.projectData)||JSON.stringify(body.projectData).length>400000)throw Error('Editor project is missing or too large.');
  if(typeof body.html!=='string'||body.html.length>200000||typeof body.css!=='string'||body.css.length>100000)throw Error('Website output is missing or too large.');
- return {name:body.name.trim(),projectData:body.projectData,html:body.html,css:body.css};
+ return {name:body.name.trim(),projectData:body.projectData,html:body.html,css:body.css,...(body.brief?{brief:cleanBrief(body.brief)}:{})};
 }
 export async function builderProjects(request,env){
  const user=request.headers.get('oai-authenticated-user-id'),url=new URL(request.url),match=url.pathname.match(/^\/api\/builder\/projects(?:\/([a-f0-9-]{36}))?$/);

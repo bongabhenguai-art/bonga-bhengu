@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
+import {moduleFor,routeForURL} from '../dist/app-routes.js';
 import fs from 'node:fs';
 import worker from '../dist/server/index.js';
+import {phoneModules} from '../dist/phone-modules.js';
 import {laptopModules,findLaptopModules,LaptopPreferences,desktopDevice} from '../dist/laptop-modules.js';
 import {LaptopRecorder} from '../dist/laptop-recorder.js';
 import {LaptopFiles} from '../dist/laptop-files.js';
@@ -9,11 +11,11 @@ const env={JARVIS_OWNER_EMAIL:'owner@example.com'};
 for(const route of ['/app-launch.js','/laptop.html','/laptop-shell.css','/laptop-shell.js','/laptop-home.js','/laptop-modules.js','/laptop-recorder.js','/laptop-files.js']) {
   const response=await worker.fetch(new Request('https://site.example'+route),env);assert.equal(response.status,200,route);assert.ok((await response.text()).length>40);
 }
-assert.equal(laptopModules.length,25);assert.equal(new Set(laptopModules.map(module=>module.name)).size,25);assert.equal(new Set(laptopModules.map(module=>module.href)).size,25);
+assert.equal(laptopModules.length,phoneModules.length+1);assert.equal(new Set(laptopModules.map(module=>module.name)).size,laptopModules.length);assert.equal(new Set(laptopModules.map(module=>module.href)).size,laptopModules.length);
 for(const module of laptopModules){
   const url=new URL(module.href,'https://site.example');
   const response=await worker.fetch(new Request(url),env);assert.ok([200,302].includes(response.status),module.name);
-  if(url.hash){const html=fs.readFileSync(`dist${url.pathname}`,'utf8');assert.ok(html.includes(`id="${url.hash.slice(1)}"`),`${module.name} section exists`);}
+  if(url.pathname==='/app.html'){assert.ok(moduleFor(routeForURL(url.href,'https://site.example')),module.name+' module route');}else if(url.hash){const html=fs.readFileSync(`dist${url.pathname}`,'utf8');assert.ok(html.includes(`id="${url.hash.slice(1)}"`),`${module.name} section exists`);}
 }
 for(const route of ['/fashion-service.html','/digital-studio.html','/platform','/workspace'])assert.equal((await worker.fetch(new Request('https://site.example'+route),env)).status,302);
 assert.equal((await worker.fetch(new Request('https://site.example/platform',{headers:{'oai-authenticated-user-id':'other','oai-authenticated-user-email':'other@example.com'}}),env)).status,403);

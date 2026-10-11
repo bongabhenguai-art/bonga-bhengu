@@ -1,5 +1,6 @@
 // Shortcuts use the existing modules and their existing access rules.
 export const phoneModules = [
+  {name:'Community & messages',detail:'Posts and private conversations',href:'/app.html?module=community#community',icon:'people',color:'gold'},
   {name:'Business engine', detail:'Run connected workflows', href:'/fashion-service.html#business-engine', icon:'engine', color:'gold'},
   {name:'My business', detail:'Orders and business overview', href:'/fashion-service.html#overview', icon:'business', color:'blue'},
   {name:'Camera', detail:'Capture a photo or video', href:'/phone-tools.html#camera', icon:'camera', color:'cyan'},

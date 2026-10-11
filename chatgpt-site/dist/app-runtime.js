@@ -73,7 +73,7 @@ $('app-module-action').addEventListener('click',()=>{
   const action=moduleFor(current)?.action;if(!action||!appsReady)return;
   const target=$(action.click||action.focus);if(!target)return;
   if(action.click){if(!target.disabled)target.click();}
-  else{target.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});const field=target.matches('input,textarea,select')?target:target.querySelector('input:not([type=hidden]),textarea,select');field?.focus({preventScroll:true});}
+  else{const details=target.closest('details');if(details)details.open=true;target.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});const field=target.matches('input,textarea,select')?target:target.querySelector('input:not([type=hidden]),textarea,select');field?.focus({preventScroll:true});}
   actionState();
 });
 

@@ -8,6 +8,7 @@ export const appWorkspaces=[
 ];
 // One application route per capability; business routes reuse the existing DOM.
 export const appModules=[
+ {id:'community',name:'Community & messages',icon:'people',group:'business',frame:'/community.html'},
  {id:'visual-website-editor',name:'Visual website editor',icon:'web',group:'website',frame:'/website-editor.html'},
  {id:'education',name:'Education Partner OS',icon:'business',group:'business',frame:'/education.html'},
  {id:'home',name:'Bonga Bhengu storefront',icon:'home',group:'home'},
@@ -57,6 +58,7 @@ export function routeForURL(value,origin='https://site.example'){
  if(url.pathname==='/app.html')return moduleFor(section)?section:moduleFor(url.searchParams.get('module'))?.id||'home';
  if(url.pathname==='/fashion-service.html')return moduleFor(section)&&!moduleFor(section).frame?section:'overview';
  if(url.pathname==='/website-editor.html')return 'visual-website-editor';
+ if(url.pathname==='/community.html')return 'community';
  if(url.pathname==='/education.html')return 'education';
  if(url.pathname==='/digital-studio.html')return 'digital-studio';
  if(['/fashion-os.html','/fashion-studio.html','/Bonga_Bhengu_Fashion_OS.html'].includes(url.pathname))return 'fashion-os';
