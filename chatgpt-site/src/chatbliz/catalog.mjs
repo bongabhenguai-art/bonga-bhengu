@@ -1,12 +1,41 @@
-/** Chatbliz customer-facing service catalog. Prices are quotes, never automatic charges. */
+/** Chatbliz four mini-platforms. Catalog prices in ZAR; billing requires verified integration. */
+export const CHATBLIZ_SHARED_ENGINES=Object.freeze({
+ visibility:"business-visibility-intelligence",
+ connection:"business-connection-intelligence",
+ growth:"business-growth-intelligence",
+ execution:"execution-intelligence",
+ builder:"shared-ai-website-app-builder",
+ studio:"bonga-bhengu-digital-studio",
+ business:"zuxuru-business-workspace"
+});
 export const CHATBLIZ_SERVICES=Object.freeze([
- {id:"my-brand",name:"My Brand",summary:"Brand identity, positioning and business storytelling",deliverables:["Brand discovery","Identity direction","Brand guidelines"],agents:["Design Influence","Fishing"]},
- {id:"my-website",name:"My Website",summary:"Websites and business apps with ZUXURU builder integrations",deliverables:["Requirements and sitemap","Responsive website or app plan","Launch readiness review"],agents:["ZUXURU","Fixer"]},
- {id:"my-content",name:"My Content",summary:"Digital Studio, content creation and authorized social publishing",deliverables:["Content brief","Studio production plan","Approved publishing schedule"],agents:["Studio","Design Influence"]},
- {id:"my-business",name:"My Business",summary:"Business visibility, leads, CRM and sales operations",deliverables:["Evidence-backed visibility audit","Sales funnel improvement plan","CRM and appointment workflow"],agents:["Hunter","Fishing","Closer","Jarvis"]}
+ {id:"my-brand",name:"My Brand",priceZAR:299,currency:"ZAR",billingPeriod:"to-confirm",
+  summary:"FBI/CIA business discovery, connection and growth visibility intelligence",
+  engines:["visibility","connection","growth","execution"],
+  deliverables:["Evidence-based business visibility audit","Authorized account connections","Brand and visibility growth action plan"],
+  agents:["Hunter","Fishing","Design Influence"]},
+ {id:"my-website",name:"My Website",priceZAR:499,currency:"ZAR",billingPeriod:"to-confirm",
+  summary:"AI website and app builder using authorized ChatGPT, Claude Code and repository workflows",
+  engines:["builder"],deliverables:["Website or app requirements","AI-assisted build and repository workflow","Build and launch verification"],
+  agents:["AI Builder","Fixer"]},
+ {id:"my-content",name:"My Content",priceZAR:600,currency:"ZAR",billingPeriod:"to-confirm",
+  summary:"Shared Digital Studio from Bonga Bhengu OS for video, podcast, livestream and content",
+  engines:["studio"],deliverables:["Studio content brief","Recording or production workflow","Approved content publishing plan"],
+  agents:["Studio","Design Influence"]},
+ {id:"my-business",name:"My Business",priceZAR:2000,currency:"ZAR",billingPeriod:"to-confirm",
+  summary:"Rebranded ZUXURU business platform with Brand, Website and Studio shared capabilities",
+  engines:["business","visibility","connection","growth","execution","builder","studio"],
+  includes:["my-brand","my-website","my-content"],
+  deliverables:["Business workspace and growth intelligence","Shared brand and website tools","Shared Digital Studio and sales operations"],
+  agents:["Hunter","Fishing","Closer","Jarvis","Fixer","Studio"]}
 ]);
 const clean=(value,max=500)=>String(value??"").trim().slice(0,max);
 export function findChatblizService(id){return CHATBLIZ_SERVICES.find(s=>s.id===id)??null;}
+export function resolveChatblizEngines(serviceId){
+ const service=findChatblizService(serviceId);
+ if(!service)throw new Error("Unknown service");
+ return service.engines.map(id=>({id,engine:CHATBLIZ_SHARED_ENGINES[id]}));
+}
 export function prepareChatblizEnquiry(input={}){
  const service=findChatblizService(input.serviceId);
  if(!service)throw new Error("Select a Chatbliz service");
@@ -22,5 +51,7 @@ export function prepareChatblizEnquiry(input={}){
 export function evaluateChatblizOffer({serviceId,verifiedNeeds=[],priceZAR=null}={}){
  const service=findChatblizService(serviceId);if(!service)throw new Error("Unknown service");
  if(priceZAR!==null&&(!Number.isFinite(priceZAR)||priceZAR<0))throw new Error("Invalid quote price");
- return {serviceId:service.id,needs:verifiedNeeds.map(v=>clean(v,180)).filter(Boolean).slice(0,5),suggestedDeliverables:service.deliverables,quoteStatus:"requires-approval",priceZAR,paid:false,warning:"Do not promise results, collect payment or mark an appointment confirmed without verification."};
+ return {serviceId:service.id,catalogPriceZAR:service.priceZAR,billingPeriod:service.billingPeriod,
+  needs:verifiedNeeds.map(v=>clean(v,180)).filter(Boolean).slice(0,5),suggestedDeliverables:service.deliverables,
+  quoteStatus:"requires-approval",priceZAR,paid:false,warning:"Do not promise results, collect payment or mark an appointment confirmed without verification."};
 }
