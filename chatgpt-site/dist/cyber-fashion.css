@@ -94,7 +94,7 @@ body.tech-landing.fashion-storefront #landing-screen > section {
   min-width: 0;
   height: auto;
 }
-body.tech-landing.fashion-storefront #landing-screen .workspace-ad-controls {
+body.tech-landing.fashion-storefront #landing-screen > section > .workspace-ad-controls {
   display: flex;
   position: static;
   flex-wrap: wrap;
@@ -103,7 +103,7 @@ body.tech-landing.fashion-storefront #landing-screen .workspace-ad-controls {
   height: auto;
   min-width: 0;
 }
-body.tech-landing.fashion-storefront #landing-screen .workspace-ad-controls > button {
+body.tech-landing.fashion-storefront #landing-screen > section > .workspace-ad-controls > button {
   position: static;
   inset: auto;
   transform: none;
@@ -125,11 +125,11 @@ body.tech-landing.fashion-storefront #landing-screen .landing-screen-actions {
   margin-top: 16px;
 }
 @media (max-width: 480px) {
-  body.tech-landing.fashion-storefront #landing-screen .workspace-ad-controls {
+  body.tech-landing.fashion-storefront #landing-screen > section > .workspace-ad-controls {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  body.tech-landing.fashion-storefront #landing-screen .workspace-ad-controls > .workspace-ad-enquire {
+  body.tech-landing.fashion-storefront #landing-screen > section > .workspace-ad-controls > .workspace-ad-enquire {
     grid-column: 1 / -1;
     width: 100%;
   }
