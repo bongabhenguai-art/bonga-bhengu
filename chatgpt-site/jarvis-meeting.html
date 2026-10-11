@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>Jarvis — Meeting Copilot</title>
+<style>
+:root{color-scheme:dark;font:16px system-ui;background:#0B0B0B;color:#f5f5f5}*{box-sizing:border-box}body{margin:0 auto;max-width:720px;padding:16px}header{display:flex;justify-content:space-between;align-items:center;gap:12px}h1{font-size:1.4rem;color:#D4AF37}h2{font-size:1rem}main{display:grid;gap:12px}.panel{border:1px solid #414141;border-radius:14px;padding:14px}label{display:block;margin:9px 0 4px}input,select,textarea,button{font:inherit;max-width:100%}input,select,textarea{width:100%;background:#171717;color:#fff;border:1px solid #666;border-radius:8px;padding:11px}button{background:#2F6BFF;color:white;border:0;border-radius:10px;padding:11px 14px;margin:4px;cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}button.secondary{background:#333}button.gold{background:#D4AF37;color:#101010}#status{color:#D4AF37}#suggestions button{display:block;width:100%;text-align:left}#log{white-space:pre-wrap;max-height:180px;overflow:auto}small{color:#aaa}a{color:#D4AF37}.hidden{display:none}
+</style></head><body>
+<header><h1>Jarvis • Meeting Copilot</h1><a href="./app.html">Back to app</a></header>
+<p>Private, seller-controlled coaching. Suggestions are drafts, not automated messages.</p>
+<main>
+<section class="panel" id="setup"><h2>Start customer meeting</h2>
+<label for="tenant">Business / tenant ID</label><input id="tenant" autocomplete="off" required>
+<label for="customer">Customer reference (avoid sensitive data)</label><input id="customer" autocomplete="off" required>
+<label for="channel">Meeting channel</label><select id="channel"><option value="in-person">In person</option><option value="phone">Phone</option><option value="whatsapp">WhatsApp</option><option value="video">Video call</option><option value="typed">Typed notes</option></select>
+<label><input id="consent" type="checkbox" style="width:auto"> Customer consent for speech transcription has been obtained</label>
+<button id="start" class="gold">Start Jarvis</button></section>
+<section class="panel hidden" id="meeting"><div id="status" role="status">Ready</div><small>Audio is handled on this device where browser support allows. Do not record without consent. No automatic CRM upload.</small>
+<label for="utterance">Customer says / meeting notes</label><textarea id="utterance" rows="3" placeholder="Type what the customer said"></textarea>
+<button id="analyze">Coach me</button><button id="listen" class="secondary">Start microphone</button><button id="stopMic" class="secondary" disabled>Stop microphone</button>
+<label><input id="voice" type="checkbox" style="width:auto"> Read advice aloud through device audio</label>
+<h2>Jarvis suggested responses</h2><div id="suggestions"></div><h2>Meeting notes</h2><div id="log"></div>
+<button id="end" class="secondary">End meeting and clear notes</button></section>
+</main>
+<script type="module">
+import {startNegotiation,addCustomerTurn,coachNegotiation,closeNegotiation} from "./src/agents/jarvis-negotiation-core.mjs";
+const $=id=>document.getElementById(id);let session=null,recognition=null;
+function status(s){$("status").textContent=s}
+$("start").onclick=()=>{try{session=startNegotiation({tenantId:$("tenant").value,customerId:$("customer").value,channel:$("channel").value,consentToTranscribe:$("consent").checked});$("setup").classList.add("hidden");$("meeting").classList.remove("hidden");$("listen").disabled=!session.consentToTranscribe||!(window.SpeechRecognition||window.webkitSpeechRecognition);status($("listen").disabled?"Typed coaching ready; microphone unavailable or consent missing":"Meeting started; microphone optional")}catch(e){alert(e.message)}};
+function coach(source="typed"){try{session=addCustomerTurn(session,{text:$("utterance").value,source});const advice=coachNegotiation(session);$("log").textContent+=("Customer: "+$("utterance").value+"\n");$("suggestions").replaceChildren();for(const suggestion of advice.suggestions){const b=document.createElement("button");b.textContent=suggestion;b.onclick=()=>{navigator.clipboard?.writeText(suggestion).catch(()=>{});if($("voice").checked&&"speechSynthesis" in window){speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(suggestion))}};$("suggestions").append(b)}$("utterance").value="";status("Coaching ready — tap a suggestion to copy or read it")}catch(e){status(e.message)}}
+$("analyze").onclick=()=>coach();
+$("listen").onclick=()=>{if(!session?.consentToTranscribe)return;const Speech=window.SpeechRecognition||window.webkitSpeechRecognition;if(!Speech){status("Speech recognition unavailable");return}recognition=new Speech();recognition.lang="en-ZA";recognition.interimResults=false;recognition.onresult=e=>{$("utterance").value=e.results[0][0].transcript;coach("transcript")};recognition.onerror=e=>status("Microphone error: "+e.error);recognition.onend=()=>{$("stopMic").disabled=true;$("listen").disabled=false};try{recognition.start();$("stopMic").disabled=false;$("listen").disabled=true;status("Listening — consent required")}catch(e){status(e.message)}};
+$("stopMic").onclick=()=>{recognition?.stop();status("Microphone stopped")};
+$("end").onclick=()=>{recognition?.stop();if("speechSynthesis" in window)speechSynthesis.cancel();session=closeNegotiation(session);session=null;$("log").textContent="";$("suggestions").replaceChildren();$("utterance").value="";$("meeting").classList.add("hidden");$("setup").classList.remove("hidden")};
+</script></body></html>
