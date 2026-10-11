@@ -7,7 +7,10 @@ try{
   const init=await worker.fetch(request('initialize',{protocolVersion:'2025-11-25',capabilities:{},clientInfo:{name:'test',version:'1'}}),{});
   assert.equal((await init.json()).result.serverInfo.name,'Bonga Bhengu business workspace');
   const discovery=await worker.fetch(request('tools/list'),{});
-  assert.equal((await discovery.json()).result.tools.length,4);
+  const tools=(await discovery.json()).result.tools;
+  assert.equal(tools.length,5);
+  assert.ok(tools.some(tool=>tool.name==='bonga_payment_connection_status'));
   assert.equal((await worker.fetch(request('tools/call',{name:'bonga_list_work',arguments:{}}),{})).status,401);
   console.log('PASS bundled MCP initialization and discovery without runtime code generation; private access requires sign-in.');
 }finally{globalThis.Function=original;}
+

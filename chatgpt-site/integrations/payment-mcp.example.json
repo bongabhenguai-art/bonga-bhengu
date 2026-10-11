@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "bonga-google-pay-developer": {
+      "url": "https://paydeveloper.googleapis.com/mcp"
+    },
+    "bonga-paypal-sandbox": {
+      "url": "https://mcp.sandbox.paypal.com/http"
+    }
+  }
+}
