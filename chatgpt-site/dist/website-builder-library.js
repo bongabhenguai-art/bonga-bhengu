@@ -36,3 +36,19 @@ export const builderTemplates = [
  {id:'fashion',name:'Fashion collection',kind:'Fashion / brand',theme:'cream',description:'A warm collection page with space for your designs, brand story and enquiries.',html:layout('bb-page--light', ['navigation','hero','collection','story','call-to-action','contact']),css:builderStyles},
  {id:'portfolio',name:'Creative portfolio',kind:'Studio / projects',theme:'blue',description:'A studio portfolio with selected work, your approach and a strong final invitation.',html:layout('bb-page--blue', ['navigation','hero','collection','quote','call-to-action','contact']),css:builderStyles}
 ];
+
+/* Industry template collection — editable in the existing GrapesJS builder. */
+const industryTemplateData=[
+ ['school','School & Education','Education / admissions','Learn, grow and belong','Share admissions, programmes and important updates with families.','Admissions enquiry','School programmes and learner support'],
+ ['salon','Hair Salon','Beauty / appointments','Your next look begins here','Explore styles, service information and request an appointment.','Appointment enquiry','Hair styling and beauty services'],
+ ['tuckshop','Tuck Shop','Retail / local shop','Everyday essentials, close to home','Browse popular products and ask about local pickup.','Product enquiry','Local essentials and specials'],
+ ['agency','Brand Agency','Creative / marketing','Make your business unforgettable','See our brand services, campaigns and portfolio.','Project enquiry','Brand identity and creative campaigns'],
+ ['inyanga','Inyanga Practice','Traditional practitioner / information','Our practice and community','Learn about the practitioner, services and confidential enquiries. No medical claims or guarantees.','Appointment enquiry','Practitioner information and consultations']
+];
+function industryTemplate(entry){
+ const [id,name,kind,headline,description,cta,service]=entry;
+ const safe=v=>v.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+ const content='<main class="bb-page"><header class="bb-section bb-nav"><div class="bb-grid"><strong>'+safe(name)+'</strong><nav aria-label="Main navigation"><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></nav></div></header><section class="bb-section"><p class="bb-kicker">'+safe(kind)+'</p><h1>'+safe(headline)+'</h1><p class="bb-copy">'+safe(description)+'</p><a class="bb-button" href="#contact">'+safe(cta)+'</a></section><section class="bb-section bb-story" id="services"><p class="bb-kicker">What we offer</p><h2>'+safe(service)+'</h2><p>Edit this section to describe your real services, prices, location and availability.</p></section><section class="bb-section" id="about"><p class="bb-kicker">Our story</p><h2>Get to know us</h2><p>Replace this sample copy with your authentic business story and experience.</p></section><footer class="bb-section bb-contact" id="contact"><h2>Contact us</h2><p>Add your verified contact details and preferred enquiry channel before publishing.</p></footer></main>';
+ return {id,name,kind,theme:'gold',description,html:content,css:builderStyles};
+}
+builderTemplates.push(...industryTemplateData.map(industryTemplate));
