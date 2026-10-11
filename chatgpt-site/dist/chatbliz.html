@@ -38,4 +38,4 @@ document.querySelector("#request-form").addEventListener("submit",event=>{
  status.textContent="Draft prepared for "+draft.businessName+" ("+service.selectedOptions[0].text+"). This has NOT been sent or booked. Save the details and contact the business through an approved channel once CRM integration is available.";
  }catch(error){status.textContent=error.message;}
 });
-</script></body></html>
+</script><script type="module" src="./src/chatbliz/chat-ui.mjs"></script></body></html>
