@@ -4,6 +4,13 @@ const suggestions=[
  ["Check my business","my-brand"],["Build a website","my-website"],["Create a podcast","my-content"],["Grow my business","my-business"],
  ["Coach me on sales",null],["Help me negotiate",null]
 ];
+// Existing routes are shared; they do not create duplicate tool instances.
+const workspaceLinks=Object.freeze({
+ "my-website":{href:"/website-editor.html",label:"Open existing website builder",requiresSignIn:true},
+ "my-content":{href:"/digital-studio.html",label:"Open existing Digital Studio",requiresSignIn:true},
+ "my-business":{href:"/app.html?module=overview#overview",label:"Open existing business dashboard",requiresSignIn:true},
+ "my-brand":{href:"/app.html?module=visibility#visibility",label:"Open existing visibility workspace",requiresSignIn:true}
+});
 const routes=[
  {test:/website|web app|build (?:an? )?app/i,id:"my-website"},
  {test:/podcast|video|studio|livestream|content/i,id:"my-content"},
@@ -23,7 +30,12 @@ function reply(message,forcedService=null){
  const names=action.partners.map(id=>CHATBLIZ_PARTNERS.find(p=>p.id===id)?.name).filter(Boolean);
  const intro=names.length?"Your "+names.join(", ")+" "+(names.length===1?"is":"are")+" ready to help plan this. ":"I can coordinate your five AI business partners. ";
  if(match){const select=document.querySelector("#service");if(select)select.value=match.id;
- bubble("assistant",intro+"Suggested workspace: "+match.name+" (R"+match.priceZAR+"). Use the enquiry form below to prepare a request. No action has been sent or paid.");}
+ bubble("assistant",intro+"Suggested workspace: "+match.name+" (R"+match.priceZAR+"). Use the enquiry form below to prepare a request. No action has been sent or paid.");
+ const target=workspaceLinks[match.id];
+ if(target){const link=document.createElement("a");link.href=target.href;link.textContent=target.label+" ↗";link.style.cssText="color:#d4af37;display:inline-block;padding:8px 12px;border:1px solid #8a7433;border-radius:8px";
+ link.setAttribute("aria-label",target.label+"; sign-in may be required");
+ thread.append(link);thread.scrollTop=thread.scrollHeight;}
+}
  else bubble("assistant",intro+"I can help structure the next steps, but live AI responses and external actions require a connected and authorized execution service. Tell me your goal and choose a package.");
 }
 bubble("assistant","Welcome! I'm Chatbliz, your business partner in your hands. What would you like to work on?");
