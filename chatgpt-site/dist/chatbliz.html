@@ -38,4 +38,30 @@ document.querySelector("#request-form").addEventListener("submit",event=>{
  status.textContent="Draft prepared for "+draft.businessName+" ("+service.selectedOptions[0].text+"). This has NOT been sent or booked. Save the details and contact the business through an approved channel once CRM integration is available.";
  }catch(error){status.textContent=error.message;}
 });
-</script><script type="module" src="./src/chatbliz/chat-ui.mjs"></script></body></html>
+</script><script type="module" src="./src/chatbliz/chat-ui.mjs"></script><script type="module">
+import {CHATBLIZ_WORKSPACES,CHATBLIZ_WORKFLOW} from "./src/chatbliz/workspaces.mjs";
+const chat=document.querySelector("#chatbliz-conversation");
+if(chat){
+ const section=document.createElement("section");
+ section.className="panel";
+ section.id="chatbliz-workspaces";
+ const heading=document.createElement("h2");heading.textContent="Your Business Operating System";section.append(heading);
+ const summary=document.createElement("p");summary.textContent="Eight capabilities, one Chatbliz conversation. Only verified workspaces are marked ready.";section.append(summary);
+ const grid=document.createElement("div");grid.style.cssText="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px";
+ for(const item of CHATBLIZ_WORKSPACES){
+  const card=document.createElement("article");card.style.cssText="padding:14px;border:1px solid #777;border-radius:10px";
+  const title=document.createElement("h3");title.textContent=item.name;card.append(title);
+  const description=document.createElement("p");description.textContent=item.summary;card.append(description);
+  const agents=document.createElement("p");agents.textContent="AI team: "+item.agents.join(", ");card.append(agents);
+  const state=document.createElement("small");state.textContent=item.state==="existing-workspace"?"Existing workspace; sign-in may be required":"Integration pending";card.append(state);
+  const action=document.createElement(item.href?"a":"button");
+  action.textContent=item.href?"Open workspace":"Discuss in chat";
+  if(item.href)action.href=item.href;
+  else {action.type="button";action.addEventListener("click",()=>{const input=document.querySelector("#chatbliz-message");input.value="Help me plan "+item.name+" for my business";input.focus();chat.scrollIntoView();});}
+  card.append(document.createElement("p"),action);grid.append(card);
+ }
+ section.append(grid);
+ const loop=document.createElement("p");loop.textContent="Business loop: "+CHATBLIZ_WORKFLOW.join(" → ");section.append(loop);
+ chat.insertAdjacentElement("afterend",section);
+}
+</script></body></html>
