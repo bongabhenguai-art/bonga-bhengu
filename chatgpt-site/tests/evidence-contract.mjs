@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {validateEvidence,evaluateRecommendation} from '../worker/evidence-contract.mjs';
+const evidence={claim:'Measured change',sourceTitle:'Study',sourceUrl:'https://example.org/study',publisher:'Publisher',observedDate:'2026-01-01',kind:'case-study'};
+assert.equal(validateEvidence(evidence).ok,true);
+assert.equal(validateEvidence({...evidence,sourceUrl:'javascript:alert(1)'}).ok,false);
+assert.equal(validateEvidence({...evidence,observedDate:'unknown'}).ok,false);
+assert.equal(evaluateRecommendation({problem:'Low bookings',solution:'Test a booking campaign',measure:'Bookings per week',evidence:[evidence]}).status,'sources-require-review');
+assert.equal(evaluateRecommendation({problem:'Low bookings',solution:'Advertise',measure:'Bookings'}).status,'needs-evidence');
+assert.equal(evaluateRecommendation({problem:'Low bookings',solution:'Advertise',measure:'Bookings',evidence:[evidence]}).requiresHumanApproval,true);
+console.log('Evidence contract checks passed');
