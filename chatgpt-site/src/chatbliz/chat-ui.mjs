@@ -1,7 +1,8 @@
 import {CHATBLIZ_PARTNERS,preparePartnerAction} from "./partners.mjs";
 import {CHATBLIZ_SERVICES} from "./catalog.mjs";
+import {prepareDeepSearch} from "./deepsearch.mjs";
 const suggestions=[
- ["Check my business","my-brand"],["Build a website","my-website"],["Create a podcast","my-content"],["Grow my business","my-business"],
+ ["DeepSearch my business","my-brand"],["Build a website","my-website"],["Create a podcast","my-content"],["Grow my business","my-business"],
  ["Coach me on sales",null],["Help me negotiate",null]
 ];
 // Existing routes are shared; they do not create duplicate tool instances.
@@ -34,6 +35,7 @@ async function reply(message,forcedService=null){
   else bubble("assistant","Planning service: "+String(data.error||"temporarily unavailable")+". Showing local guidance.");
  }catch{bubble("assistant","Planning service unavailable. Showing local guidance only.");}
  const action=preparePartnerAction(text);
+ if(/deepsearch|search my business|find my business|where is my business/i.test(text)){const search=prepareDeepSearch({description:text});bubble("assistant","DeepSearch intake prepared. Search providers are not yet connected, so public presence is NOT ASSESSED. Tell me your business name, location, website or social URL to improve identity matching. No visibility score has been calculated.");}
  const match=CHATBLIZ_SERVICES.find(s=>s.id===forcedService)||CHATBLIZ_SERVICES.find(s=>routes.some(r=>r.id===s.id&&r.test.test(text)));
  const names=(serverPlan?.partners||action.partners).map(id=>CHATBLIZ_PARTNERS.find(p=>p.id===id)?.name).filter(Boolean);
  const intro=names.length?"Your "+names.join(", ")+" "+(names.length===1?"is":"are")+" ready to help plan this. ":"I can coordinate your five AI business partners. ";
