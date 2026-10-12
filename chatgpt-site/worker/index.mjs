@@ -11,6 +11,7 @@ import {jarvisKey,jarvisConnection} from './jarvis-connection.mjs';
 import {jarvisRole} from './jarvis-team.mjs';
 import {studioMultistream} from './studio-multistream.mjs';
 import {businessMcp} from './business-mcp.mjs';
+import {chatblizPlan} from './chatbliz-plan.mjs';
 import {designerTasks} from './designer-tasks.mjs';
 import {studioAnalytics,summarizeStudio} from './studio-analytics.mjs';
 import {studioJobs,routeStudioTasks} from './studio-jobs.mjs';
@@ -41,6 +42,7 @@ async function dispatch(request,env){
     if(url.pathname==='/api/education/workspace')return educationWorkspace(request,env);
     if(url.pathname==='/education.html'&&!request.headers.get('oai-authenticated-user-id'))return Response.redirect(url.origin+'/signin-with-chatgpt?return_to=%2Feducation.html',302);
     if(url.pathname==='/api/studio/multistream'||url.pathname.startsWith('/api/studio/multistream/whip'))return studioMultistream(request,env);
+    if(url.pathname==='/api/chatbliz/plan')return chatblizPlan(request);
     if(url.pathname==='/mcp')return businessMcp(request,env);
     if(url.pathname==='/api/designer/tasks')return designerTasks(request,env);
     if(url.pathname==='/api/system/run')return systemEngine(request,env);
