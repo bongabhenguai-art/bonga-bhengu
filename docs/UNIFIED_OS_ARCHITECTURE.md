@@ -1,33 +1,16 @@
-# Bonga Bhengu OS — Unified Operating Contract
+# Bonga Bhengu OS — Fashion Builder Rules
 
-Status: implementation specification; not a claim of completed migration.
+Scope: Bonga Bhengu OS only. Independent fashion-business application.
 
-## Separation from Chatbliz OS
-Bonga Bhengu OS and Chatbliz OS remain separate products, repositories, deployments, brands and customer data. Align architectural contracts and reusable patterns only; do not embed either application's UI in the other.
+1. One fashion workplace interface for all fashion workflows; no duplicate screens or detached modules.
+2. One fashion operating engine to coordinate design, pattern making, production, merchandising and sales.
+3. One backend with tenant permissions, shared APIs and audit logs.
+4. One fashion master library for garment designs, patterns, size charts, collections, materials, media and business documents.
+5. One fashion skills vault with versioned, tested, permissioned fashion skills.
+6. One task engine with persistent tasks, approvals, progress, retries and verified outputs.
+7. One execution pipeline: request -> plan -> authorize -> execute -> verify -> save -> report.
+8. One authority wizard for approved fashion-related accounts, devices, services and integrations.
+9. One canonical code repository, with separately authoritative operational database and asset registry; safe push/pull and version checks.
+10. Preserve working modules, test migrations and avoid duplicate infrastructure.
 
-## Single operating path
-One workplace shell -> one central operating engine -> one task orchestrator -> one authority wizard / integration gateway -> authorized skills and modules -> verification -> canonical persistence and UI updates.
-
-- **One workplace**: persistent navigation, chat, context and in-place module panels. No duplicated homepages or unrelated app redirects.
-- **One operating engine**: central command router and shared policies; domain-specific services may remain as internal adapters.
-- **One backend authority**: shared API contracts, identity, tenant isolation and audit logging. Existing backend code must be mapped before consolidation.
-- **One master library**: unified asset/knowledge registry, metadata, ownership and versions; binary storage may have multiple physical providers.
-- **One skills vault**: versioned skill manifest with inputs, outputs, permissions, dependencies, tests and provenance. Secrets must never be stored in skill manifests.
-- **One task engine**: persistent task IDs, states, subtasks, dependency graph, idempotency, retries, approvals, logs and recovery.
-- **One pipeline**: command -> plan -> permission check -> execute -> verify -> persist -> report.
-- **One authority wizard**: connect, link, test, renew, revoke and monitor external OAuth/API/MCP/device integrations. Use official consent screens and least-privilege scopes.
-- **One source-of-truth policy**: GitHub is authoritative for code; primary database for transactions/tasks; library registry for assets/skills. Push/pull with revisions, conflict checks and traceability.
-
-## Integration contract
-Each adapter exposes: id, provider, tenant, scopes, connection state, health check, capabilities, authorization method, last sync, and revocation method. No module may directly access another module's private credentials.
-
-## Safety of migration
-1. Inventory current frontend routes, backend services, jobs, databases, integrations and deployment configuration.
-2. Write compatibility tests and document existing working flows.
-3. Introduce shared interfaces and adapters without replacing working modules.
-4. Migrate one module at a time behind feature flags; preserve existing data and backups.
-5. Verify Android layout, studio permissions, design tools, task completion, tenant isolation and OAuth renewal/revocation.
-6. Deploy only after tests and approval. Do not delete legacy services until migration is verified.
-
-## Acceptance criteria
-A user can start a task in the workplace, authorize a required connector through the wizard, invoke multiple agents/modules, see progress and approvals in the same workplace, and retrieve the verified output from the master library. All events share a task ID and audit trail. No Chatbliz UI or customer data is imported.
+Do not add another product's UI, code, branding, database, engine, libraries, skills, or configuration to this application. Do not create cross-platform imports or dependencies. This file defines builder rules, not completed implementation or deployment.
