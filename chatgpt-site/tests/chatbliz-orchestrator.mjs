@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {SERVICES,EMPLOYEES,resolveChatblizAction,dispatchChatblizAction} from '../worker/chatbliz-orchestrator.mjs';
+assert.equal(Object.keys(SERVICES).length,4);
+assert.ok(Object.keys(EMPLOYEES).length>=9);
+assert.equal(resolveChatblizAction({service:'business',action:'business.sales',role:'closer'}).ok,true);
+assert.equal(resolveChatblizAction({service:'brand',action:'brand.audit',role:'closer'}).code,'ROLE_ACTION_MISMATCH');
+assert.equal((await dispatchChatblizAction({service:'business',action:'business.sales'})).code,'UNAUTHORIZED');
+assert.equal((await dispatchChatblizAction({service:'business',action:'business.sales'},{authorize:async()=>true})).code,'NOT_IMPLEMENTED');
+assert.deepEqual(await dispatchChatblizAction({service:'business',action:'business.sales'},{authorize:async()=>true,handlers:{'business.sales':async()=>({lead:'qualified'})}}),{ok:true,result:{lead:'qualified'}});
+console.log('Chatbliz orchestration contract tests passed');
