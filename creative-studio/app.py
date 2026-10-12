@@ -140,3 +140,7 @@ app.include_router(sales_team_router)
 # JARVIS shared intelligence coordinator; execution requires configured services.
 from jarvis import router as jarvis_router
 app.include_router(jarvis_router)
+
+# Education OS is part of the same FastAPI application, not a separate service.
+from education_os import router as education_router
+app.include_router(education_router)
