@@ -22,12 +22,20 @@ section.innerHTML='<h2>Chatbliz — Your Business Partner in Your Hands</h2><p>T
 const main=document.querySelector("main");main?.insertBefore(section,main.firstChild);
 const thread=section.querySelector("#chatbliz-thread");
 function bubble(role,message){const p=document.createElement("p");p.style.margin="0";p.style.padding="10px";p.style.borderRadius="9px";p.style.background=role==="you"?"#19366e":"#262626";p.textContent=(role==="you"?"You: ":"Chatbliz: ")+message;thread.append(p);thread.scrollTop=thread.scrollHeight;}
-function reply(message,forcedService=null){
+async function reply(message,forcedService=null){
  const text=message.trim();if(!text)return;
  bubble("you",text);
+ let serverPlan=null;
+ try{
+  const response=await fetch("/api/chatbliz/plan",{method:"POST",credentials:"same-origin",headers:{"content-type":"application/json"},body:JSON.stringify({message:text})});
+  const data=await response.json();
+  if(response.ok)serverPlan=data;
+  else if(response.status===401)bubble("assistant","Sign in to save and plan actions in your private workspace. Local guidance remains available.");
+  else bubble("assistant","Planning service: "+String(data.error||"temporarily unavailable")+". Showing local guidance.");
+ }catch{bubble("assistant","Planning service unavailable. Showing local guidance only.");}
  const action=preparePartnerAction(text);
  const match=CHATBLIZ_SERVICES.find(s=>s.id===forcedService)||CHATBLIZ_SERVICES.find(s=>routes.some(r=>r.id===s.id&&r.test.test(text)));
- const names=action.partners.map(id=>CHATBLIZ_PARTNERS.find(p=>p.id===id)?.name).filter(Boolean);
+ const names=(serverPlan?.partners||action.partners).map(id=>CHATBLIZ_PARTNERS.find(p=>p.id===id)?.name).filter(Boolean);
  const intro=names.length?"Your "+names.join(", ")+" "+(names.length===1?"is":"are")+" ready to help plan this. ":"I can coordinate your five AI business partners. ";
  if(match){const select=document.querySelector("#service");if(select)select.value=match.id;
  bubble("assistant",intro+"Suggested workspace: "+match.name+" (R"+match.priceZAR+"). Use the enquiry form below to prepare a request. No action has been sent or paid.");
