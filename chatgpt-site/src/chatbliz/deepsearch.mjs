@@ -18,3 +18,33 @@ export function evidenceFinding({surface,url,claim,checkedAt,confidence=0,status
  if(!/^\d{4}-\d{2}-\d{2}/.test(String(checkedAt||'')))throw Error('Evidence requires a checked date');
  return {surface,url,claim:clean(claim,600),checkedAt,confidence,status,sourceType:'public'};
 }
+
+export function buildDeepSearchReport(intake, findings = []) {
+  if (!intake || !Array.isArray(intake.surfaces)) throw new Error("Invalid search intake");
+  if (!Array.isArray(findings) || findings.length > 100) throw new Error("Invalid findings");
+  const evidence = findings.map(evidenceFinding);
+  const surfaces = DEEPSEARCH_SURFACES.map(surface => {
+    const items = evidence.filter(item => item.surface === surface);
+    const verified = items.some(item => item.status === "VERIFIED_FOUND");
+    const likely = items.some(item => item.status === "LIKELY_FOUND");
+    return {surface, status: verified ? "VERIFIED_FOUND" : likely ? "LIKELY_FOUND" : items.length ? "UNKNOWN" : "NOT_ASSESSED", evidence: items};
+  });
+  return {
+    input: intake.input,
+    searched: false,
+    status: evidence.length ? "evidence-supplied" : "not-assessed",
+    surfaces,
+    findings: evidence,
+    visibilityScore: null,
+    report: {
+      visible: evidence.filter(item => item.status === "VERIFIED_FOUND"),
+      notVisible: [],
+      unknown: evidence.filter(item => item.status === "UNKNOWN"),
+      notAssessed: surfaces.filter(item => item.status === "NOT_ASSESSED").map(item => item.surface),
+      competitors: [],
+      opportunities: [],
+      recommendedActions: []
+    },
+    note: "Evidence supplied to this function has not been independently searched or verified. Missing evidence does not mean missing online presence."
+  };
+}
