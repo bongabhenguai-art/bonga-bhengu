@@ -9,7 +9,7 @@ export function validateEvidence(item) {
   if (!text(item.sourceTitle)) errors.push('Missing source title');
   if (!validUrl(item.sourceUrl) && !text(item.documentRef)) errors.push('Missing valid source URL or document reference');
   if (!text(item.publisher)) errors.push('Missing publisher');
-  if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(text(item.observedDate))) errors.push('Missing ISO observation date');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(text(item.observedDate))) errors.push('Missing ISO observation date');
   if (!['fact','estimate','hypothesis','promotional','case-study'].includes(item.kind)) errors.push('Missing evidence kind');
   return {ok:errors.length===0,errors};
 }
