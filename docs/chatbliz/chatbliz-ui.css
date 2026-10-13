@@ -1,0 +1,30 @@
+/* Chatbliz OS visual foundation — opt-in stylesheet, not wired into the live Bonga Bhengu app. */
+:root{color-scheme:dark;--cb-bg:#0b0b0b;--cb-panel:#181818;--cb-panel-alt:#242424;--cb-text:#f7f7f7;--cb-muted:#c3c6ce;--cb-gold:#d4af37;--cb-blue:#2f6bff;--cb-border:#454545;--cb-green:#42bd84;--cb-radius:16px}
+.cb-app,.cb-app *{box-sizing:border-box}
+.cb-app{min-height:100dvh;background:var(--cb-bg);color:var(--cb-text);font:400 16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+.cb-app button,.cb-app input,.cb-app textarea{font:inherit}
+.cb-app button{cursor:pointer}
+.cb-app :focus-visible{outline:3px solid var(--cb-gold);outline-offset:3px}
+.cb-topbar{position:sticky;top:0;z-index:20;background:var(--cb-bg);border-bottom:1px solid var(--cb-border);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px}
+.cb-brand{font-weight:800;letter-spacing:.07em;color:var(--cb-gold)}
+.cb-layout{display:grid;grid-template-columns:minmax(210px,270px) minmax(0,1fr);min-height:calc(100dvh - 72px)}
+.cb-sidebar{background:var(--cb-panel);border-right:1px solid var(--cb-border);padding:18px;display:flex;flex-direction:column;gap:10px}
+.cb-service{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--cb-border);border-radius:var(--cb-radius);background:var(--cb-panel-alt);color:var(--cb-text);text-align:left;min-width:0}
+.cb-service[aria-current="page"]{border-color:var(--cb-gold)}
+.cb-chat{min-width:0;display:flex;flex-direction:column;max-height:calc(100dvh - 72px)}
+.cb-thread{flex:1;overflow-y:auto;padding:clamp(16px,3vw,36px);display:flex;flex-direction:column;gap:16px}
+.cb-message{max-width:min(760px,95%);padding:16px 18px;border-radius:var(--cb-radius);background:var(--cb-panel-alt);overflow-wrap:anywhere}
+.cb-message--user{align-self:flex-end;background:#193053}
+.cb-result{border:1px solid var(--cb-blue);border-radius:var(--cb-radius);padding:18px;background:#172439}
+.cb-actions{display:flex;flex-wrap:wrap;gap:10px}
+.cb-button{border:0;border-radius:10px;padding:11px 16px;background:var(--cb-blue);color:#fff;font-weight:650}
+.cb-button--secondary{background:transparent;border:1px solid var(--cb-gold);color:var(--cb-gold)}
+.cb-composer{position:sticky;bottom:0;display:flex;align-items:end;gap:12px;padding:14px;background:var(--cb-bg);border-top:1px solid var(--cb-border)}
+.cb-composer textarea{flex:1;min-width:0;resize:vertical;min-height:52px;max-height:180px;border-radius:12px;padding:12px;background:var(--cb-panel-alt);border:1px solid var(--cb-border);color:var(--cb-text)}
+.cb-whatsapp{color:var(--cb-green)}
+.cb-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.cb-card{min-width:0;background:var(--cb-panel);border:1px solid var(--cb-border);border-radius:var(--cb-radius);padding:20px}
+.cb-card img{display:block;width:100%;height:auto;object-fit:cover;border-radius:10px}
+.cb-muted{color:var(--cb-muted)}
+@media(max-width:760px){.cb-layout{grid-template-columns:minmax(0,1fr)}.cb-sidebar{border-right:0;border-bottom:1px solid var(--cb-border);flex-direction:row;overflow-x:auto;padding:10px}.cb-service{flex:0 0 auto;white-space:nowrap;padding:10px 12px}.cb-chat{max-height:none;min-height:calc(100dvh - 160px)}.cb-grid{grid-template-columns:1fr}.cb-topbar{padding:12px}.cb-thread{padding:16px}.cb-composer{padding:10px}}
+@media(prefers-reduced-motion:no-preference){.cb-service,.cb-button{transition:background .2s ease,border-color .2s ease,transform .2s ease}.cb-service:hover,.cb-button:hover{transform:translateY(-1px)}}
