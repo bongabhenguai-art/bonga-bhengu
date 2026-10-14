@@ -37,7 +37,9 @@ export function canUseFeature(planId, feature) {
 export function planPriceZar(planId, billing = 'monthly', founding = false) {
   const plan = getPlan(planId);
   if (!['monthly','annual'].includes(billing)) throw new RangeError('Unsupported billing period');
+  // Inactive promotions must never change the authoritative quoted price.
+  const foundingEligible = founding === true && ENTITLEMENT_POLICY.foundingOfferEnabled === true;
   return billing === 'monthly'
-    ? (founding ? plan.launchMonthlyZar : plan.regularMonthlyZar)
-    : (founding ? plan.foundingAnnualZar : plan.annualZar);
+    ? (foundingEligible ? plan.launchMonthlyZar : plan.regularMonthlyZar)
+    : (foundingEligible ? plan.foundingAnnualZar : plan.annualZar);
 }
