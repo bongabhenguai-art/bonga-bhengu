@@ -4,15 +4,17 @@ import { SUBSCRIPTION_PLANS, ENTITLEMENT_POLICY, getPlan, canUseFeature, planPri
 
 test('prices and allowances match package contract', () => {
   const expected = [
-    ['profile',299,2990,2,60,0,0,false],
-    ['website',499,4990,4,60,5,0,false],
-    ['storefront',799,7990,6,180,5,20,false],
-    ['app',2599,25990,8,360,5,20,true]
+    ['profile',399,3990,2,60,0,0,false],
+    ['website',699,6990,4,60,5,0,false],
+    ['storefront',1199,11990,6,180,5,20,false],
+    ['app',3499,34990,8,360,5,20,true]
   ];
   for (const [id,monthly,annual,tasks,minutes,pages,products,app] of expected) {
     const p=getPlan(id);
     assert.equal(planPriceZar(id,'monthly',true),monthly);
     assert.equal(planPriceZar(id,'annual',true),annual);
+    assert.equal(planPriceZar(id,'monthly',false),monthly);
+    assert.equal(planPriceZar(id,'annual',false),annual);
     assert.equal(p.salesPostsPerWeek,tasks);
     assert.equal(p.studioMinutesPerMonth,minutes);
     assert.equal(p.maxWebsitePages,pages);
